@@ -5,6 +5,8 @@
     [ 
       ./hardware-configuration.nix
       ./driver-configuration.nix
+      ./pkg-exclusions.nix
+      ./pkg-inclusions.nix
     ];
     
   system.autoUpgrade.enable = true;
@@ -91,41 +93,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  environment.systemPackages = with pkgs; [
-    alacritty
-    brave
-    discord
-    obs-studio
-    steam
-    helvum
-    pavucontrol
-    spotify
-    git
-    gnome.gnome-shell-extensions
-    gnome-tweaks
-    gnomeExtensions.arc-menu
-    htop
-    libreoffice-fresh
-    linuxKernel.packages.linux_6_6.v4l2loopback
-    nautilus-open-any-terminal
-    neofetch
-    git
-    vim
-    wget
-    p7zip
-    wine64Packages.stagingFull
-    winePackages.stagingFull
-    proton-caller
-    protonup
-    lutris
-    ventoy
-    prismlauncher
-    kicad-unstable
-    github-desktop
-    xivlauncher
-    vscode-with-extensions
-  ];
 
   fonts.packages = with pkgs; [
     nerdfonts
