@@ -10,7 +10,8 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
   
-  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-24.05";
+  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-unstable";
+  nixpkgs.config.channel = "https://channels.nixos.org/nixos-unstable";
 
   # Bootloader.
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
@@ -60,7 +61,8 @@
   services.flatpak.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -70,8 +72,6 @@
     pulse.enable = true; 
     jack.enable = true;
   };
-
-  hardware.bluetooth.enable = true;
 
   users.users.bagel = {
     isNormalUser = true;
@@ -103,7 +103,7 @@
     spotify
     git
     gnome.gnome-shell-extensions
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnomeExtensions.arc-menu
     htop
     libreoffice-fresh
