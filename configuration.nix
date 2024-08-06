@@ -103,5 +103,10 @@
     dedicatedServer.openFirewall = true;
   };
   
-  system.stateVersion = "23.11";
-}
+  hardware.graphics = {
+   enable = true;
+   extraPackages = with pkgs; [
+     rocmPackages.clr.icd ];
+  };
+  
+  system.stateVersion = "23.11";}

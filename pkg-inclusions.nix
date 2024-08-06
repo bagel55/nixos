@@ -35,5 +35,8 @@
     gimp
     davinci-resolve
     audacity
+    blender
+    unityhub
+    freecad
   ];}
 
