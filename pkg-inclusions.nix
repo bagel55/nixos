@@ -12,7 +12,7 @@
     gnome.gnome-shell-extensions
     gnome-tweaks
     gnomeExtensions.arc-menu
-    htop
+    btop
     libreoffice-fresh
     linuxKernel.packages.linux_6_6.v4l2loopback
     nautilus-open-any-terminal
@@ -38,5 +38,7 @@
     blender
     unityhub
     freecad
+    inkscape-with-extensions
+    nautilus
+    gnome-text-editor
   ];}
-

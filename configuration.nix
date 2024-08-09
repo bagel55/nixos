@@ -4,7 +4,6 @@
     [ 
       ./hardware-configuration.nix
       ./driver-configuration.nix
-      ./pkg-exclusions.nix
       ./pkg-inclusions.nix
     ];
   
@@ -51,9 +50,9 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.gnome.core-utilities.enable = false;
+  services.xserver.excludePackages = [ pkgs.xterm ];
+  environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
   
   # Enable lvm2
   services.lvm.enable = true;
