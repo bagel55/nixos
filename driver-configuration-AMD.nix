@@ -1,8 +1,9 @@
 { config, lib, pkgs, modulesPath, ... }:
-
 {
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-amd" ];
-  
-  networking.hostName = "Nixos-bagel-Desktop";
+	#GPU
+	boot.initrd.kernelModules = [ "amdgpu" ];
+	boot.kernelModules = [ "kvm-amd" ];
+
+	#Hostname
+	networking.hostName = "Nixos-bagel-Desktop";
 }
