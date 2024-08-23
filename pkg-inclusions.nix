@@ -15,6 +15,10 @@
     	nautilus-open-any-terminal #Idfk
     	neofetch #Redit User Gaming
 	ventoy #Bootable USB Drives
+	openvpn #VPN
+	networkmanager #MoreVPN
+	networkmanager-openvpn #EvenMoreVPN
+	gnome.networkmanager-openvpn #YetEvenMoreVPN
 	
     	# Base-Devel
     	python3Full # Python
@@ -36,9 +40,10 @@
     	ryujinx #Switch Emulator
     	xivlauncher #FFXIV Dalamud Launcher
     	prismlauncher #Minecraft Launcher
-    	discord #Discord
+    	vesktop #Discord
     	spotify #Spotify
     	brave #Web Browser
+    	signal-desktop
 
     	#Studio
     	inkscape-with-extensions #Illistrator
@@ -58,7 +63,7 @@
     	vlc #Videos
     	evince #Documents
     	gnome-text-editor #Text files LITE
-    	libreoffice-fresh #Office
+    	onlyoffice-bin #Office
  	
     	#Compresed File Unpacker
     	unrar #.rar Files
