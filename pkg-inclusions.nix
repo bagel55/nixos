@@ -15,10 +15,12 @@
     	nautilus-open-any-terminal #Idfk
     	neofetch #Redit User Gaming
 	ventoy #Bootable USB Drives
-	openvpn #VPN
-	networkmanager #MoreVPN
-	networkmanager-openvpn #EvenMoreVPN
-	gnome.networkmanager-openvpn #YetEvenMoreVPN
+	
+	# Gay Ass Shit Don't Work
+	#openvpn #VPN
+	#networkmanager #MoreVPN
+	#networkmanager-openvpn #EvenMoreVPN
+	#gnome.networkmanager-openvpn #YetEvenMoreVPN
 	
     	# Base-Devel
     	python3Full # Python
@@ -43,7 +45,6 @@
     	vesktop #Discord
     	spotify #Spotify
     	brave #Web Browser
-    	signal-desktop
 
     	#Studio
     	inkscape-with-extensions #Illistrator
