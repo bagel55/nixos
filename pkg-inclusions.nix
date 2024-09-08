@@ -1,7 +1,7 @@
  { config, pkgs, ... }:
  {environment.systemPackages = with pkgs; [
  	#Gnome
- 	gnome.gnome-shell-extensions
+ 	gnome-shell-extensions
  	gnome-tweaks
  	gnomeExtensions.arc-menu
 
@@ -45,6 +45,7 @@
     	vesktop #Discord
     	spotify #Spotify
     	brave #Web Browser
+    	rpcs3
 
     	#Studio
     	inkscape-with-extensions #Illistrator

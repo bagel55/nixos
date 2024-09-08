@@ -18,6 +18,15 @@
   
   	#Networking
   	networking.networkmanager.enable = true;
+  	services.avahi = {
+  		enable = true;
+  		nssmdns4 = true;
+  		openFirewall = true;
+	};
+  	
+  	#Printing
+  	services.printing.enable = true;
+
   
   	#Time Zone
   	time.timeZone = "America/Los_Angeles";
