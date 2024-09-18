@@ -1,32 +1,23 @@
  { config, pkgs, ... }:
  {environment.systemPackages = with pkgs; [
- 	#Gnome
+ 	# Gnome
  	gnome-shell-extensions
  	gnome-tweaks
- 	gnomeExtensions.arc-menu
+ 	gnome-calculator #Calculator
+ 	nautilus #File Explorer
+ 	gnome-text-editor #Text files LITE
+    	eog #Images
+    	totem #Videos
+    	evince #Documents
 
-    	#Hardware Monitor and Util
-    	btop #Task Manager
-	amdgpu_top #GPU Monitor
-	pavucontrol #Audio Devices
+    	# Util
+    	btop #System Monitor
+	nvtopPackages.full #GPU Monitor
+	corectrl #GPU Configuration
+	openrgb #RGB Control
+	pavucontrol #Audio Devices Configuration
 	helvum #Audio Porting
-	alacritty #Terminal Emulator
-	nautilus #File Explorer
-    	nautilus-open-any-terminal #Idfk
-    	neofetch #Redit User Gaming
-	ventoy #Bootable USB Drives
-	
-	# Gay Ass Shit Don't Work
-	#openvpn #VPN
-	#networkmanager #MoreVPN
-	#networkmanager-openvpn #EvenMoreVPN
-	#gnome.networkmanager-openvpn #YetEvenMoreVPN
-	
-    	# Base-Devel
-    	python3Full # Python
-    	github-desktop # Github
-    	git # Git
-    	vim # Terminal Text Editor
+    	fastfetch #Redit User Gaming
 
     	# Wine and friends
     	wine64Packages.stagingFull
@@ -34,43 +25,42 @@
     	winetricks
     	protontricks
     	proton-caller
-    	protonup # Proton GE
+    	protonup #Proton GE
 
-    	# Gaming and Entertainment
-    	steam #The GOAT
-    	lutris #The OG
-    	ryujinx #Switch Emulator
-    	xivlauncher #FFXIV Dalamud Launcher
-    	prismlauncher #Minecraft Launcher
+    	# Basic Applications
+    	alacritty #Terminal Emulator
+    	brave #Web Browser
     	vesktop #Discord
     	spotify #Spotify
-    	brave #Web Browser
-    	rpcs3
 
-    	#Studio
-    	inkscape-with-extensions #Illistrator
-    	gimp #Photo Editor
-    	davinci-resolve #Video Editor
-    	audacity #Audio Editor
-    	blender #3D Model Editor
-    	unityhub #Game Engine
-    	freecad #CAD/CNC
+    	# Game Launchers
+    	steam #The GOAT
+    	lutris #The OG
+    	heroic #Epic and GOG
+    	xivlauncher #FFXIV Dalamud Launcher
+    	prismlauncher #Minecraft Launcher
+
+    	# Emulators
+    	rpcs3 #PS3 Emulator
+    	ryujinx #Switch Emulator
+
+    	# Studio
+    	onlyoffice-bin #Office Suite
     	kicad #PCB Schematics and PCB CAD
-    	#kicad-unstable #Borked?
-    	obs-studio #Video Recorder
+    	obs-studio #OBS
     	linuxKernel.packages.linux_6_6.v4l2loopback #OBS Virtual Cam
-	
-    	#File Handlers
-    	feh #Images
-    	vlc #Videos
-    	evince #Documents
-    	gnome-text-editor #Text files LITE
-    	onlyoffice-bin #Office
- 	
-    	#Compresed File Unpacker
+
+    	# Archive and Compression
     	unrar #.rar Files
     	p7zip #The GOAT
 
+    	# Base-Devel
+    	neovim #Based text editor
+    	github-desktop #Github
+    	git #It's git... duh
+    	tmux #Terminal now has autism
+    	
+    	# Vscode Tism Shit
     	(vscode-with-extensions.override {
   	  vscodeExtensions = with vscode-extensions; [
   	    bbenoist.nix

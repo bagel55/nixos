@@ -19,7 +19,7 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
+  };
     
     networking.hostName = "Nixos-bagel-Laptop";
-  };
   }
