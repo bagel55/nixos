@@ -12,9 +12,9 @@
 	services.fstrim.enable = true;
 
   	#Nix Channels
-  	system.autoUpgrade.enable = true;
-  	system.autoUpgrade.allowReboot = true;
-  	system.autoUpgrade.channel = "https://channels.nixos.org/nixos-unstable";
+  	#system.autoUpgrade.enable = true;
+  	#system.autoUpgrade.allowReboot = true;
+  	#system.autoUpgrade.channel = "https://channels.nixos.org/nixos-unstable";
   	nixpkgs.config.channel = "https://channels.nixos.org/nixos-unstable";
   	
   	# Emergency GTFO unstable line
