@@ -3,7 +3,6 @@
 let
   sshPath = "${pkgs.openssh}/bin/ssh";
   gitPath = "${pkgs.git}/bin/git";
-  pushScript = pkgs.writeShellScriptBin "push-nixos" (builtins.readFile ./push-nixos.sh);
 in {
 systemd.services.git-pull-on-boot = {
   description = "Fetch and pull latest NixOS config on boot";
@@ -38,10 +37,22 @@ systemd.services.git-pull-on-boot = {
       RemainAfterExit = true;
     };
 };
+
 system.activationScripts.push-nixos = {
   text = ''
     echo "Running post-rebuild Git push..."
-    ${pushScript}/bin/push-nixos
+
+    export GIT_SSH_COMMAND="${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes"
+    export PATH=/run/current-system/sw/bin:/usr/bin:/bin
+
+    cd /etc/nixos || exit 1
+
+    ${gitPath} config user.name "bagel"
+    ${gitPath} config user.email "bagel2255@protonmail.com"
+
+    ${gitPath} add .
+    ${gitPath} commit -m "Auto backup on $(date '+%Y-%m-%d %H:%M:%S')" || true
+    ${gitPath} push origin main
   '';
 };
 }
