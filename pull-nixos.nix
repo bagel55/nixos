@@ -12,7 +12,10 @@ in {
 
     serviceConfig = {
       Type = "oneshot";
-      Environment = "GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
+      Environment = ''
+      GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes
+      PATH=/run/current-system/sw/bin:/usr/bin:/bin
+      '';
       ExecStart = pkgs.writeShellScript "git-pull-on-boot" ''
       set -e
       LOGFILE="/home/bagel/git-pull-on-boot.log"
