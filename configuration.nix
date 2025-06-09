@@ -4,6 +4,7 @@
 	  ./hardware-configuration.nix
 	  ./driver-configuration.nix
 	  ./pkg-inclusions.nix
+	  ./git-auto-push.nix
 	];
 
 	#Bootloader
