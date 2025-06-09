@@ -13,12 +13,24 @@
 	boot.loader.systemd-boot.enable = true;
 	services.fstrim.enable = true;
 
-  	#Nix Channels
-  	nix.gc = {
-  	  automatic = true;
-  	  dates = "daily";
-  	  options = "--delete-older-than 20d";
-	};
+
+  	systemd.services.gc-keep-last-5 = {
+    description = "Keep only last 5 system generations";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeShellScript "gc-keep-5" ''
+        echo "[GC] Deleting all but the last 5 generations..."
+        nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system
+      '';
+    };};
+
+  	systemd.timers.gc-keep-last-5 = {
+    description = "Run system GC trimming to last 5 generations daily";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true; };
+  	};
 
   	#Networking
   	networking.networkmanager.enable = true;
