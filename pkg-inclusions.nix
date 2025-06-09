@@ -45,7 +45,6 @@ in
     spotify #Spotify
 
     	# Game Launchers
-    steam #The GOAT
     lutris #The OG
     heroic-unwrapped #Epic and GOG
     xivlauncher #FFXIV Dalamud Launcher
