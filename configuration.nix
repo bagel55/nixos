@@ -4,6 +4,7 @@
 	  ./hardware-configuration.nix
 	  ./driver-configuration.nix
 	  ./pkg-inclusions.nix
+	  ./pull-nixos.nix
 	  ./push-nixos.nix
 	];
 
@@ -12,27 +13,23 @@
 	boot.loader.systemd-boot.enable = true;
 	services.fstrim.enable = true;
 
-
-  	systemd.services.gc-keep-last-5 = {
-    description = "Keep only last 5 system generations";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = pkgs.writeShellScript "gc-keep-5" ''
-        echo "[GC] Deleting all but the last 5 generations..."
-        nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system
-      '';
-    };};
-
-  	systemd.timers.gc-keep-last-5 = {
-    description = "Run system GC trimming to last 5 generations daily";
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "daily";
-      Persistent = true; };
+  	system.activationScripts.gc-keep-last-5 = {
+    text = ''
+      echo "[GC] Deleting all but the last 5 generations..."
+      nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system
+    '';
   	};
 
   	#Networking
   	networking.networkmanager.enable = true;
+
+	# Auto upgrade
+  	system.autoUpgrade.enable = true;
+	system.autoUpgrade.allowReboot = false;
+	systemd.services.auto-upgrade = {
+  	  requires = [ "git-pull-config.service" ];
+  	  after = [ "git-pull-config.service" ];
+	};
 
   	#Time Zone
   	time.timeZone = "America/Los_Angeles";

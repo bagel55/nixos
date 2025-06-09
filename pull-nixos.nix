@@ -1,0 +1,33 @@
+{ config, pkgs, ... }:
+
+let
+  sshPath = "${pkgs.openssh}/bin/ssh";
+  gitPath = "${pkgs.git}/bin/git";
+in {
+  systemd.services.git-pull-on-boot = {
+    description = "Fetch and pull latest NixOS config on boot";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+    requires = [ "network-online.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      Environment = "GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
+      ExecStart = pkgs.writeShellScript "git-pull-on-boot" ''
+        set -e
+        LOGFILE="/home/bagel/git-pull-on-boot.log"
+
+        echo "[INFO] Starting git fetch + pull at $(date)" >> "$LOGFILE" 2>&1
+        cd /etc/nixos
+
+        ${gitPath} fetch origin main >> "$LOGFILE" 2>&1
+	${gitPath} reset --hard origin/main >> "$LOGFILE" 2>&1
+
+
+        echo "[INFO] Git fetch + pull complete" >> "$LOGFILE" 2>&1
+      '';
+      User = "root";
+    };
+  };
+}
+
