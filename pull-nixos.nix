@@ -29,7 +29,7 @@ in {
   cd /etc/nixos
   echo "[INFO] Pulling latest changes and rebuilding NixOS..."
   ${gitPath} pull origin main
-  ${nixosRebuild} switch
+  ${nixosRebuild} switch --upgrade
 '';
 
       User = "root";
