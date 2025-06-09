@@ -13,7 +13,7 @@ in {
 
     serviceConfig = {
       Type = "oneshot";
-      Environment = "GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
+      Environment = "GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes NIX_PATH=/home/bagel/.nix-defexpr/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
       ExecStart = pkgs.writeShellScript "git-pull-nixos-and-rebuild" ''
         set -e
         cd /etc/nixos
