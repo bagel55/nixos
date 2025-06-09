@@ -14,17 +14,16 @@ in {
       Type = "oneshot";
       Environment = "GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
       ExecStart = pkgs.writeShellScript "git-pull-on-boot" ''
-        set -e
-        LOGFILE="/home/bagel/git-pull-on-boot.log"
+      set -e
+      LOGFILE="/home/bagel/git-pull-on-boot.log"
 
-        echo "[INFO] Starting git fetch + pull at $(date)" >> "$LOGFILE" 2>&1
-        cd /etc/nixos
+      echo "[INFO] Starting git fetch + pull at $(date)" >> "$LOGFILE" 2>&1
+      cd /etc/nixos
 
-        ${gitPath} fetch origin main >> "$LOGFILE" 2>&1
-	${gitPath} reset --hard origin/main >> "$LOGFILE" 2>&1
+      ${gitPath} fetch origin main >> "$LOGFILE" 2>&1
+      ${gitPath} reset --hard origin/main >> "$LOGFILE" 2>&1
 
-
-        echo "[INFO] Git fetch + pull complete" >> "$LOGFILE" 2>&1
+      echo "[INFO] Git fetch + pull complete" >> "$LOGFILE" 2>&1
       '';
       User = "root";
     };
