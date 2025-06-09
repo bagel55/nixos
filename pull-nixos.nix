@@ -17,15 +17,7 @@ in {
       ExecStart = pkgs.writeShellScript "git-pull-nixos-and-rebuild" ''
   set -e
 
-  LOCKFILE="/var/lock/nixos-git-pull.lock"
   LOGFILE="/home/bagel/nixos-git-pull.log"
-
-  # Attempt to acquire lock
-  exec 9>"$LOCKFILE"
-  if ! flock -n 9; then
-    echo "[INFO] Another rebuild is in progress. Exiting." >> "$LOGFILE" 2>&1
-    exit 0
-  fi
 
   cd /etc/nixos
   echo "[INFO] Fetching latest changes from origin..." >> "$LOGFILE" 2>&1
