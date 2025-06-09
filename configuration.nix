@@ -15,12 +15,6 @@
 	  ./git-ops.nix
 	];
 
-  	system.activationScripts.gc-keep-last-5 = {text = ''
-      echo "[GC] Deleting all but the last 5 generations..."
-      nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system
-      '';
-  	};
-
 	# Auto upgrade
   	system.autoUpgrade.enable = true;
 	system.autoUpgrade.allowReboot = false;

@@ -3,6 +3,7 @@
 let
   sshPath = "${pkgs.openssh}/bin/ssh";
   gitPath = "${pkgs.git}/bin/git";
+  nixEnv = "${pkgs.nix}/bin/nix-env";
 in {
 systemd.services.git-pull-on-boot = {
   description = "Fetch and pull latest NixOS config on boot";
@@ -53,6 +54,13 @@ system.activationScripts.push-nixos = {
     ${gitPath} add .
     ${gitPath} commit -m "Auto backup on $(date '+%Y-%m-%d %H:%M:%S')" || true
     ${gitPath} push origin main
+  '';
+};
+
+system.activationScripts.gc-keep-last-5 = {
+  text = ''
+    echo "[GC] Deleting all but the last 5 generations..."
+    ${nixEnv} --delete-generations +5 --profile /nix/var/nix/profiles/system
   '';
 };
 }
