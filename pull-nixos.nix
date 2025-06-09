@@ -22,16 +22,14 @@ in {
     LOGFILE="/home/bagel/nixos-git-pull.log"
     LOCKFILE="/var/lock/nixos-git-pull.lock"
 
-    # Remove stale lock file if it exists (and no process holds it)
-    if [ -e "$LOCKFILE" ]; then
-    rm -f "$LOCKFILE"
-    fi
+# Open lock file descriptor 9, create file if missing
+exec 9>"$LOCKFILE"
 
-    exec 9>"$LOCKFILE"
-    if ! flock -n 9; then
-    echo "[INFO] Another rebuild is in progress. Exiting."
-    exit 0
-    fi
+# Try to acquire lock without blocking
+if ! flock -n 9; then
+  echo "[INFO] Another rebuild is in progress. Exiting." >> "$LOGFILE" 2>&1
+  exit 0
+fi
 
     sleep 10
 
