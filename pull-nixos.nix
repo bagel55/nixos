@@ -6,7 +6,7 @@ let
   nixosRebuild = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
 in {
   systemd.services.nixos-git-pull-rebuild = {
-    description = "Pull latest NixOS config and rebuild if changed";
+    description = "Pull latest NixOS config and rebuild on every boot";
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
     requires = [ "network-online.target" ];
@@ -17,23 +17,11 @@ in {
       ExecStart = pkgs.writeShellScript "git-pull-nixos-and-rebuild" ''
         set -e
         cd /etc/nixos
-
-        echo "[INFO] Fetching..."
-        ${gitPath} fetch origin
-
-        LOCAL_COMMIT="$(${gitPath} rev-parse @)"
-        REMOTE_COMMIT="$(${gitPath} rev-parse origin/main)"
-
-        if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
-          echo "[INFO] New changes found. Pulling and rebuilding..."
-          ${gitPath} pull origin main
-          ${nixosRebuild} switch
-        else
-          echo "[INFO] No changes. Skipping rebuild."
-        fi
+        echo "[INFO] Pulling latest changes and rebuilding NixOS..."
+        ${gitPath} pull origin main
+        ${nixosRebuild} switch --upgrade
       '';
       User = "root";
     };
   };
 }
-
