@@ -27,11 +27,12 @@ in {
   fi
 
   cd /etc/nixos
+  echo "[INFO] Fetching latest changes from origin..."
+  ${gitPath} fetch origin main
   echo "[INFO] Pulling latest changes and rebuilding NixOS..."
-  ${gitPath} pull origin main
+  ${gitPath} reset --hard origin/main
   ${nixosRebuild} switch --upgrade
 '';
-
       User = "root";
     };
   };
