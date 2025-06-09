@@ -4,7 +4,6 @@
 	  ./hardware-configuration.nix
 	  ./driver-configuration.nix
 	  ./pkg-inclusions.nix
-	  ./pull-nixos.nix
 	  ./push-nixos.nix
 	];
 
