@@ -19,7 +19,7 @@ in {
     ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
     ExecStart = pkgs.writeShellScript "git-pull-on-boot" ''
       set -e
-      LOGFILE="/home/bagel/git-pull-on-boot.log"
+      LOGFILE="/etc/nixos/debug/git-pull-on-boot.log"
 
       echo "[INFO] Starting git fetch + pull at $(date)" >> "$LOGFILE" 2>&1
       cd /etc/nixos
@@ -36,6 +36,4 @@ in {
     RemainAfterExit = true;
   };
 };
-
 }
-
