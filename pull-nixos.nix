@@ -21,6 +21,8 @@ in {
 
     LOGFILE="/home/bagel/nixos-git-pull.log"
 
+    sleep 10
+
     cd /etc/nixos
     echo "[INFO] Fetching latest changes from origin..." >> "$LOGFILE" 2>&1
     ${gitPath} fetch origin main >> "$LOGFILE" 2>&1
