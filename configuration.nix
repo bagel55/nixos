@@ -14,8 +14,6 @@
 	services.fstrim.enable = true;
 
   	#Nix Channels
-  	system.autoUpgrade.enable = true;
-  	system.autoUpgrade.channel = "https://channels.nixos.org/nixos-unstable";
   	nix.gc = {
   	  automatic = true;
   	  dates = "daily";

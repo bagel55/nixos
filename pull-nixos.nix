@@ -19,7 +19,8 @@ in {
         cd /etc/nixos
         echo "[INFO] Pulling latest changes and rebuilding NixOS..."
         ${gitPath} pull origin main
-        ${nixosRebuild} switch --upgrade
+        ${pkgs.nix}/bin/nix-channel --update
+        ${nixosRebuild} switch
       '';
       User = "root";
     };
