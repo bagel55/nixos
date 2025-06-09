@@ -70,6 +70,7 @@ in
     linuxKernel.packages.linux_6_6.v4l2loopback #OBS Virtual Cam
     kicad
     unityhub
+    godot
 
     	# Archive and Compression
     unrar #.rar Files Are Fucking Lame
