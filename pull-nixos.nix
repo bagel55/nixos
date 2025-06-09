@@ -15,12 +15,23 @@ in {
       Type = "oneshot";
       Environment = "GIT_SSH_COMMAND=${sshPath} -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
       ExecStart = pkgs.writeShellScript "git-pull-nixos-and-rebuild" ''
-        set -e
-        cd /etc/nixos
-        echo "[INFO] Pulling latest changes and rebuilding NixOS..."
-        ${gitPath} pull origin main
-        ${nixosRebuild} switch
-      '';
+  set -e
+
+  LOCKFILE="/var/lock/nixos-git-pull.lock"
+
+  # Attempt to acquire lock
+  exec 9>"$LOCKFILE"
+  if ! flock -n 9; then
+    echo "[INFO] Another rebuild is in progress. Exiting."
+    exit 0
+  fi
+
+  cd /etc/nixos
+  echo "[INFO] Pulling latest changes and rebuilding NixOS..."
+  ${gitPath} pull origin main
+  ${nixosRebuild} switch
+'';
+
       User = "root";
     };
   };
