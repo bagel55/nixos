@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
 {
+	#Bootloader
+	boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+	boot.loader.systemd-boot.enable = true;
+	services.fstrim.enable = true;
+
+  	#Networking
+  	networking.networkmanager.enable = true;
+
 	imports =[ 
 	  ./hardware-configuration.nix
 	  ./driver-configuration.nix
@@ -8,20 +16,11 @@
 	  ./push-nixos.nix
 	];
 
-	#Bootloader
-	boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-	boot.loader.systemd-boot.enable = true;
-	services.fstrim.enable = true;
-
-  	system.activationScripts.gc-keep-last-5 = {
-    text = ''
+  	system.activationScripts.gc-keep-last-5 = {text = ''
       echo "[GC] Deleting all but the last 5 generations..."
       nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system
-    '';
+      '';
   	};
-
-  	#Networking
-  	networking.networkmanager.enable = true;
 
 	# Auto upgrade
   	system.autoUpgrade.enable = true;
