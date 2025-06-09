@@ -20,7 +20,7 @@ in {
       Type = "oneshot";
       ExecStart = "${pkgs.git}/bin/git -C /etc/nixos pull";
       # Optional: Set up correct SSH environment if needed
-      #Environment = "GIT_SSH_COMMAND=ssh -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
+      Environment = "GIT_SSH_COMMAND=ssh -i /root/.ssh/id_ed25519 -o IdentitiesOnly=yes";
       User = "root";  # Default, but explicit
     };
   };
