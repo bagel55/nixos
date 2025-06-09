@@ -12,8 +12,7 @@
 	  ./hardware-configuration.nix
 	  ./driver-configuration.nix
 	  ./pkg-inclusions.nix
-	  ./pull-nixos.nix
-	  ./push-nixos.nix
+	  ./git-ops.nix
 	];
 
   	system.activationScripts.gc-keep-last-5 = {text = ''

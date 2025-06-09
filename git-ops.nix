@@ -3,8 +3,9 @@
 let
   sshPath = "${pkgs.openssh}/bin/ssh";
   gitPath = "${pkgs.git}/bin/git";
+  pushScript = pkgs.writeShellScriptBin "push-nixos" (builtins.readFile ./push-nixos.sh);
 in {
-  systemd.services.git-pull-on-boot = {
+systemd.services.git-pull-on-boot = {
   description = "Fetch and pull latest NixOS config on boot";
   wantedBy = [ "multi-user.target" ];
   after = [ "network-online.target" "NetworkManager-wait-online.service" ];
@@ -32,9 +33,15 @@ in {
       ${gitPath} reset --hard origin/main >> "$LOGFILE" 2>&1
 
       echo "[INFO] Git fetch + pull complete" >> "$LOGFILE" 2>&1
-    '';
-    User = "root";
-    RemainAfterExit = true;
-  };
+      '';
+      User = "root";
+      RemainAfterExit = true;
+    };
+};
+system.activationScripts.push-nixos = {
+  text = ''
+    echo "Running post-rebuild Git push..."
+    ${pushScript}/bin/push-nixos
+  '';
 };
 }
