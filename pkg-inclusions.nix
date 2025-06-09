@@ -1,26 +1,33 @@
  { config, pkgs, ... }:
+ let
+  unstableSmall = import <nixos-unstable-small> { config = {}; };
+in
  {environment.systemPackages = with pkgs; [
+ 	
  	# Gnome
  	gnome-shell-extensions #Gnome Extensions
  	gnome-tweaks #Tweaks
  	gnome-themes-extra
+ 	gnome-disk-utility #Disk Tool
  	alacarte #Gnome Menu Editor
+ 	baobab #Disk Analyser
  	gnome-calculator #Calculator
  	nautilus #File Explorer
  	gnome-text-editor #Text Editor GUI App
     	eog #Images
     	totem #Videos
     	evince #Documents
-    	obsidian #Notes
 
     	# Util
     	btop #System Monitor
 	nvtopPackages.full #GPU Monitor
 	corectrl #GPU Configuration
-	openrgb #RGB Control
+	openrgb-with-all-plugins #RGB Control
 	pavucontrol #Audio Devices Configuration
 	helvum #Audio Porting
+	#ventoy-full #Bootable Drive Solution
     	fastfetch #Loonix Redditing
+    	obsidian #Notes
 
     	# Wine and friends
     	wine64Packages.stagingFull #Wine 64 Bit Tools
@@ -35,7 +42,6 @@
     	alacritty #Terminal Emulator
     	brave #Web Browser
     	discord #Discord
-    	vesktop #Discord
     	spotify #Spotify
 
     	# Game Launchers
@@ -44,16 +50,17 @@
     	heroic-unwrapped #Epic and GOG
     	xivlauncher #FFXIV Dalamud Launcher
     	prismlauncher #Minecraft Launcher
+    	r2modman #Mod Stuffs For Loads of Games
 
     	# Emulators
     	rpcs3 #PS3 Emulator
     	xemu #Original Xbox Emulator
     	ryujinx #Switch Emulator
     	retroarchFull #Most Other Emulators
+    	shadps4 #PS4 I Think
 
     	# Studio
     	onlyoffice-bin #Office Suite
-    	kicad #PCB Schematics and PCB CAD
     	davinci-resolve #Video Editor
     	gimp #Photo Editor
     	inkscape-with-extensions #Illistrator
@@ -61,31 +68,21 @@
     	audacity #Audio Editor
     	obs-studio #OBS
     	linuxKernel.packages.linux_6_6.v4l2loopback #OBS Virtual Cam
+    	kicad
+    	unityhub
 
     	# Archive and Compression
     	unrar #.rar Files Are Fucking Lame
     	p7zip #The GOAT
 
     	# Base-Devel
+    	distrobox
+        xorg.xhost
     	vim #Based Text Editor
-    	neovim #Based Text Editors Offspring
-    	lunarvim #Based Text Editors Offsprings Offspring
     	git #Imagine Not Knowing What Git Is
+    	git-lfs
     	github-desktop #Git For Lazy Fucks
     	tmux #Terminal Now Has Autism
-
-    	# Vscode Tism Shit
-    	(vscode-with-extensions.override {
-  	  vscodeExtensions = with vscode-extensions; [
-  	    bbenoist.nix
-  	  ]
- 	  ++ vscode-utils.extensionsFromVscodeMarketplace [
- 	    {
- 	    name = "code-runner";
- 	    publisher = "formulahendry";
- 	    version = "0.6.33";
- 	    sha256 = "166ia73vrcl5c9hm4q1a73qdn56m0jc7flfsk5p5q41na9f10lb0";
- 	    }
- 	  ];
-	})
+    	vscode
+    	dotnet-sdk
 ];}

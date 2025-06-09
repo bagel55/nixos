@@ -3,14 +3,11 @@
 	#GPU
 	boot.initrd.kernelModules = [ "amdgpu" ];
 	boot.kernelModules = [ "kvm-amd" ];
-
+	
 	hardware.graphics = {
-   	  enable = true;
-   	  extraPackages = with pkgs;[
-     	    rocmPackages.clr.icd
-     	  ];
-  	};
-
+  	  enable = true;
+	};
+	
 	#Hostname
 	networking.hostName = "Nixos-bagel-Desktop";
 }

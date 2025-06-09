@@ -12,13 +12,13 @@
 	services.fstrim.enable = true;
 
   	#Nix Channels
-  	#system.autoUpgrade.enable = true;
-  	#system.autoUpgrade.allowReboot = true;
-  	#system.autoUpgrade.channel = "https://channels.nixos.org/nixos-unstable";
-  	nixpkgs.config.channel = "https://channels.nixos.org/nixos-unstable";
-  	
-  	# Emergency GTFO unstable line
-  	#nixpkgs.config.channel = "https://channels.nixos.org/nixos-24.05";
+  	system.autoUpgrade.enable = true;
+  	system.autoUpgrade.channel = "https://channels.nixos.org/nixos-unstable";
+  	nix.gc = {
+  	  automatic = true;
+  	  dates = "daily";
+  	  options = "--delete-older-than 20d";
+	};
 
   	#Networking
   	networking.networkmanager.enable = true;
@@ -50,16 +50,16 @@
   	services.xserver.enable = true;
 
   	#Enable the GNOME Desktop Environment.
-  	services.xserver.displayManager.gdm.enable = true;
-  	services.xserver.desktopManager.gnome.enable = true;
-  	services.gnome.core-utilities.enable = false;
+  	services.displayManager.gdm.enable = true;
+  	services.desktopManager.gnome.enable = true;
+  	services.gnome.core-apps.enable = false;
   	services.xserver.excludePackages = [ pkgs.xterm ];
   	environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
 
   	#Sound
   	hardware.bluetooth.enable = true;
   	hardware.bluetooth.powerOnBoot = true;
-  	hardware.pulseaudio.enable = false;
+  	services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
  	services.pipewire = {
     	  enable = true;
@@ -80,27 +80,35 @@
     	  packages = with pkgs; [];
   	};
 
-  	#Automatic Login For User
-  	services.displayManager.autoLogin.enable = true;
-  	services.displayManager.autoLogin.user = "bagel";
-  	systemd.services."getty@tty1".enable = false;
-  	systemd.services."autovt@tty1".enable = false;
-
   	#Allow unfree packages
   	nixpkgs.config.allowUnfree = true;
   	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   	#Set Fonts
   	fonts.packages = with pkgs; [
-  	  nerdfonts
+  	  nerd-fonts._0xproto
+  	  nerd-fonts.droid-sans-mono
   	];
 
   	#Configure Programs
+  	services.flatpak.enable = true;
+  	
+  	#Steam
   	programs.steam = {
     	  enable = true;
 	  remotePlay.openFirewall = true;
     	  localNetworkGameTransfers.openFirewall = true;
     	  dedicatedServer.openFirewall = true;
   	};
+
+  	#Distro Box
+  	 virtualisation.podman = {
+    	  enable = true;
+    	  dockerCompat = true;
+  	};
+  	
+  	#Stuff for OpenRGB
+  	services.hardware.openrgb.enable = true;
+  	services.hardware.openrgb.motherboard = "amd"; 
 
   system.stateVersion = "24.05";}
