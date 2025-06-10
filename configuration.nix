@@ -16,12 +16,12 @@
 	];
 
 	# Auto upgrade
-  	system.autoUpgrade.enable = true;
-	system.autoUpgrade.allowReboot = false;
-	systemd.services.auto-upgrade = {
-  	  requires = [ "git-pull-config.service" ];
-  	  after = [ "git-pull-config.service" ];
-	};
+  	#system.autoUpgrade.enable = true;
+	#system.autoUpgrade.allowReboot = false;
+	#systemd.services.auto-upgrade = {
+  	  #requires = [ "git-pull-config.service" ];
+  	  #after = [ "git-pull-config.service" ];
+	#};
 
   	#Time Zone
   	time.timeZone = "America/Los_Angeles";
