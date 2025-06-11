@@ -1,4 +1,4 @@
 *driver-configuration.nix
 *hardware-configuration.nix
 
-/debug
+**.log
