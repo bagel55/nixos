@@ -63,56 +63,6 @@ systemd.services.git-pull-on-boot = {
   };
 };
 
-systemd.services.restoreAlacarte = {
-    description = "Restore Alacarte configuration for user ${userName}";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "local-fs.target" "git-pull-on-boot.service" "network-online.target" "NetworkManager-wait-online.service"];
-    requires = [ "git-pull-on-boot.service" "network-online.target" "NetworkManager-wait-online.service" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = pkgs.writeShellScript "restore-alacarte" ''
-        set -e
-        echo "[alacarte] Restoring Alacarte configuration for ${userName}"
-
-        # Create target directories if missing
-        mkdir -p ${userHome}/.local/share/applications
-        mkdir -p ${userHome}/.config/menus
-        mkdir -p ${userHome}/Pictures/Logos
-
-        # Restore .desktop files
-        cp -r ${alacarteDir}/applications/* ${userHome}/.local/share/applications/ 2>/dev/null || true
-
-        # Restore menu layout
-        cp ${alacarteDir}/menus/gnome-applications.menu ${userHome}/.config/menus/ 2>/dev/null || true
-
-        # Restore custom icon images
-        cp -r ${alacarteDir}/logos/* ${userHome}/Pictures/Logos/ 2>/dev/null || true
-
-        # Set correct ownership
-        chown -R ${userName}:users ${userHome}/.local/share/applications
-        chown ${userName}:users ${userHome}/.config/menus/gnome-applications.menu
-        chown -R ${userName}:users ${userHome}/Pictures/Logos
-      '';
-    };
-  };
-
-system.activationScripts.alacarteSync = ''
-    echo "[alacarte] Saving Alacarte configuration to ${alacarteDir}"
-
-    mkdir -p ${alacarteDir}/applications
-    mkdir -p ${alacarteDir}/menus
-    mkdir -p ${alacarteDir}/logos
-
-    # Save all custom .desktop launchers
-    cp -r --no-preserve=ownership ${userHome}/.local/share/applications/* ${alacarteDir}/applications/ 2>/dev/null || true
-
-    # Save only the GNOME app menu structure file
-    cp --no-preserve=ownership ${userHome}/.config/menus/gnome-applications.menu ${alacarteDir}/menus/ 2>/dev/null || true
-
-    # Save all icons from Pictures/Logos
-    cp -r --no-preserve=ownership ${userHome}/Pictures/Logos/* ${alacarteDir}/logos/ 2>/dev/null || true
-'';
-
 systemd.services.git-push-on-rebuild = {
   description = "Push latest NixOS config after rebuild";
 
