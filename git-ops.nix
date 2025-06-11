@@ -19,24 +19,38 @@ systemd.services.git-pull-on-boot = {
     '';
     ExecStartPre = "${pkgs.coreutils}/bin/sleep 2";
     ExecStart = pkgs.writeShellScript "git-pull-on-boot" ''
-      rm -f /etc/nixos/debug/git-pull-on-boot.log
-      LOGFILE="/etc/nixos/debug/git-pull-on-boot.log"
-      
-      {
-        echo "[INFO] Starting git fetch + pull at $(date)"
-        cd /etc/nixos || { echo "[ERROR] Could not cd into /etc/nixos"; exit 0; }
+    LOGFILE="/etc/nixos/debug/git-pull-on-boot.log"
+    rm -f "$LOGFILE"
+    {
+      echo "[INFO] Starting git fetch + pull at $(date)"
+      cd /etc/nixos || { echo "[ERROR] Could not cd into /etc/nixos"; exit 0; }
 
-        echo "RESOLV CONF:"
-        cat /etc/resolv.conf
+      echo "RESOLV CONF:"
+      cat /etc/resolv.conf
 
-        ${gitPath} fetch origin main && ${gitPath} reset --hard origin/main
-        echo "[INFO] Git fetch + pull complete"
-      } >> "$LOGFILE" 2>&1
-      '';
+      # Capture current HEAD before fetch
+      OLD_REV=$(${gitPath} rev-parse HEAD)
+
+      ${gitPath} fetch origin main
+      ${gitPath} reset --hard origin/main
+
+      # Capture new HEAD after reset
+      NEW_REV=$(${gitPath} rev-parse HEAD)
+
+      if [ "$OLD_REV" != "$NEW_REV" ]; then
+      echo "[INFO] Changes detected. Rebuilding system..."
+      ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch
+      else
+        echo "[INFO] No changes detected. Skipping rebuild."
+      fi
+
+      echo "[INFO] Git fetch + pull complete"
+    } >> "$LOGFILE" 2>&1
+    '';
     User = "root";
     RemainAfterExit = true;
 
-    # These two lines make failure non-fatal to boot
+    # These lines make failure non-fatal to boot
     SuccessExitStatus = [ 0 1 ];
     StandardOutput = "journal";
     StandardError = "journal";
