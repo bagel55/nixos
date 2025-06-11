@@ -89,9 +89,9 @@ systemd.services.restoreAlacarte = {
         cp -r ${alacarteDir}/logos/* ${userHome}/Pictures/Logos/ 2>/dev/null || true
 
         # Set correct ownership
-        chown -R ${userName}:${userName} ${userHome}/.local/share/applications
-        chown ${userName}:${userName} ${userHome}/.config/menus/gnome-applications.menu
-        chown -R ${userName}:${userName} ${userHome}/Pictures/Logos
+        chown -R ${userName}:users ${userHome}/.local/share/applications
+        chown ${userName}:users ${userHome}/.config/menus/gnome-applications.menu
+        chown -R ${userName}:users ${userHome}/Pictures/Logos
       '';
     };
   };
