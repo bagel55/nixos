@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=nvtop
+Exec=nvtop
+Comment=
+Terminal=false
+Icon=/home/bagel/Pictures/Logos/NVTOP.png
+Type=Application

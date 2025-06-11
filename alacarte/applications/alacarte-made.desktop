@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Protontricks
+Exec=protontricks --no-term --gui
+Comment=
+Terminal=false
+Icon=/home/bagel/Pictures/Logos/proton.png
+Type=Application

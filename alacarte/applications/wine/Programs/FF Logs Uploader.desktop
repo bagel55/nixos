@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=FF Logs Uploader
+Exec=env WINEPREFIX="/home/bagel/.wine" wine C:\\\\users\\\\bagel\\\\AppData\\\\Roaming\\\\Microsoft\\\\Windows\\\\Start\\ Menu\\\\Programs\\\\FF\\ Logs\\ Uploader.lnk
+Type=Application
+StartupNotify=true
+Comment=FF Logs Uploader
+Path=/home/bagel/.wine/dosdevices/c:/users/bagel/AppData/Local/Programs/FF Logs Uploader
+Icon=140D_FF Logs Uploader.0
+StartupWMClass=ff logs uploader.exe
