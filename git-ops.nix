@@ -37,11 +37,14 @@ systemd.services.git-pull-on-boot = {
       # Capture new HEAD after reset
       NEW_REV=$(${gitPath} rev-parse HEAD)
 
-      if [ "$OLD_REV" != "$NEW_REV" ]; then
-      echo "[INFO] Changes detected. Rebuilding system..."
-      ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch
-      else
-        echo "[INFO] No changes detected. Skipping rebuild."
+      REBUILD="/run/current-system/sw/bin/nixos-rebuild"
+      CONFIG="/etc/nixos/configuration.nix"
+
+      if [[ "$NEW_COMMIT" != "$OLD_COMMIT" ]]; then
+        echo "[INFO] Changes detected. Rebuilding system..." >> "$LOGFILE"
+        "$REBUILD" switch -I nixos-config="$CONFIG" >> "$LOGFILE" 2>&1
+        echo "$NEW_COMMIT" > "$OLD_COMMIT_FILE"
+        echo "[INFO] Rebuild complete." >> "$LOGFILE"
       fi
 
       echo "[INFO] Git fetch + pull complete"
