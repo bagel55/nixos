@@ -10,7 +10,7 @@
 
 	imports =[ 
 	  ./hardware-configuration.nix
-	  ./driver-configuration.nix
+	  #./driver-configuration.nix
 	  ./pkg-inclusions.nix
 	  ./git-ops.nix
 	  ./activation-scripts.nix
