@@ -1,1 +1,1 @@
-Stub to hold debug folder on remote for cleaner setup on pull.
+Stub to hold debug folder on remote for cleaner setup on pull without uploading debug files.
