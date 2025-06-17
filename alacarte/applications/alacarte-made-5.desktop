@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Winetricks
-Exec=winetricks --gui
-Comment=
-Terminal=false
-Icon=/home/bagel/Pictures/Logos/wine.png
-Type=Application
