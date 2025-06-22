@@ -49,6 +49,7 @@ xivlauncher #FFXIV Dalamud Launcher
 prismlauncher #Minecraft Launcher
 r2modman #Mod Stuffs For Loads of Games
 fflogs
+gamemode
 
 # Emulators
 rpcs3 #PS3 Emulator
