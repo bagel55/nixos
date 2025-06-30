@@ -48,9 +48,13 @@ lutris #The OG.
 heroic-unwrapped #Epic and GOG.
 xivlauncher #FFXIV dalamud launcher.
 prismlauncher #Minecraft launcher.
+
+# Game mode, cheats, or tools.
+gamemode #Optimizations for games.
+samrewritten
 r2modman #Mod stuffs for loads of games.
 fflogs #Not ego parsing.
-gamemode #Optimizations for games.
+
 
 # Emulators
 rpcs3 #PS3.
