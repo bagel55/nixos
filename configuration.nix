@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 imports =[ 
 	#./driver-configuration.nix
 	./hardware-configuration.nix
@@ -9,7 +10,6 @@ imports =[
 ];
 
 #Bootloader
-  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 	boot.loader.systemd-boot.enable = true;
 	services.fstrim.enable = true;
