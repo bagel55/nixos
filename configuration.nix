@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-{
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+{ config, pkgs, ... }:{
 imports =[ 
 	./driver-configuration.nix
 	./hardware-configuration.nix
