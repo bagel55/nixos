@@ -2,7 +2,7 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_zen;
 imports =[ 
-	#./driver-configuration.nix
+	./driver-configuration.nix
 	./hardware-configuration.nix
 	./pkg-inclusions.nix
 	./git-ops.nix
