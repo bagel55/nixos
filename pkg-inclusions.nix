@@ -1,8 +1,26 @@
- { config, pkgs, ... }:
- let
-  unstableSmall = import <nixos-unstable-small> { config = {}; };
+{ config, pkgs, ... }:
+let
+unstableSmall = import <nixos-unstable-small> { config = {}; };
 in
-{environment.systemPackages = with pkgs; [
+{
+
+#Flatpak only use if needed
+services.flatpak.enable = true;
+
+#Steam
+programs.steam = {
+  enable = true;
+	remotePlay.openFirewall = true;
+  localNetworkGameTransfers.openFirewall = true;
+  dedicatedServer.openFirewall = true;
+};
+  	
+#OpenRGB
+services.hardware.openrgb.enable = true;
+services.hardware.openrgb.motherboard = "amd"; 
+
+#nix packages
+environment.systemPackages = with pkgs; [
 
 # Gnome
 gnome-shell-extensions #Gnome extensions.

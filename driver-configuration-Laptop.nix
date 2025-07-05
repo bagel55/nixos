@@ -1,7 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
-
-{
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+{ config, lib, pkgs, modulesPath, ... }:{
   boot.kernelParams = [
     "nvidia.NVreg_OpenRmEnableUnsupportedGpus=1"
     "nvidia-drm.modeset=1"

@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 let
   sshPath = "${pkgs.openssh}/bin/ssh";
   gitPath = "${pkgs.git}/bin/git";

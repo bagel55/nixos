@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }:{
 system.activationScripts.nixos-permissions = {
   text = ''
     echo "[Permissions] Setting /etc/nixos group to wheel with write permissions"
