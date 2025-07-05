@@ -1,7 +1,7 @@
 { config, pkgs, ... }:{
-imports =[ 
+imports =[
+  ./hardware-configuration.nix
 	./driver-configuration.nix
-	./hardware-configuration.nix
 	./pkg-inclusions.nix
 	./git-ops.nix
 	./activation-scripts.nix
