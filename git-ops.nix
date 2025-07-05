@@ -55,7 +55,6 @@ systemd.services.git-pull-on-boot = {
     User = "root";
     RemainAfterExit = true;
 
-    # These lines make failure non-fatal to boot
     SuccessExitStatus = [ 0 1 ];
     StandardOutput = "journal";
     StandardError = "journal";
@@ -96,7 +95,6 @@ systemd.services.git-push-on-rebuild = {
   };
 };
 
-# Add an activation script to start it
 system.activationScripts.gitPushOnRebuild = {
   text = ''
     echo "[INFO] Triggering git-push-on-rebuild.service"
