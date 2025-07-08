@@ -86,6 +86,7 @@ onlyoffice-bin #Office suite.
 davinci-resolve #Premeir Pro & After effects.
 gimp #Photoshop.
 inkscape-with-extensions #Illistrator.
+drawing
 blender #3D model editor.
 audacity #Audio editor.
 obs-studio #OBS.
