@@ -63,6 +63,7 @@ spotify #Spotify.
 # Games
 lutris #The OG.
 heroic-unwrapped #Epic and GOG.
+bottles
 xivlauncher #FFXIV dalamud launcher.
 prismlauncher #Minecraft launcher.
 
