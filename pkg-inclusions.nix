@@ -17,7 +17,6 @@ programs.steam = {
   	
 #OpenRGB
 services.hardware.openrgb.enable = true;
-services.hardware.openrgb.motherboard = "amd"; 
 
 #nix packages
 environment.systemPackages = with pkgs; [
