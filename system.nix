@@ -44,7 +44,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.gnome-keyring.enable = true;
   
 #Auto Login
   services.displayManager.autoLogin = {
@@ -53,6 +52,7 @@
   };
   systemd.services."getty@tty1".enable    = false;
   systemd.services."autovt@tty1".enable   = false;
+  services.gnome.gnome-keyring.enable = true;
 
 #Exclude Garbage
   services.gnome.core-apps.enable = false;
