@@ -1,7 +1,13 @@
 { config, pkgs, ... }:{
 #Boot
-	boot.loader.systemd-boot.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+	boot.loader = {
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+    };
+  };
+  boot.kernelPackages = pkgs.linuxPackages_lqx;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
 #SSD Trim
@@ -51,6 +57,7 @@
 	  alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true; 
+    jack.enable = true;
 	};
 
 #User Config
