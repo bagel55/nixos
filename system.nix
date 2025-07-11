@@ -1,7 +1,7 @@
 { config, pkgs, ... }:{
 #Boot
 	boot.loader.systemd-boot.enable = true;
-  #boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
 #SSD Trim
