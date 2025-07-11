@@ -61,9 +61,9 @@ discord #Discord.
 spotify #Spotify.
 
 # Games
-lutris #The OG.
-heroic-unwrapped #Epic and GOG.
-bottles
+lutris #Gaming prefix manager.
+bottles #Bulk gaming prefix manager.
+heroic-unwrapped #Epic and GOG prefix manager.
 xivlauncher #FFXIV dalamud launcher.
 prismlauncher #Minecraft launcher.
 
