@@ -34,6 +34,7 @@ gnome-text-editor #Text editor GUI app.
 eog #Images.
 totem #Videos.
 evince #Documents.
+seahorse #Passwords and Keys
 
 # Util
 btop #System monitor.
