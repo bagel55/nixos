@@ -48,10 +48,10 @@
 #Auto Login
   services.displayManager.autoLogin = {
     enable = true;
-    user   = "bagel";
+    user = "bagel";
   };
-  systemd.services."getty@tty1".enable    = false;
-  systemd.services."autovt@tty1".enable   = false;
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
   services.gnome.gnome-keyring.enable = true;
 
 #Exclude Garbage
