@@ -49,11 +49,11 @@ home.file = {
     sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
   };
 
-  ".tmux/plugins/tokyo-night-tmux".source = pkgs.fetchFromGitHub {
-    owner = "janoamaral";
-    repo = "tokyo-night-tmux";
-    rev = "master"; # or pin a specific commit hash
-    sha256 = "sha256-TOS9+eOEMInAgosB3D9KhahudW2i1ZEH+IXEc0RCpU0="; # placeholder
+  ".tmux/plugins/janoamaral/tokyo-night-tmux".source = pkgs.fetchFromGitHub {
+  owner = "janoamaral";
+  repo = "tokyo-night-tmux";
+  rev = "master"; # or pin a commit
+  sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
   };
 };
 
