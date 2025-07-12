@@ -21,7 +21,10 @@ programs.zsh = {
 
 programs.tmux = {
   enable = true;
-  extraConfig = ''
+};
+
+home.file = {
+  ".tmux.conf".text = ''
     unbind r
     bind r source-file ~/.tmux.conf
 
@@ -38,16 +41,7 @@ programs.tmux = {
 
     run '~/.tmux/plugins/tpm/tpm'
   '';
-};
 
-home.file.".tmux.conf".text = ''
-  set -g @plugin 'tmux-plugins/tpm'
-  set -g @plugin 'janoamaral/tokyo-night-tmux'
-  set -g @tokyo-night-tmux 'storm'
-  run '~/.tmux/plugins/tpm/tpm'
-'';
-
-home.file = {
   ".tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
     owner = "tmux-plugins";
     repo = "tpm";
