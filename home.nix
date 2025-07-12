@@ -11,12 +11,12 @@ programs.zsh = {
     theme = "jonathan";
     plugins = [ "git" "z" ];
   };
-  initContent = ''
+  #initContent = ''
     # Auto-start tmux if not already inside a session
-    if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
-      exec tmux
-    fi
-  '';
+    #if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
+      #exec tmux
+    #fi
+  #'';
 };
 
 programs.tmux = {
