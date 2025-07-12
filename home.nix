@@ -66,14 +66,6 @@ home.file = {
   };
 };
 
-home.activation.installTmuxPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  if [ -n "$DISPLAY" ] || [ -n "$TMUX" ]; then
-    echo "Installing tmux plugins..."
-    ${pkgs.tmux}/bin/tmux start-server \; \
-      run-shell ~/.tmux/plugins/tpm/bin/install_plugins || true
-  fi
-'';
-
 xdg.configFile."alacritty/alacritty.toml".text = ''
   [window]
   opacity = 0.85  # 1.0 = opaque, 0.0 = fully transparent
