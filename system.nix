@@ -71,10 +71,4 @@
     nerd-fonts._0xproto
   	nerd-fonts.droid-sans-mono
   ];
-
-#Distro Box
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
 }

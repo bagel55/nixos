@@ -11,6 +11,12 @@ programs.steam = {
   dedicatedServer.openFirewall = true;
 };
 
+#Distro Box
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+};
+
 #OpenRGB
 services.hardware.openrgb.enable = true;
 
