@@ -2,6 +2,7 @@
 imports =[
   ./hardware-configuration.nix
   ./system.nix
+  #./user.nix
   ./driver-configuration.nix
   ./pkg-inclusions.nix
   ./git-ops.nix
