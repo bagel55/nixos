@@ -36,7 +36,7 @@ home.file = {
 
     # List of plugins
     set -g @plugin 'tmux-plugins/tpm'
-    set -g @plugin "janoamaral/clea"
+    set -g @plugin "janoamaral/tokyo-night-tmux"
 
     # Other examples:
     # set -g @plugin 'github_username/plugin_name'
