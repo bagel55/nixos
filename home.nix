@@ -11,6 +11,12 @@ programs.zsh = {
     theme = "jonathan";
     plugins = [ "git" "z" ];
   };
+  initExtra = ''
+    # Auto-start tmux if not already inside a session
+    if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
+      exec tmux
+    fi
+  '';
 };
 
 programs.tmux = {
@@ -38,7 +44,7 @@ home.file = {
     owner = "tmux-plugins";
     repo = "tpm";
     rev = "master";
-sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
+    sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
   };
 };
 
