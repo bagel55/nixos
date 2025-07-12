@@ -12,7 +12,6 @@ programs.zsh = {
     plugins = [ "git" "z" ];
   };
   #initContent = ''
-    # Auto-start tmux if not already inside a session
     #if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
       #exec tmux
     #fi
@@ -74,6 +73,28 @@ home.activation.installTmuxPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] '
       run-shell ~/.tmux/plugins/tpm/bin/install_plugins || true
   fi
 '';
+
+xdg.configFile."alacritty/alacritty.toml".text = ''
+  [window]
+  opacity = 0.85  # 1.0 = opaque, 0.0 = fully transparent
+  blur = true     # Enable background blur if supported by your compositor (e.g., picom)
+
+  [font]
+  normal.family = "JetBrainsMono Nerd Font"
+  size = 11.0
+
+  [colors]
+  # Optional: make background fully black (transparency makes it subtle)
+  [colors.primary]
+  background = "0x000000"
+  foreground = "0xdcd7ba"
+'';
+
+services.picom.enable = true;
+services.picom.settings = {
+  blur-background = true;
+  opacity-rule = ["90:class_g = 'Alacritty'"];
+};
 
 home.stateVersion = "25.05";
 }
