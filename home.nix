@@ -79,10 +79,6 @@ xdg.configFile."alacritty/alacritty.toml".text = ''
   opacity = 0.85  # 1.0 = opaque, 0.0 = fully transparent
   blur = true     # Enable background blur if supported by your compositor (e.g., picom)
 
-  [font]
-  normal.family = "JetBrainsMono Nerd Font"
-  size = 11.0
-
   [colors]
   # Optional: make background fully black (transparency makes it subtle)
   [colors.primary]
