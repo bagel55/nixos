@@ -34,6 +34,7 @@ programs.tmux = {
     # List of plugins
     set -g @plugin 'tmux-plugins/tpm'
     set -g @plugin 'janoamaral/tokyo-night-tmux'
+    set -g @tokyo-night-tmux-theme 'storm'
 
     run '~/.tmux/plugins/tpm/tpm'
   '';
