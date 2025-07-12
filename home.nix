@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
 home.username = "bagel";
 home.homeDirectory = "/home/bagel";
 
@@ -30,7 +30,6 @@ programs.tmux = {
     set -g @plugin 'janoamaral/tokyo-night-tmux'
 
     # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-    run '~/.tmux/plugins/tpm/tpm'
   '';
 };
 
@@ -41,6 +40,16 @@ home.file = {
     rev = "master";
 sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
   };
+};
+
+home.activation = {
+  installTmuxPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [ -n "$DISPLAY" ] || [ -n "$TMUX" ]; then
+      echo "Installing tmux plugins..."
+      ${pkgs.tmux}/bin/tmux start-server \; \
+        run-shell '~/.tmux/plugins/tpm/bin/install_plugins' || true
+    fi
+  '';
 };
 
 home.stateVersion = "25.05";
