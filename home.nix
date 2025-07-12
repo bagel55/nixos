@@ -11,11 +11,11 @@ programs.zsh = {
     theme = "jonathan";
     plugins = [ "git" "z" ];
   };
-  #initContent = ''
-    #if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
-      #exec tmux
-    #fi
-  #'';
+  initContent = ''
+    if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
+      exec tmux
+    fi
+  '';
 };
 
 programs.tmux = {
