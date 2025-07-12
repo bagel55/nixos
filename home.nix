@@ -40,6 +40,13 @@ programs.tmux = {
   '';
 };
 
+home.file.".tmux.conf".text = ''
+  set -g @plugin 'tmux-plugins/tpm'
+  set -g @plugin 'janoamaral/tokyo-night-tmux'
+  set -g @tokyo-night-tmux 'storm'
+  run '~/.tmux/plugins/tpm/tpm'
+'';
+
 home.file = {
   ".tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
     owner = "tmux-plugins";
