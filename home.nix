@@ -68,8 +68,6 @@ home.activation.installTmuxPlugins = lib.hm.dag.entryAfter [ "writeBoundary" ] '
     echo "Installing tmux plugins..."
     ${pkgs.tmux}/bin/tmux start-server \; \
       run-shell ~/.tmux/plugins/tpm/bin/install_plugins || true
-    # type this in terminal if tmux is already running
-    tmux source ~/.tmux.conf
   fi
 '';
 
