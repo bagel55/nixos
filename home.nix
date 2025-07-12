@@ -59,7 +59,7 @@ home.file = {
   owner = "janoamaral";
   repo = "tokyo-night-tmux";
   rev = "master";
-  sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
+  sha256 = "sha256-TOS9+eOEMInAgosB3D9KhahudW2i1ZEH+IXEc0RCpU0=";
   };
 };
 
