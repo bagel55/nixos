@@ -50,9 +50,6 @@
     ];
   };
 
-#Home manager import
-#home-manager.users.bagel = import ./home.nix;
-
 #Auto Login
   services.displayManager.autoLogin = {
     enable = true;
