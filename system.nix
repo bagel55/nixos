@@ -44,15 +44,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
-#Auto Login
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "bagel";
-  };
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.gnome.gnome-keyring.enable = true;
 
 #Exclude Garbage
   services.gnome.core-apps.enable = false;
@@ -70,17 +61,6 @@
     pulse.enable = true; 
     jack.enable = true;
 	};
-
-#User Config
-  programs.zsh.enable = true;
-  users.users.bagel = {
-    isNormalUser = true;
-    description = "bagel";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "input" ];
-    useDefaultShell = true;
-    shell = pkgs.zsh;
-    packages = with pkgs; [];
-  };
 
 #Allow unfree packages
   nixpkgs.config.allowUnfree = true;

@@ -3,10 +3,6 @@ let
 unstableSmall = import <nixos-unstable-small> { config = {}; };
 in
 {
-
-#Flatpak only use if needed
-services.flatpak.enable = true;
-
 #Steam
 programs.steam = {
   enable = true;
@@ -14,7 +10,7 @@ programs.steam = {
   localNetworkGameTransfers.openFirewall = true;
   dedicatedServer.openFirewall = true;
 };
-  	
+
 #OpenRGB
 services.hardware.openrgb.enable = true;
 
@@ -54,47 +50,6 @@ protontricks #Proton prefix editor.
 proton-caller #Proton updater.
 protonup #Proton GE.
 protonup-qt #Proton for easy apply to other apps.
-
-# Basic Applications
-alacritty #Terminal emulator.
-brave #Web browser.
-discord #Discord.
-spotify #Spotify.
-
-# Games
-lutris #Gaming prefix manager.
-bottles #Bulk gaming prefix manager.
-heroic-unwrapped #Epic and GOG prefix manager.
-xivlauncher #FFXIV dalamud launcher.
-prismlauncher #Minecraft launcher.
-
-# Game mode, cheats, or tools.
-gamemode #Optimizations for games.
-samrewritten
-r2modman #Mod stuffs for loads of games.
-fflogs #Not ego parsing.
-
-
-# Emulators
-rpcs3 #PS3.
-shadps4 #PS4.
-xemu #Original Xbox.
-ryujinx #Switch.
-retroarchFull #Most other emulators.
-
-# Studio
-onlyoffice-bin #Office suite.
-davinci-resolve #Premeir Pro & After effects.
-gimp #Photoshop.
-inkscape-with-extensions #Illistrator.
-drawing
-blender #3D model editor.
-audacity #Audio editor.
-obs-studio #OBS.
-linuxKernel.packages.linux_6_6.v4l2loopback #OBS virtual cam.
-kicad #PCB CAD. 
-unityhub #Game engine.
-godot #Other game engine.
 
 # Archive and Compression
 unrar #.rar files are fucking lame.
