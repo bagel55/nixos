@@ -8,7 +8,7 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "agnoster";
+      theme = "jonathan";
       plugins = [ "git" "z" ];
     };
   };
