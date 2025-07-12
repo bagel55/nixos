@@ -36,7 +36,7 @@ home.file = {
 
     # List of plugins
     set -g @plugin 'tmux-plugins/tpm'
-    set -g @plugin "janoamaral/tokyo-night-tmux"
+    set -g @plugin "janoamaral/clea"
 
     # Other examples:
     # set -g @plugin 'github_username/plugin_name'
@@ -47,14 +47,18 @@ home.file = {
     # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
     run '~/.tmux/plugins/tpm/tpm'
   '';
+};
 
+home.file = {
   ".tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
-    owner = "tmux-plugins";
-    repo = "tpm";
-    rev = "master";
-    sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
+  owner = "tmux-plugins";
+  repo = "tpm";
+  rev = "master";
+  sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
   };
+};
 
+home.file = {
   ".tmux/plugins/tokyo-night-tmux".source = pkgs.fetchFromGitHub {
   owner = "janoamaral";
   repo = "tokyo-night-tmux";
