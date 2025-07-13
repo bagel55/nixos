@@ -26,7 +26,6 @@ let
 
     # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
     #run '~/.tmux/plugins/tpm/tpm'
-    $XDG_CONFIG_HOME/tmux/tmux.conf
   '';
 
   tmuxConfPath = "${config.home.homeDirectory}/.tmux.conf";
@@ -53,6 +52,7 @@ programs.zsh = {
 
 programs.tmux = {
   enable = true;
+  plugins = [ pkgs.tmuxPlugins.tokyo-night-tmux ];
 };
 
 home.file = {
