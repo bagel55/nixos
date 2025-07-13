@@ -15,7 +15,7 @@ programs.zsh = {
   oh-my-zsh = {
     enable = true;
     theme = "jonathan";
-    plugins = [ "git" "z" ];
+    plugins = [ "git" "z" "tmux" ];
   };
   #initContent = ''
     #if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
