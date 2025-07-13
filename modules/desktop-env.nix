@@ -33,17 +33,17 @@
 
 # Gnome apps
   environment.systemPackages = with pkgs; [
-    gnome-shell-extensions #Gnome extensions.
-    gnome-tweaks #Tweaks.
-    gnome-themes-extra #More themes to add propper dark mode.
-    gnome-disk-utility #Disk tool.
-    alacarte #Gnome menu editor.
-    baobab #Disk analyser.
-    gnome-calculator #Calculator.
-    nautilus #File explorer.
-    gnome-text-editor #Text editor GUI app.
-    eog #Images.
-    totem #Videos.
-    evince #Documents.
+    gnome-shell-extensions # Gnome extensions.
+    gnome-tweaks # Tweaks.
+    gnome-themes-extra # More themes to add propper dark mode.
+    gnome-disk-utility # Disk tool.
+    alacarte # Gnome menu editor.
+    baobab # Disk analyser.
+    gnome-calculator # Calculator.
+    nautilus # File explorer.
+    gnome-text-editor # Text editor GUI app.
+    eog # Images.
+    totem # Videos.
+    evince # Documents.
   ];
 }

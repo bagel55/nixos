@@ -69,37 +69,37 @@
 # Systemwide apps
   environment.systemPackages = with pkgs; [
     # Util
-    btop #System monitor.
-    nvtopPackages.full #GPU monitor.
-    corectrl #GPU configuration.
-    openrgb-with-all-plugins #RGB control.
-    pavucontrol #Audio devices configuration.
-    helvum #Audio porting.
-    fastfetch #Loonix redditing.
-    linuxKernel.packages.linux_6_6.v4l2loopback #OBS virtual cam.
+    btop # System monitor.
+    nvtopPackages.full # GPU monitor.
+    corectrl # GPU configuration.
+    openrgb-with-all-plugins # RGB control.
+    pavucontrol # Audio devices configuration.
+    helvum # Audio porting.
+    fastfetch # Loonix redditing.
+    linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam.
 
     # Wine and friends
-    wine64Packages.stagingFull #Wine 64 bit tools.
-    winePackages.stagingFull #Wine 32 bit tools.
-    winetricks #Wine prefix editor.
-    protontricks #Proton prefix editor.
-    proton-caller #Proton updater.
-    protonup #Proton GE.
-    protonup-qt #Proton for easy apply to other apps.
+    wine64Packages.stagingFull # Wine 64 bit tools.
+    winePackages.stagingFull # Wine 32 bit tools.
+    winetricks # Wine prefix editor.
+    protontricks # Proton prefix editor.
+    proton-caller # Proton updater.
+    protonup # Proton GE.
+    protonup-qt # Proton for easy apply to other apps.
 
     # Archive and Compression
-    unrar #.rar files are fucking lame.
-    p7zip #The GOAT.
+    unrar # .rar files are fucking lame.
+    p7zip # The GOAT.
 
     # Base-Devel
-    distrobox #Containers instead of vm's.
-    xorg.xhost #fml.
-    vim #The text editor my grandfather used.
-    git #Imagine not knowing what git is.
-    github-desktop #Git for lazy fucks.
-    git-lfs #Git for fat fucks.
-    vscode #Text editor that gets paid 6 figures.
-    dotnet-sdk #C# Things, not a big fan.
-    direnv #Load env variables in CLI.
+    distrobox # Containers instead of vm's.
+    xorg.xhost # fml.
+    vim # The text editor my grandfather used.
+    git # Imagine not knowing what git is.
+    github-desktop # Git for lazy fucks.
+    git-lfs # Git for fat fucks.
+    vscode # Text editor that gets paid 6 figures.
+    dotnet-sdk # C# Things, not a big fan.
+    direnv # Load env variables in CLI.
   ];
 }
