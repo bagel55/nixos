@@ -56,8 +56,9 @@ programs.tmux = {
 
     set -g @tokyo-night-tmux_show_path 1
     set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
+    set -g status-left-length 100
+    set -g status-left '#{pane_current_path}'
 
-    set -g status-right ""
   '';
 };
 
