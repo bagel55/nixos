@@ -67,7 +67,6 @@ home.file = {
 
     [terminal.shell]
     program = "${pkgs.zsh}/bin/zsh"
-    args = ["-c", "tmux kill-server >/dev/null 2>&1; exec tmux"]  
   '';
 };
 
