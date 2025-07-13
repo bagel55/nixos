@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: 
+let
+  repoDirTpm = "${config.home.homeDirectory}/.tmux/plugins/tpm";
+  repoDirTkyo = "${config.home.homeDirectory}/.tmux/plugins/tokyo-night-tmux";
+in 
+{
 home.username = "bagel";
 home.homeDirectory = "/home/bagel";
 
@@ -49,22 +54,29 @@ home.file = {
 };
 
 home.file = {
-  ".tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
-  owner = "tmux-plugins";
-  repo = "tpm";
-  rev = "master";
-  sha256 = "sha256-hW8mfwB8F9ZkTQ72WQp/1fy8KL1IIYMZBtZYIwZdMQc=";
-  };
+  ".config/alacritty/alacritty.toml".text = ''
+    [window]
+    opacity = 0.90
+  '';
 };
 
-home.file = {
-  ".tmux/plugins/tokyo-night-tmux".source = pkgs.fetchFromGitHub {
-  owner = "janoamaral";
-  repo = "tokyo-night-tmux";
-  rev = "master";
-  sha256 = "sha256-TOS9+eOEMInAgosB3D9KhahudW2i1ZEH+IXEc0RCpU0=";
-  };
-};
+home.activation.cloneRepoTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  if [ ! -d "${repoDirTpm}" ]; then
+    echo "Cloning repo to ${repoDirTpm}..."
+    git clone https://github.com/tmux-plugins/tpm "${repoDirTpm}"
+  else
+    echo "Repo already exists at ${repoDirTpm}"
+  fi
+'';
+
+home.activation.cloneRepoTkyo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  if [ ! -d "${repoDirTkyo}" ]; then
+    echo "Cloning repo to ${repoDirTkyo}..."
+    git clone https://github.com/janoamaral/tokyo-night-tmux "${repoDirTkyo}"
+  else
+    echo "Repo already exists at ${repoDirTkyo}"
+  fi
+'';
 
 home.stateVersion = "25.05";
 }
