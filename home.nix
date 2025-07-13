@@ -48,8 +48,11 @@ programs.tmux = {
     set-option -g status-position top
     set-environment -gu "SSH_ASKPASS"
 
-    bind | split-window -h -c "#{pane_current_path}"
-    bind - split-window -v -c "#{pane_current_path}"
+    unbind h
+    bind h split-window -h -c "#{pane_current_path}"
+
+    unbind v
+    bind v split-window -v -c "#{pane_current_path}"
 
     set -g @tokyo-night-tmux_show_netspeed 1
     set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
