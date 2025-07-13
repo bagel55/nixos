@@ -19,6 +19,7 @@ programs.zsh = {
   };
   initContent = ''
     if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
+      tmux kill-session -t temp_session
       exec tmux
       clear
     fi
