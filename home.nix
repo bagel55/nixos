@@ -67,7 +67,8 @@ home.file = {
 
     [terminal.shell]
     program = "${pkgs.zsh}/bin/zsh"
-    args = ["-c", "if [ -z \"$TMUX\" ] && command -v tmux >/dev/null; then exec tmux; else exec zsh; fi"]  '';
+    args = ["-c", "tmux kill-server >/dev/null 2>&1; exec tmux"]  
+  '';
 };
 
 home.stateVersion = "25.05";
