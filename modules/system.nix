@@ -1,5 +1,5 @@
 { config, pkgs, ... }:{
-#Boot
+# Boot
 	boot.loader = {
     grub = {
       enable = true;
@@ -10,16 +10,16 @@
   boot.kernelPackages = pkgs.linuxPackages_lqx;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
-#SSD Trim
+# SSD Trim
 	services.fstrim.enable = true;
 
-#Networking
+# Networking
   networking.networkmanager.enable = true;
 
-#Time Zone
+# Time Zone
   time.timeZone = "America/Los_Angeles";
 
-#Internationalisation Properties
+# Internationalisation Properties
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -33,33 +33,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-#Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
-
-#Enable the GNOME Desktop Environment.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-#Auto Login
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "bagel";
-  };
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.gnome.gnome-keyring.enable = true;
-
-#Exclude Garbage
-  services.gnome.core-apps.enable = false;
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
-
-#Sound
+# Sound
   hardware.bluetooth.enable = true;
   services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
@@ -71,13 +45,62 @@
     jack.enable = true;
 	};
 
-#Allow unfree packages
+# Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-#Set Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-  	nerd-fonts.droid-sans-mono
+# Steam
+  programs.steam = {
+    enable = true;
+	  remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+# Distro Box
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+# OpenRGB
+  services.hardware.openrgb.enable = true;
+
+# Systemwide apps
+  environment.systemPackages = with pkgs; [
+    # Util
+    btop #System monitor.
+    nvtopPackages.full #GPU monitor.
+    corectrl #GPU configuration.
+    openrgb-with-all-plugins #RGB control.
+    pavucontrol #Audio devices configuration.
+    helvum #Audio porting.
+    fastfetch #Loonix redditing.
+    obsidian #Notes.
+    linuxKernel.packages.linux_6_6.v4l2loopback #OBS virtual cam.
+
+    # Wine and friends
+    wine64Packages.stagingFull #Wine 64 bit tools.
+    winePackages.stagingFull #Wine 32 bit tools.
+    winetricks #Wine prefix editor.
+    protontricks #Proton prefix editor.
+    proton-caller #Proton updater.
+    protonup #Proton GE.
+    protonup-qt #Proton for easy apply to other apps.
+
+    # Archive and Compression
+    unrar #.rar files are fucking lame.
+    p7zip #The GOAT.
+
+    # Base-Devel
+    distrobox #Containers instead of vm's.
+    xorg.xhost #fml.
+    vim #The text editor my grandfather used.
+    git #Imagine not knowing what git is.
+    github-desktop #Git for lazy fucks.
+    git-lfs #Git for fat fucks.
+    vscode #Text editor that gets paid 6 figures.
+    dotnet-sdk #C# Things, not a big fan.
+    direnv #Load env variables in CLI.
   ];
 }
