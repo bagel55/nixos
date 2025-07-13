@@ -36,9 +36,6 @@ programs.tmux = {
   ];
 
   extraConfig = ''
-    set -g @tokyo-night-tmux_show_path 1
-    set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
-
     set -g prefix C-s
     set -g mouse on
 
@@ -51,13 +48,13 @@ programs.tmux = {
     unbind v
     bind v split-window -v -c "#{pane_current_path}"
 
+    set -g status-right ""
+
     set -g @tokyo-night-tmux_show_netspeed 1
     set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
 
-    set -g @tokyo-night-tmux_show_time 0
-    set -g @tokyo-night-tmux_show_date 0
-
-    set -g status-right ""
+    set -g @tokyo-night-tmux_show_path 1
+    set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
   '';
 };
 
