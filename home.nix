@@ -58,23 +58,5 @@ home.file = {
   '';
 };
 
-#home.activation.cloneRepoTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-#  if [ ! -d "${repoDirTpm}" ]; then
-#    echo "Cloning repo to ${repoDirTpm}..."
-#    ${gitPath} clone https://github.com/tmux-plugins/tpm "${repoDirTpm}"
-#  else
-#    echo "Repo already exists at ${repoDirTpm}"
-#  fi
-#'';
-
-#home.activation.cloneRepoTkyo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-#  if [ ! -d "${repoDirTkyo}" ]; then
-#    echo "Cloning repo to ${repoDirTkyo}..."
-#    ${gitPath} clone https://github.com/janoamaral/tokyo-night-tmux "${repoDirTkyo}"
-#  else
-#    echo "Repo already exists at ${repoDirTkyo}"
-#  fi
-#'';
-
 home.stateVersion = "25.05";
 }
