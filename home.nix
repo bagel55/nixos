@@ -52,11 +52,7 @@ programs.tmux = {
     bind - split-window -v -c "#{pane_current_path}"
 
     set -g @tokyo-night-tmux_show_netspeed 1
-    set -g @tokyo-night-tmux_netspeed_iface "wlan0" # Detected via default route
-    set -g @tokyo-night-tmux_netspeed_showip 1      # Display IPv4 address (default 0)
     set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
-    
-    set -g @tokyo-night-tmux_show_hostname 1
   '';
 };
 
