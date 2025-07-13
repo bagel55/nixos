@@ -3,32 +3,6 @@ let
   repoDirTpm = "${config.home.homeDirectory}/.tmux/plugins/tpm";
   repoDirTkyo = "${config.home.homeDirectory}/.tmux/plugins/tokyo-night-tmux";
   gitPath = "${pkgs.git}/bin/git";
-
-  tmuxConf = ''
-    unbind r
-    bind r source-file ~/.tmux.conf
-
-    set -g prefix C-s
-    set -g mouse on
-
-    set-option -g status-position top
-    set-environment -gu "SSH_ASKPASS"
-
-    # List of plugins
-    set -g @plugin 'tmux-plugins/tpm'
-    set -g @plugin "janoamaral/tokyo-night-tmux"
-
-    # Other examples:
-    # set -g @plugin 'github_username/plugin_name'
-    # set -g @plugin 'github_username/plugin_name#branch'
-    # set -g @plugin 'git@github.com:user/plugin'
-    # set -g @plugin 'git@bitbucket.com:user/plugin'
-
-    # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-    #run '~/.tmux/plugins/tpm/tpm'
-  '';
-
-  tmuxConfPath = "${config.home.homeDirectory}/.tmux.conf";
 in 
 {
 home.username = "bagel";
@@ -52,7 +26,31 @@ programs.zsh = {
 
 programs.tmux = {
   enable = true;
-  plugins = [ pkgs.tmuxPlugins.tokyo-night-tmux ];
+  shortcut = "a";
+
+  baseIndex = 1;
+  newSession = true;
+
+  escapeTime = 0;
+
+  secureSocket = false;
+
+  plugins = with pkgs; [
+    tmuxPlugins.tokyo-night-tmux
+  ];
+
+  extraConfig = ''
+    set -g default-terminal "xterm-256color"
+    set -ga terminal-overrides ",*256col*:Tc"
+    set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+    set-environment -g COLORTERM "truecolor"
+
+    set-option -g mouse on
+    # easy-to-remember split pane commands
+    bind | split-window -h -c "#{pane_current_path}"
+    bind - split-window -v -c "#{pane_current_path}"
+    bind c new-window -c "#{pane_current_path}"
+  '';
 };
 
 home.file = {
@@ -62,28 +60,23 @@ home.file = {
   '';
 };
 
-home.activation.writeTmuxConf = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    echo '${tmuxConf}' > ${tmuxConfPath}
-    #chown ${config.home.username}:${config.home.username} ${tmuxConfPath}
-  '';
+#home.activation.cloneRepoTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+#  if [ ! -d "${repoDirTpm}" ]; then
+#    echo "Cloning repo to ${repoDirTpm}..."
+#    ${gitPath} clone https://github.com/tmux-plugins/tpm "${repoDirTpm}"
+#  else
+#    echo "Repo already exists at ${repoDirTpm}"
+#  fi
+#'';
 
-home.activation.cloneRepoTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  if [ ! -d "${repoDirTpm}" ]; then
-    echo "Cloning repo to ${repoDirTpm}..."
-    ${gitPath} clone https://github.com/tmux-plugins/tpm "${repoDirTpm}"
-  else
-    echo "Repo already exists at ${repoDirTpm}"
-  fi
-'';
-
-home.activation.cloneRepoTkyo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  if [ ! -d "${repoDirTkyo}" ]; then
-    echo "Cloning repo to ${repoDirTkyo}..."
-    ${gitPath} clone https://github.com/janoamaral/tokyo-night-tmux "${repoDirTkyo}"
-  else
-    echo "Repo already exists at ${repoDirTkyo}"
-  fi
-'';
+#home.activation.cloneRepoTkyo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+#  if [ ! -d "${repoDirTkyo}" ]; then
+#    echo "Cloning repo to ${repoDirTkyo}..."
+#    ${gitPath} clone https://github.com/janoamaral/tokyo-night-tmux "${repoDirTkyo}"
+#  else
+#    echo "Repo already exists at ${repoDirTkyo}"
+#  fi
+#'';
 
 home.stateVersion = "25.05";
 }
