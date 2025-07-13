@@ -17,12 +17,12 @@ programs.zsh = {
     theme = "jonathan";
     plugins = [ "git" "z" "tmux" ];
   };
-  #initContent = ''
-    #if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
-      #exec tmux
-      #clear
-    #fi
-  #'';
+  initContent = ''
+    if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
+      exec tmux
+      clear
+    fi
+  '';
 };
 
 programs.tmux = {
@@ -64,9 +64,6 @@ home.file = {
     [window]
     opacity = 0.90
     dimensions = { columns = 120, lines = 40 }
-
-    [terminal.shell]
-    program = "${pkgs.zsh}/bin/zsh"
   '';
 };
 
