@@ -2,6 +2,7 @@
 let
   repoDirTpm = "${config.home.homeDirectory}/.tmux/plugins/tpm";
   repoDirTkyo = "${config.home.homeDirectory}/.tmux/plugins/tokyo-night-tmux";
+  gitPath = "${pkgs.git}/bin/git";
 in 
 {
 home.username = "bagel";
@@ -63,7 +64,7 @@ home.file = {
 home.activation.cloneRepoTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
   if [ ! -d "${repoDirTpm}" ]; then
     echo "Cloning repo to ${repoDirTpm}..."
-    git clone https://github.com/tmux-plugins/tpm "${repoDirTpm}"
+    ${gitPath} clone https://github.com/tmux-plugins/tpm "${repoDirTpm}"
   else
     echo "Repo already exists at ${repoDirTpm}"
   fi
@@ -72,7 +73,7 @@ home.activation.cloneRepoTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
 home.activation.cloneRepoTkyo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
   if [ ! -d "${repoDirTkyo}" ]; then
     echo "Cloning repo to ${repoDirTkyo}..."
-    git clone https://github.com/janoamaral/tokyo-night-tmux "${repoDirTkyo}"
+    ${gitPath} clone https://github.com/janoamaral/tokyo-night-tmux "${repoDirTkyo}"
   else
     echo "Repo already exists at ${repoDirTkyo}"
   fi
