@@ -40,22 +40,16 @@ programs.tmux = {
   ];
 
   extraConfig = ''
-    set -g default-terminal "xterm-256color"
-    set -ga terminal-overrides ",*256col*:Tc"
-    set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-    set-environment -g COLORTERM "truecolor"
+    unbind r
+    bind r source-file ~/.tmux.conf
 
-    set-option -g mouse on
-    # easy-to-remember split pane commands
-    bind | split-window -h -c "#{pane_current_path}"
-    bind - split-window -v -c "#{pane_current_path}"
-    bind c new-window -c "#{pane_current_path}"
+    set -g prefix C-s
+    set -g mouse on
+
+    set-option -g status-position top
+    set-environment -gu "SSH_ASKPASS"
   '';
 };
-
-programs.tmate = {
-    enable = true;
-  };
 
 home.file = {
   ".config/alacritty/alacritty.toml".text = ''
