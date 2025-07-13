@@ -53,6 +53,10 @@ programs.tmux = {
   '';
 };
 
+programs.tmate = {
+    enable = true;
+  };
+
 home.file = {
   ".config/alacritty/alacritty.toml".text = ''
     [window]
