@@ -65,7 +65,7 @@ home.file = {
     opacity = 0.90
     dimensions = { columns = 120, lines = 40 }
 
-    [shell]
+    [terminal.shell]
     program = "${pkgs.zsh}/bin/zsh"
     args = ["-c", "if [ -z \"$TMUX\" ] && command -v tmux >/dev/null; then exec tmux; else exec zsh; fi"]  '';
 };
