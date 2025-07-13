@@ -63,6 +63,8 @@ home.file = {
   ".config/alacritty/alacritty.toml".text = ''
     [window]
     opacity = 0.90
+    dimensions = { columns = 120, lines = 40 }
+
   '';
 };
 
