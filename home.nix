@@ -14,7 +14,7 @@ programs.zsh = {
   enable = true;
   oh-my-zsh = {
     enable = true;
-    theme = "jonathan";
+    theme = "arrow";
     plugins = [ "git" "z" "tmux" ];
   };
   initContent = ''
