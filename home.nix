@@ -56,6 +56,8 @@ programs.tmux = {
 
     set -g @tokyo-night-tmux_show_time 0
     set -g @tokyo-night-tmux_show_date 0
+
+    set -g status-right ""
   '';
 };
 
