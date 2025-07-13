@@ -18,9 +18,11 @@ programs.zsh = {
     plugins = [ "git" "z" "tmux" ];
   };
   initContent = ''
-    if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
-      exec tmux
-      clear
+    if command -v tmux >/dev/null; then
+      if [ -z "$TMUX" ]; then
+      # Attach to existing session or create one named 'main'
+      tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+      fi
     fi
   '';
 };
