@@ -8,6 +8,9 @@
     useDefaultShell = true;
     shell = pkgs.zsh;
     packages = with pkgs; [
+      # Shell
+        oh-my-zsh
+        tmux
       # Basic Applications
         alacritty #Terminal emulator.
         brave #Web browser.
@@ -43,19 +46,9 @@
         blender #3D model editor.
         audacity #Audio editor.
         obs-studio #OBS.
-        linuxKernel.packages.linux_6_6.v4l2loopback #OBS virtual cam.
         kicad #PCB CAD. 
         unityhub #Game engine.
         godot #Other game engine.
     ];
   };
-
-#Auto Login
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "bagel";
-  };
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.gnome.gnome-keyring.enable = true;
 }

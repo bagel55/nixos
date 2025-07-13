@@ -45,6 +45,15 @@
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+#Auto Login
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "bagel";
+  };
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+  services.gnome.gnome-keyring.enable = true;
+
 #Exclude Garbage
   services.gnome.core-apps.enable = false;
   services.xserver.excludePackages = [ pkgs.xterm ];
