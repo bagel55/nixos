@@ -66,8 +66,8 @@ home.file = {
     dimensions = { columns = 120, lines = 40 }
 
     [shell]
-    args = ["-c" "if [ -z \"$TMUX\" ] && command -v tmux >/dev/null; then exec tmux; else exec zsh; fi"]
-  '';
+    program = "${pkgs.zsh}/bin/zsh"
+    args = ["-c", "if [ -z \"$TMUX\" ] && command -v tmux >/dev/null; then exec tmux; else exec zsh; fi"]  '';
 };
 
 home.stateVersion = "25.05";
