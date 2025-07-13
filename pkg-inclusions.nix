@@ -68,7 +68,6 @@ vim #The text editor my grandfather used.
 git #Imagine not knowing what git is.
 github-desktop #Git for lazy fucks.
 git-lfs #Git for fat fucks.
-tmux #Terminal autism.
 vscode #Text editor that gets paid 6 figures.
 dotnet-sdk #C# Things, not a big fan.
 direnv #Load env variables in CLI.
