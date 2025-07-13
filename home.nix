@@ -1,10 +1,4 @@
-{ config, pkgs, lib, ... }: 
-let
-  repoDirTpm = "${config.home.homeDirectory}/.tmux/plugins/tpm";
-  repoDirTkyo = "${config.home.homeDirectory}/.tmux/plugins/tokyo-night-tmux";
-  gitPath = "${pkgs.git}/bin/git";
-in 
-{
+{ config, pkgs, lib, ... }: {
 home.username = "bagel";
 home.homeDirectory = "/home/bagel";
 
