@@ -76,7 +76,6 @@
     pavucontrol #Audio devices configuration.
     helvum #Audio porting.
     fastfetch #Loonix redditing.
-    obsidian #Notes.
     linuxKernel.packages.linux_6_6.v4l2loopback #OBS virtual cam.
 
     # Wine and friends

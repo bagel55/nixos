@@ -8,9 +8,6 @@
     useDefaultShell = true;
     shell = pkgs.zsh;
     packages = with pkgs; [
-      # Shell
-        oh-my-zsh
-        tmux
       # Basic Applications
         alacritty #Terminal emulator.
         brave #Web browser.
@@ -49,6 +46,7 @@
         kicad #PCB CAD. 
         unityhub #Game engine.
         godot #Other game engine.
+        obsidian #Notes.
     ];
   };
 }
