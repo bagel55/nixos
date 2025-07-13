@@ -43,6 +43,9 @@ programs.tmux = {
 
     set-option -g status-position top
     set-environment -gu "SSH_ASKPASS"
+
+    bind | split-window -h -c "#{pane_current_path}"
+    bind - split-window -v -c "#{pane_current_path}"
   '';
 };
 
