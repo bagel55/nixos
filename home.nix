@@ -20,6 +20,7 @@ programs.zsh = {
   initContent = ''
     if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
       exec tmux
+      clear
     fi
   '';
 };
