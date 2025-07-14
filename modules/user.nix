@@ -34,6 +34,12 @@
         ryujinx #Switch.
         retroarchFull #Most other emulators.
 
+      # Proton
+        protontricks # Proton prefix editor.
+        proton-caller # Proton updater.
+        protonup # Proton GE.
+        protonup-qt # Proton for easy apply to other apps.
+
       # Studio
         onlyoffice-bin #Office suite.
         davinci-resolve #Premeir Pro & After effects.
@@ -46,5 +52,13 @@
         kicad #PCB CAD.
         obsidian #Notes.
     ];
+  };
+
+# Steam
+  programs.steam = {
+    enable = true;
+	  remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 }

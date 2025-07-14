@@ -49,14 +49,6 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-# Steam
-  programs.steam = {
-    enable = true;
-	  remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
 # OpenRGB
   services.hardware.openrgb.enable = true;
 
@@ -72,14 +64,10 @@
     fastfetch # Loonix redditing.
     linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam.
 
-    # Wine and friends
+    # Wine
     wine64Packages.stagingFull # Wine 64 bit tools.
     winePackages.stagingFull # Wine 32 bit tools.
     winetricks # Wine prefix editor.
-    protontricks # Proton prefix editor.
-    proton-caller # Proton updater.
-    protonup # Proton GE.
-    protonup-qt # Proton for easy apply to other apps.
 
     # Archive and Compression
     unrar # .rar files are fucking lame.
