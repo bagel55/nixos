@@ -43,9 +43,7 @@
         blender #3D model editor.
         audacity #Audio editor.
         obs-studio #OBS.
-        kicad #PCB CAD. 
-        unityhub #Game engine.
-        godot #Other game engine.
+        kicad #PCB CAD.
         obsidian #Notes.
     ];
   };

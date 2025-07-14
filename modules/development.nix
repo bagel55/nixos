@@ -14,6 +14,8 @@
 
     vscode
     dotnet-sdk
+    unityhub
+    godot
   ];
 
 # Distro Box

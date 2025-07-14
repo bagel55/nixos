@@ -1,67 +1,75 @@
 { config, pkgs, lib, ... }: {
+# Enables home-manager
 home.username = "bagel";
 home.homeDirectory = "/home/bagel";
-
 programs.home-manager.enable = true;
 
-programs.zsh = {
-  enable = true;
-  oh-my-zsh = {
+# Enables and configures both zsh and oh-my-zsh
+  programs.zsh = {
     enable = true;
-    theme = "arrow";
-    plugins = [ "git" "z" "tmux" "direnv" ];
-  };
-  initContent = ''
-    if command -v tmux >/dev/null; then
-      if [ -z "$TMUX" ]; then
-      # Attach to existing session or create one named 'main'
-      tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+    oh-my-zsh = {
+      enable = true;
+      theme = "arrow";
+      plugins = [ "git" "z" "tmux" "direnv" ];
+    };
+    initContent = ''
+      if command -v tmux >/dev/null; then
+        if [ -z "$TMUX" ]; then
+        # Attach to existing session or create one named 'main'
+        tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+        fi
       fi
-    fi
-  '';
-};
+    '';
+  };
 
-programs.tmux = {
-  enable = true;
-  newSession = true;
-  escapeTime = 0;
-  secureSocket = false;
+# Enable direnv
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 
-  plugins = with pkgs; [
-    tmuxPlugins.tokyo-night-tmux
-  ];
 
-  extraConfig = ''
-    set -g prefix C-s
-    set -g mouse on
+# Enables and configures tmux
+  programs.tmux = {
+    enable = true;
+    newSession = true;
+    escapeTime = 0;
+    secureSocket = false;
 
-    set-option -g status-position top
-    set-environment -gu "SSH_ASKPASS"
+    plugins = with pkgs; [
+      tmuxPlugins.tokyo-night-tmux
+    ];
 
-    unbind h
-    bind h split-window -h -c "#{pane_current_path}"
+    extraConfig = ''
+      set -g prefix C-s
+      set -g mouse on
 
-    unbind v
-    bind v split-window -v -c "#{pane_current_path}"
+      set-option -g status-position top
+      set-environment -gu "SSH_ASKPASS"
 
-    set -g @tokyo-night-tmux_show_time 0
-    set -g @tokyo-night-tmux_show_date 0
+      unbind h
+      bind h split-window -h -c "#{pane_current_path}"
 
-    set -g @tokyo-night-tmux_show_netspeed 1
-    set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
+      unbind v
+      bind v split-window -v -c "#{pane_current_path}"
 
-    set -g @tokyo-night-tmux_show_path 1
-    set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
-  '';
-};
+      set -g @tokyo-night-tmux_show_time 0
+      set -g @tokyo-night-tmux_show_date 0
 
-home.file = {
-  ".config/alacritty/alacritty.toml".text = ''
-    [window]
-    opacity = 0.90
-    dimensions = { columns = 120, lines = 40 }
-  '';
-};
+      set -g @tokyo-night-tmux_show_netspeed 1
+      set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
+
+      set -g @tokyo-night-tmux_show_path 1
+      set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
+    '';
+  };
+
+# Configures Alacritty
+  home.file = {
+    ".config/alacritty/alacritty.toml".text = ''
+      [window]
+      opacity = 0.90
+      dimensions = { columns = 120, lines = 40 }
+    '';
+  };
 
 home.stateVersion = "25.05";
 }
