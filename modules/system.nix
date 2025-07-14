@@ -62,7 +62,11 @@ in {
 # OpenRGB
   services.hardware.openrgb.enable = true;
   services.udev.packages = [ pkgs.openrgb ];
-  boot.kernelModules = [ "i2c-dev" ];
+  boot.kernelModules = [ 
+    "i2c-dev"
+    "i2c-i801"
+    "i2c-piix4"
+  ];
   hardware.i2c.enable = true;
 
   systemd.services.no-rgb = {
