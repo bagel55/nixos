@@ -4,6 +4,7 @@ imports =[
   ./modules/hosts/Desktop/driver-configuration.nix
   ./modules/system.nix
   ./modules/environment.nix
+  ./modules/development.nix
   ./modules/user.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
