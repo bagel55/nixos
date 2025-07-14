@@ -57,12 +57,6 @@
     dedicatedServer.openFirewall = true;
   };
 
-# Distro Box
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
 # OpenRGB
   services.hardware.openrgb.enable = true;
 
@@ -90,16 +84,5 @@
     # Archive and Compression
     unrar # .rar files are fucking lame.
     p7zip # The GOAT.
-
-    # Base-Devel
-    distrobox # Containers instead of vm's.
-    xorg.xhost # fml.
-    vim # The text editor my grandfather used.
-    git # Imagine not knowing what git is.
-    github-desktop # Git for lazy fucks.
-    git-lfs # Git for fat fucks.
-    vscode # Text editor that gets paid 6 figures.
-    dotnet-sdk # C# Things, not a big fan.
-    direnv # Load env variables in CLI.
   ];
 }

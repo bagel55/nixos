@@ -9,7 +9,7 @@ programs.zsh = {
   oh-my-zsh = {
     enable = true;
     theme = "arrow";
-    plugins = [ "git" "z" "tmux" ];
+    plugins = [ "git" "z" "tmux" "direnv" ];
   };
   initContent = ''
     if command -v tmux >/dev/null; then
