@@ -3,7 +3,7 @@ imports =[
   ./modules/hosts/Desktop/hardware-configuration.nix
   ./modules/hosts/Desktop/driver-configuration.nix
   ./modules/system.nix
-  ./modules/environment.nix
+  ./modules/desktop.nix
   ./modules/development.nix
   ./modules/user.nix
   ./modules/automation/git-ops.nix
