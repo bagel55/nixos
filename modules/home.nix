@@ -14,6 +14,7 @@ programs.home-manager.enable = true;
     };
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
       if command -v tmux >/dev/null; then
         if [ -z "$TMUX" ]; then
         # Attach to existing session or create one named 'main'
