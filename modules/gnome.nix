@@ -1,23 +1,17 @@
 { config, pkgs, ... }:{
-# Enable the GNOME Desktop Environment.
+# enable gnome de
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-# Auto Login
+# auto login
   services.gnome.gnome-keyring.enable = true;
 
-# Exclude Garbage
+# exclude garbage
   services.gnome.core-apps.enable = false;
-  services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
 
-# Enable dconf
+# dconf
   programs.dconf.enable = true;
-
-# Set Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
 }

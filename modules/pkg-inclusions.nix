@@ -1,35 +1,49 @@
 { config, pkgs, ... }:{
   environment.systemPackages = with pkgs; [
-    # Gnome Apps
+  # gnome apps
     gnome-shell-extensions
     gnome-tweaks
     gnome-themes-extra
     gnome-disk-utility
-    alacarte # Gnome menu editor.
-    baobab # Disk analyser.
+    alacarte # gnome menu editor
+    baobab # disk analyser
     gnome-calculator
-    nautilus # File explorer.
+    nautilus # file explorer
     gnome-text-editor
-    eog # Images.
-    totem # Videos.
-    evince # Documents.
+    eog # images
+    totem # videos
+    evince # documents
 
-    # Util
-    btop # System monitor.
-    nvtopPackages.full # GPU monitor.
-    corectrl # GPU configuration.
+  # util
+    btop # system monitor
+    nvtopPackages.full # GPU monitor
+    corectrl # GPU configuration
     openrgb-with-all-plugins
-    pavucontrol # Audio devices configuration.
-    helvum # Audio porting.
-    fastfetch # Loonix redditing.
-    linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam.
+    pavucontrol # audio devices configuration
+    helvum # audio porting
+    fastfetch # loonix redditing
+    linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam
 
-    # Wine
+  # wine
     wine64Packages.stagingFull
     winePackages.stagingFull
     winetricks
 
-    # Archive and Compression
+  # base-devel
+    vim
+    neovim
+    lunarvim
+    git
+    git-lfs
+    github-desktop
+    distrobox
+    xorg.xhost
+    vscode
+    dotnet-sdk
+    unityhub
+    godot
+
+  # archive and compression
     unrar
     p7zip
   ];

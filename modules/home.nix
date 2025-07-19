@@ -1,74 +1,10 @@
 { config, pkgs, lib, ... }: {
-# Enables home-manager
+# enables home-manager
   home.username = "bagel";
   home.homeDirectory = "/home/bagel";
   programs.home-manager.enable = true;
 
-# Gnome Font
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      font-name = "JetBrainsMono Nerd Font 11";
-      document-font-name = "JetBrainsMono Nerd Font 11";
-      monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
-    };
-  };
-
-# Enables and configures both zsh and oh-my-zsh
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "z" "tmux" "direnv" ];
-    };
-    initContent = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-      if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
-        exec tmux new-session -A -s main
-      fi
-    '';
-  };
-
-# Enable direnv
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-
-# Enables and configures tmux
-  programs.tmux = {
-    enable = true;
-    newSession = true;
-    escapeTime = 0;
-    secureSocket = false;
-
-    plugins = with pkgs.tmuxPlugins; [
-      tokyo-night-tmux
-      resurrect
-      continuum
-    ];
-
-    extraConfig = ''
-      set -g prefix C-s
-      set -g mouse on
-
-      set-environment -gu "SSH_ASKPASS"
-
-      unbind h
-      bind h split-window -h -c "#{pane_current_path}"
-
-      unbind v
-      bind v split-window -v -c "#{pane_current_path}"
-
-      set -g @tokyo-night-tmux_show_netspeed 1
-
-      set -g @continuum-restore 'on'
-      set -g @resurrect-capture-pane-contents 'on'
-    '';
-  };
-
-# Configures Alacritty
+# alacritty
   programs.alacritty = {
     enable = true;
     settings = {
@@ -104,6 +40,70 @@
       };
     };
   };
+
+# zsh and oh-my-zsh
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "z" "tmux" "direnv" ];
+    };
+    initContent = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+      if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
+        exec tmux new-session -A -s main
+      fi
+    '';
+  };
+
+# tmux
+  programs.tmux = {
+    enable = true;
+    newSession = true;
+    escapeTime = 0;
+    secureSocket = false;
+
+    plugins = with pkgs.tmuxPlugins; [
+      tokyo-night-tmux
+      resurrect
+      continuum
+    ];
+
+    extraConfig = ''
+      set -g prefix C-s
+      set -g mouse on
+
+      set-environment -gu "SSH_ASKPASS"
+
+      unbind h
+      bind h split-window -h -c "#{pane_current_path}"
+
+      unbind v
+      bind v split-window -v -c "#{pane_current_path}"
+
+      set -g @tokyo-night-tmux_show_netspeed 1
+
+      set -g @continuum-restore 'on'
+      set -g @resurrect-capture-pane-contents 'on'
+    '';
+  };
+
+# gnome font
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      font-name = "JetBrainsMono Nerd Font 11";
+      document-font-name = "JetBrainsMono Nerd Font 11";
+      monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
+    };
+  };
+
+# direnv
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 
 home.stateVersion = "25.05";
 }

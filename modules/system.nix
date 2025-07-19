@@ -1,5 +1,5 @@
 { config, pkgs, ... }:{
-# Boot
+# boot
 	boot.loader = {
     grub = {
       enable = true;
@@ -10,16 +10,14 @@
   boot.kernelPackages = pkgs.linuxPackages_lqx;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
-# SSD Trim
+# SSD trim
 	services.fstrim.enable = true;
 
-# Networking
-  networking.networkmanager.enable = true;
+# nixos configuration
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-# Time Zone
-  time.timeZone = "America/Los_Angeles";
-
-# Internationalisation Properties
+# internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -33,7 +31,13 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-# Sound
+# networking
+  networking.networkmanager.enable = true;
+
+# time zone
+  time.timeZone = "America/Los_Angeles";
+
+# sound
   hardware.bluetooth.enable = true;
   services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
@@ -45,7 +49,7 @@
     jack.enable = true;
 	};
 
-# Auto Login
+# auto login
   services.displayManager.autoLogin = {
     enable = true;
     user = "bagel";
@@ -53,10 +57,20 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-# Nixos Configuration
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+# fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
+# distro box
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
 # OpenRGB
   services.hardware.openrgb.enable = true;
+
+# exclude garbage
+  services.xserver.excludePackages = [ pkgs.xterm ];
 }
