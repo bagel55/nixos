@@ -1,22 +1,36 @@
-{ config, pkgs, lib, ... }: {
-home.packages = [ pkgs.tor-browser-bundle-bin ];
+{ config, pkgs, lib, ... }:
+let
+  uid = builtins.getEnv "UID";
+in {
+  home.packages = [ pkgs.podman ];
+  services.podman.enable = true;
 
-  xdg.desktopEntries.tor-browser-container = {
-    name = "Tor Browser (Container)";
-    comment = "Isolated Tor Browser in NixOS container";
-    exec = "/home/bagel/.local/bin/tor-browser-container";
-    icon = "torbrowser";
-    terminal = false;
-    categories = [ "Network" "X-Privacy" ];
+  services.podman.containers.tor-browser = {
+    image = "docker.io/parasieu/podman-torbrowser:latest";
+    description = "Tor Browser in Podman";
+    autoStart = true;
+    extraConfig = {
+      Run = {
+        Args = lib.mkForce [
+          "--env" "WAYLAND_DISPLAY"
+          "--env" "XDG_RUNTIME_DIR"
+          "--volume" "/run/user/${toString uid}/wayland-0:/run/user/${toString uid}/wayland-0"
+          "--device" "/dev/dri"
+          "--network" "none"
+          "--read-only"
+          "--tmpfs" "/tmp"
+          "--user" (toString uid)
+          "--name" "tor-browser"
+        ];
+      };
+    };
   };
 
-  home.file.".local/bin/tor-browser-container".text = ''
-    #!/bin/bash
-    xhost +local: > /dev/null
-    sudo nixos-container run tor-browser -- \
-      env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY \
-      sudo -u toruser tor-browser &
-  '';
-
-  home.file.".local/bin/tor-browser-container".executable = true;
+  xdg.desktopEntries.tor-browser = {
+    name = "Tor Browser";
+    exec = "podman run --rm --podman-wait tor-browser";
+    icon = "/run/current-system/sw/share/icons/hicolor/128x128/apps/torbrowser.png";
+    terminal = false;
+    categories = [ "Network" "WebBrowser" ];
+  };
 }
