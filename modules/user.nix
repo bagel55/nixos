@@ -52,12 +52,4 @@
         obsidian
     ];
   };
-
-# steam
-  programs.steam = {
-    enable = true;
-	  remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 }

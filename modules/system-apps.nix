@@ -5,11 +5,16 @@
     dockerCompat = true;
   };
 
+# steam
+  programs.steam = {
+    enable = true;
+	  remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
 # OpenRGB
   services.hardware.openrgb.enable = true;
-
-# exclude garbage
-  services.xserver.excludePackages = [ pkgs.xterm ];
 
   environment.systemPackages = with pkgs; [
   # util
@@ -45,4 +50,7 @@
     unrar
     p7zip
   ];
+
+# exclude garbage
+  services.xserver.excludePackages = [ pkgs.xterm ];
 }
