@@ -1,44 +1,28 @@
-# home-containers.nix
 { config, pkgs, lib, ... }:
 
 let
-  torImage = "ghcr.io/pariseed/podman-torbrowser:latest";
+  torImage = "docker.io/domistyle/tor-browser:latest";
 in {
-
   services.podman.enable = true;
 
   systemd.user.services.podman-tor = {
-  Unit = {
-    Description = "Tor Browser (Podman Wayland)";
-    After = [ "graphical-session.target" ];
+    Unit = {
+      Description = "Tor Browser (VNC) Container";
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      Restart = "on-failure";
+      ExecStart = "${pkgs.podman}/bin/podman run --rm -p 5800:5800 ${torImage}";
+      ExecStop = "${pkgs.podman}/bin/podman stop tor-browser";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
   };
-
-  Service = {
-    Type = "oneshot";
-    RemainAfterExit = true;
-    ExecStart = lib.concatStringsSep " " [
-      "${pkgs.bash}/bin/bash" "-c"
-      ''
-        export XDG_RUNTIME_DIR=/run/user/1000
-        exec ${pkgs.podman}/bin/podman run --rm \
-          --authfile /dev/null \
-          --userns=keep-id \
-          --ipc=host \
-          -v ${config.home.homeDirectory}/.Xauthority:/home/user/.Xauthority:ro \
-          -v /run/user/1000/wayland-0:/run/user/1000/wayland-0 \
-          -e WAYLAND_DISPLAY=wayland-0 \
-          ${torImage}
-      ''
-    ];  
-  };
-
-  Install = {
-    WantedBy = [ "default.target" ];
-  };
-};
 
   xdg.desktopEntries.tor-browser = {
-    name = "Tor Browser (Podman)";
+    name = "Tor Browser (Podman VNC)";
     exec = "systemctl --user start podman-tor";
     icon = "tor-browser";
     terminal = false;
