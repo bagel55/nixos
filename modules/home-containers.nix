@@ -16,7 +16,7 @@ in {
   Service = {
   Type = "oneshot";
   RemainAfterExit = true;
-  ExecStart = "${pkgs.bash}/bin/bash -c 'export XDG_RUNTIME_DIR=/run/user/1000 && ${pkgs.podman}/bin/podman run --rm --userns=keep-id --ipc=host -v ${config.home.homeDirectory}/.Xauthority:/home/user/.Xauthority:ro -v $XDG_RUNTIME_DIR/wayland-0:/run/user/1000/wayland-0 -e WAYLAND_DISPLAY=wayland-0 ghcr.io/pariseed/podman-torbrowser:latest'";
+  ExecStart = "${pkgs.bash}/bin/bash -c 'export XDG_RUNTIME_DIR=/run/user/1000 && ${pkgs.podman}/bin/podman run --rm --authfile /dev/null --userns=keep-id --ipc=host -v ${config.home.homeDirectory}/.Xauthority:/home/user/.Xauthority:ro -v $XDG_RUNTIME_DIR/wayland-0:/run/user/1000/wayland-0 -e WAYLAND_DISPLAY=wayland-0 ghcr.io/pariseed/podman-torbrowser:latest'";
   };
 
   Install = {
