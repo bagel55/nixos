@@ -28,7 +28,6 @@ programs.home-manager.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
-
 # Enables and configures tmux
   programs.tmux = {
     enable = true;
