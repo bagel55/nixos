@@ -1,14 +1,4 @@
-{ config, pkgs, ... }:
-let
-  no-rgb = pkgs.writeScriptBin "no-rgb" ''
-    #!/bin/sh
-    NUM_DEVICES=$(${pkgs.openrgb}/bin/openrgb --noautoconnect --list-devices | grep -E '^[0-9]+: ' | wc -l)
-
-    for i in $(seq 0 $(($NUM_DEVICES - 1))); do
-      ${pkgs.openrgb}/bin/openrgb --noautoconnect --device $i --mode static --color 000000
-    done
-  '';
-in {
+{ config, pkgs, ... }:{
 # Boot
 	boot.loader = {
     grub = {
@@ -55,32 +45,18 @@ in {
     jack.enable = true;
 	};
 
-# Allow unfree packages
+# Auto Login
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "bagel";
+  };
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
+# Nixos Configuration
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # OpenRGB
+# OpenRGB
   services.hardware.openrgb.enable = true;
-
-# Systemwide apps
-  environment.systemPackages = with pkgs; [
-    # Util
-    btop # System monitor.
-    nvtopPackages.full # GPU monitor.
-    corectrl # GPU configuration.
-    openrgb-with-all-plugins # RGB control.
-    pavucontrol # Audio devices configuration.
-    helvum # Audio porting.
-    fastfetch # Loonix redditing.
-    linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam.
-
-    # Wine
-    wine64Packages.stagingFull # Wine 64 bit tools.
-    winePackages.stagingFull # Wine 32 bit tools.
-    winetricks # Wine prefix editor.
-
-    # Archive and Compression
-    unrar # .rar files are fucking lame.
-    p7zip # The GOAT.
-  ];
 }

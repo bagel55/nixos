@@ -6,12 +6,6 @@
   services.xserver.desktopManager.gnome.enable = true;
 
 # Auto Login
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "bagel";
-  };
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
   services.gnome.gnome-keyring.enable = true;
 
 # Exclude Garbage
@@ -21,23 +15,15 @@
 
 # Set Fonts
   fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-  	nerd-fonts.droid-sans-mono
+    nerd-fonts.jetbrains-mono
   ];
 
-# Gnome apps
-  environment.systemPackages = with pkgs; [
-    gnome-shell-extensions # Gnome extensions.
-    gnome-tweaks # Tweaks.
-    gnome-themes-extra # More themes to add propper dark mode.
-    gnome-disk-utility # Disk tool.
-    alacarte # Gnome menu editor.
-    baobab # Disk analyser.
-    gnome-calculator # Calculator.
-    nautilus # File explorer.
-    gnome-text-editor # Text editor GUI app.
-    eog # Images.
-    totem # Videos.
-    evince # Documents.
-  ];
+  programs.dconf.enable = true;
+
+  environment.etc."dconf/db/local.d/00-fonts".text = ''
+    [org/gnome/desktop/interface]
+    font-name='JetBrainsMono Nerd Font 11'
+    document-font-name='JetBrainsMono Nerd Font 11'
+    monospace-font-name='JetBrainsMono Nerd Font Mono 11'
+  '';
 }
