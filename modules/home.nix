@@ -68,6 +68,10 @@ programs.home-manager.enable = true;
       opacity = 0.90
       dimensions = { columns = 120, lines = 40 }
 
+      [shell]
+      program = "tmux"
+      args = ["new-session", "-A", "-s", "main"]
+
       [colors.primary]
       background = "#1a1b26"
       foreground = "#c0caf5"
