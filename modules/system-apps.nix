@@ -12,21 +12,6 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   environment.systemPackages = with pkgs; [
-  # gnome apps
-    gnome-shell-extensions
-    gnome-tweaks
-    gnome-themes-extra
-    gnome-disk-utility
-    gnome-font-viewer
-    alacarte # gnome menu editor
-    baobab # disk analyser
-    gnome-calculator
-    nautilus # file explorer
-    gnome-text-editor
-    eog # images
-    totem # videos
-    evince # documents
-
   # util
     btop # system monitor
     nvtopPackages.full # GPU monitor

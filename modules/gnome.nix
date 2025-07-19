@@ -14,4 +14,20 @@
 
 # dconf
   programs.dconf.enable = true;
+
+# gnome apps
+  environment.systemPackages = with pkgs; [
+    gnome-shell-extensions
+    gnome-tweaks
+    gnome-themes-extra
+    gnome-disk-utility
+    alacarte # gnome menu editor
+    baobab # disk analyser
+    gnome-calculator
+    nautilus # file explorer
+    gnome-text-editor
+    eog # images
+    totem # videos
+    evince # documents
+  ];
 }
