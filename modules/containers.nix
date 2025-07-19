@@ -1,20 +1,12 @@
-{ config, pkgs, lib, ... }:{
+# nixos/modules/containers.nix
+{ config, pkgs, lib, ... }:
+
+{
+  # Just enable podman globally; no container definitions here
   virtualisation.podman.enable = true;
 
-  virtualisation.oci-containers.containers.tor-browser = {
-    image = "ghcr.io/pariseed/podman-torbrowser:latest";
-    extraOptions = [
-      "--rm"
-      "--ipc=host"
-      "--userns=keep-id"
-    ];
-    volumes = [
-      "/run/user/1000/wayland-0:/run/user/1000/wayland-0"
-      "/home/youruser/.Xauthority:/home/youruser/.Xauthority:ro"
-    ];
-    environment = {
-      WAYLAND_DISPLAY = "wayland-0";
-    };
-    autoStart = false;
-  };
+  # Ensure podman rootless works correctly
+  systemd.user.extraConfig = ''
+    DefaultEnvironment="PATH=/run/current-system/sw/bin:/run/wrappers/bin"
+  '';
 }
