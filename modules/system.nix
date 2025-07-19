@@ -61,16 +61,4 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-
-# distro box
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
-# OpenRGB
-  services.hardware.openrgb.enable = true;
-
-# exclude garbage
-  services.xserver.excludePackages = [ pkgs.xterm ];
 }

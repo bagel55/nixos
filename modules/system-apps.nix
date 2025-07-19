@@ -1,10 +1,23 @@
 { config, pkgs, ... }:{
+# distro box
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+# OpenRGB
+  services.hardware.openrgb.enable = true;
+
+# exclude garbage
+  services.xserver.excludePackages = [ pkgs.xterm ];
+
   environment.systemPackages = with pkgs; [
   # gnome apps
     gnome-shell-extensions
     gnome-tweaks
     gnome-themes-extra
     gnome-disk-utility
+    gnome-font-viewer
     alacarte # gnome menu editor
     baobab # disk analyser
     gnome-calculator
