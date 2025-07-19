@@ -44,7 +44,6 @@ programs.home-manager.enable = true;
       set -g prefix C-s
       set -g mouse on
 
-      set-option -g status-position top
       set-environment -gu "SSH_ASKPASS"
 
       unbind h
