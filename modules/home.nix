@@ -59,9 +59,6 @@ programs.home-manager.enable = true;
 
       set -g @tokyo-night-tmux_show_netspeed 1
       set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
-
-      set -g @tokyo-night-tmux_show_path 1
-      set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
     '';
   };
 
