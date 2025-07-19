@@ -49,8 +49,6 @@ programs.home-manager.enable = true;
       bind v split-window -v -c "#{pane_current_path}"
 
       set -g @tokyo-night-tmux_show_netspeed 1
-
-      run '~/.tmux/plugins/tpm/tpm'
     '';
   };
 
