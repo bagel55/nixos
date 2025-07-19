@@ -19,10 +19,13 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
 
-# Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
+  programs.dconf.enable = true;
+  environment.systemPackages = with pkgs; [ dconf ];
+  # Set keyboard layout for GNOME
+  dconf.settings = {
+    "org/gnome/desktop/input-sources" = {
+      sources = [ ( "xkb", "us" ) ];
+    };
   };
 
 # Set Fonts
