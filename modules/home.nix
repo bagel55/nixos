@@ -11,20 +11,16 @@ programs.home-manager.enable = true;
       enable = true;
       plugins = [ "git" "z" "tmux" "direnv" ];
     };
-    envExtra = ''
-      # Auto-start tmux
-      ZSH_TMUX_AUTO=true
-    '';
     initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-      #if command -v tmux >/dev/null; then
-      #  if [ -z "$TMUX" ]; then
-      #  # Attach to existing session or create one named 'main'
-      #  tmux attach-session -t main 2>/dev/null || tmux new-session -s main
-      #  fi
-      #fi
+      if command -v tmux >/dev/null; then
+        if [ -z "$TMUX" ]; then
+        # Attach to existing session or create one named 'main'
+        tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+        fi
+      fi
     '';
   };
 
