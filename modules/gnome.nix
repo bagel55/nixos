@@ -13,17 +13,11 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
 
+# Enable dconf
+  programs.dconf.enable = true;
+
 # Set Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-
-  programs.dconf.enable = true;
-
-  environment.etc."dconf/db/local.d/00-fonts".text = ''
-    [org/gnome/desktop/interface]
-    font-name='JetBrainsMono Nerd Font 11'
-    document-font-name='JetBrainsMono Nerd Font 11'
-    monospace-font-name='JetBrainsMono Nerd Font Mono 11'
-  '';
 }

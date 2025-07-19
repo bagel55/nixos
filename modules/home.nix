@@ -1,8 +1,19 @@
 { config, pkgs, lib, ... }: {
 # Enables home-manager
-home.username = "bagel";
-home.homeDirectory = "/home/bagel";
-programs.home-manager.enable = true;
+  home.username = "bagel";
+  home.homeDirectory = "/home/bagel";
+  programs.home-manager.enable = true;
+
+# Gnome Font
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      font-name = "JetBrainsMono Nerd Font 11";
+      document-font-name = "JetBrainsMono Nerd Font 11";
+      monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
+    };
+  };
 
 # Enables and configures both zsh and oh-my-zsh
   programs.zsh = {

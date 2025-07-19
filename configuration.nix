@@ -4,7 +4,7 @@ imports =[
   ./modules/hosts/Desktop/driver-configuration.nix
   ./modules/system.nix
   ./modules/gnome.nix
-  ./pkg-inclusions.nix
+  ./modules/pkg-inclusions.nix
   ./modules/development.nix
   ./modules/user.nix
   ./modules/automation/git-ops.nix
