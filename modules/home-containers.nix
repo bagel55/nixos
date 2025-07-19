@@ -7,7 +7,7 @@ home.packages = [ pkgs.tor-browser-bundle-bin ];
     exec = "/home/bagel/.local/bin/tor-browser-container";
     icon = "torbrowser";
     terminal = false;
-    categories = [ "Network" "Privacy" ];
+    categories = [ "Network" "X-Privacy" ];
   };
 
   home.file.".local/bin/tor-browser-container".text = ''
