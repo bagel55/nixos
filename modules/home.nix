@@ -68,7 +68,7 @@ programs.home-manager.enable = true;
       opacity = 0.90
       dimensions = { columns = 120, lines = 40 }
 
-      [shell]
+      [terminal.shell]
       program = "tmux"
       args = ["new-session", "-A", "-s", "main"]
 
