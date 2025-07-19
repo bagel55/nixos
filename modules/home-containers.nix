@@ -6,7 +6,7 @@ in {
   services.podman.enable = true;
 
   services.podman.containers.tor-browser = {
-    image = "ghcr.io/avpnusr/torbrowser:latest";
+    image = "docker.io/avpnusr/torbrowser:latest";
     description = "Tor Browser in Podman";
     autoStart = true;
     extraConfig = {
