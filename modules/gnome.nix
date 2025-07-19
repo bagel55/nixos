@@ -19,15 +19,6 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
 
-  programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [ dconf ];
-  # Set keyboard layout for GNOME
-  dconf.settings = {
-    "org/gnome/desktop/input-sources" = {
-      sources = [ ( "xkb", "us" ) ];
-    };
-  };
-
 # Set Fonts
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
