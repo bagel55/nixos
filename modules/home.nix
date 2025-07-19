@@ -32,8 +32,10 @@ programs.home-manager.enable = true;
     escapeTime = 0;
     secureSocket = false;
 
-    plugins = with pkgs; [
-      tmuxPlugins.tokyo-night-tmux
+    plugins = with pkgs.tmuxPlugins; [
+      tokyo-night-tmux
+      resurrect
+      continuum
     ];
 
     extraConfig = ''
