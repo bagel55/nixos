@@ -53,11 +53,13 @@ programs.home-manager.enable = true;
       unbind v
       bind v split-window -v -c "#{pane_current_path}"
 
+      # Set plugin options *before* plugin manager runs
       set -g @tokyo-night-tmux_show_time 0
       set -g @tokyo-night-tmux_show_date 0
-
       set -g @tokyo-night-tmux_show_netspeed 1
-      set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
+
+      # Initialize TPM (Tmux Plugin Manager)
+      run '~/.tmux/plugins/tpm/tpm'
     '';
   };
 
