@@ -12,24 +12,24 @@ in {
     Description = "Tor Browser (Podman Wayland)";
     After = [ "graphical-session.target" ];
   };
+
   Service = {
-    Type = "oneshot";
-    RemainAfterExit = true;
-    Environment = "XDG_RUNTIME_DIR=/run/user/1000";
+  Type = "oneshot";
+  RemainAfterExit = true;
     ExecStart = ''
       ${pkgs.bash}/bin/bash -c '
-      export XDG_RUNTIME_DIR=/run/user/1000
-      ${pkgs.podman}/bin/podman run --rm \
-        --userns=keep-id \
-        --ipc=host \
-        -v ${config.home.homeDirectory}/.Xauthority:/home/user/.Xauthority:ro \
-        -v $XDG_RUNTIME_DIR/wayland-0:/run/user/1000/wayland-0 \
-        -e WAYLAND_DISPLAY=wayland-0 \
-        ghcr.io/pariseed/podman-torbrowser:latest
+        export XDG_RUNTIME_DIR=/run/user/1000
+        ${pkgs.podman}/bin/podman run --rm \
+          --userns=keep-id \
+          --ipc=host \
+          -v ${config.home.homeDirectory}/.Xauthority:/home/user/.Xauthority:ro \
+          -v $XDG_RUNTIME_DIR/wayland-0:/run/user/1000/wayland-0 \
+          -e WAYLAND_DISPLAY=wayland-0 \
+          ghcr.io/pariseed/podman-torbrowser:latest
       '
     '';
-
   };
+
   Install = {
     WantedBy = [ "default.target" ];
   };
