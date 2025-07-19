@@ -6,7 +6,7 @@ in {
   services.podman.enable = true;
 
   services.podman.containers.tor-browser = {
-    image = "docker.io/parasieu/podman-torbrowser:latest";
+    image = "docker.io/raparicio/torbrowser:latest";
     description = "Tor Browser in Podman";
     autoStart = true;
     extraConfig = {
