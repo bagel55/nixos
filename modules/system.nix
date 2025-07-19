@@ -59,24 +59,24 @@ in {
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-# OpenRGB
+  # OpenRGB
   services.hardware.openrgb.enable = true;
-  services.udev.packages = [ pkgs.openrgb ];
-  boot.kernelModules = [ 
-    "i2c-dev"
-    "i2c-i801"
-    "i2c-piix4"
-  ];
-  hardware.i2c.enable = true;
+  # services.udev.packages = [ pkgs.openrgb ];
+  #boot.kernelModules = [ 
+  #  "i2c-dev"
+  #  "i2c-i801"
+  #  "i2c-piix4"
+  #];
+  #hardware.i2c.enable = true;
 
-  systemd.services.no-rgb = {
-    description = "no-rgb";
-    serviceConfig = {
-      ExecStart = "${no-rgb}/bin/no-rgb";
-      Type = "oneshot";
-    };
-    wantedBy = [ "multi-user.target" ];
-  };
+  #systemd.services.no-rgb = {
+  #  description = "no-rgb";
+  #  serviceConfig = {
+  #    ExecStart = "${no-rgb}/bin/no-rgb";
+  #    Type = "oneshot";
+  #  };
+  #  wantedBy = [ "multi-user.target" ];
+  #}; #/
 
 # Systemwide apps
   environment.systemPackages = with pkgs; [
