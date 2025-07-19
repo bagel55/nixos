@@ -13,6 +13,7 @@ programs.home-manager.enable = true;
       plugins = [ "git" "z" "tmux" "direnv" ];
     };
     initContent = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       if command -v tmux >/dev/null; then
         if [ -z "$TMUX" ]; then
         # Attach to existing session or create one named 'main'
