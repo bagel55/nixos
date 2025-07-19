@@ -51,6 +51,9 @@ programs.home-manager.enable = true;
       bind v split-window -v -c "#{pane_current_path}"
 
       set -g @tokyo-night-tmux_show_netspeed 1
+
+      set -g @continuum-restore 'on'
+      set -g @resurrect-capture-pane-contents 'on'
     '';
   };
 
