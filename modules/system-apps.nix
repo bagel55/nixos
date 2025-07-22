@@ -29,7 +29,7 @@
     helvum # audio porting
     fastfetch # loonix redditing
     linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam
-    piper
+    piper # M&K control
 
   # wine
     wine64Packages.stagingFull
