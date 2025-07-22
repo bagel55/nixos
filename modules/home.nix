@@ -67,8 +67,8 @@
 
     plugins = with pkgs.tmuxPlugins; [
       tokyo-night-tmux
-      resurrect
       continuum
+      resurrect
     ];
 
     extraConfig = ''

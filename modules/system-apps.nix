@@ -16,6 +16,9 @@
 # OpenRGB
   services.hardware.openrgb.enable = true;
 
+# Logi Mouse
+  services.ratbagd.enable = true;
+
   environment.systemPackages = with pkgs; [
   # util
     btop # system monitor
@@ -26,6 +29,7 @@
     helvum # audio porting
     fastfetch # loonix redditing
     linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam
+    piper
 
   # wine
     wine64Packages.stagingFull
