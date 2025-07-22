@@ -1,5 +1,5 @@
 { config, pkgs, ... }:{
-# enable gnome de
+# enable gnome
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
