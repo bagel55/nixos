@@ -36,10 +36,6 @@
     wine64Packages.stagingFull
     winePackages.stagingFull
     winetricks
-    protontricks
-    proton-caller
-    protonup
-    protonup-qt
 
   # base-devel
     vim
@@ -58,44 +54,6 @@
   # archive and compression
     unrar
     p7zip
-
-  # basic applications
-    alacritty 
-    brave
-    discord
-    spotify
-
-  # games
-    lutris
-    bottles
-    heroic-unwrapped
-    xivlauncher
-    prismlauncher
-
-  # game util
-    gamemode
-    samrewritten
-    r2modman
-    fflogs
-
-  # emulators
-    rpcs3
-    shadps4
-    xemu
-    ryujinx
-    retroarchFull
-
-  # Studio
-    onlyoffice-bin
-    davinci-resolve
-    gimp
-    inkscape-with-extensions
-    drawing
-    blender
-    audacity
-    obs-studio
-    kicad
-    obsidian
   ];
 
 # exclude garbage
