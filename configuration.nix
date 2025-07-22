@@ -5,7 +5,6 @@ imports =[
   ./modules/system.nix
   ./modules/gnome.nix
   ./modules/system-apps.nix
-  ./modules/containers.nix
   ./modules/user.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix

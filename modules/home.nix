@@ -105,9 +105,5 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
-  imports = [
-    ./home-containers.nix
-  ];
-
 home.stateVersion = "25.05";
 }
