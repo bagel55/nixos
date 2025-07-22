@@ -16,9 +16,10 @@
 # OpenRGB
   services.hardware.openrgb.enable = true;
 
-# Logi Mouse
+# logi Mouse
   services.ratbagd.enable = true;
 
+# packages
   environment.systemPackages = with pkgs; [
   # util
     btop # system monitor
