@@ -6,7 +6,6 @@ imports =[
   ./modules/gnome.nix
   ./modules/pkgs.nix
   ./modules/user.nix
-  ./modules/dev.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
 ];
