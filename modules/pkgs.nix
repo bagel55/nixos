@@ -50,6 +50,8 @@
     dotnet-sdk
     unityhub
     godot
+    gcc
+    cmake
 
   # archive and compression
     unrar
