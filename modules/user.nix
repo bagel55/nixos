@@ -12,6 +12,7 @@
         alacritty 
         brave
         discord
+        vesktop
         spotify
 
       # games
