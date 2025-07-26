@@ -29,7 +29,6 @@
     pavucontrol # audio devices configuration
     helvum # audio porting
     fastfetch # loonix redditing
-    linuxKernel.packages.linux_6_6.v4l2loopback # OBS virtual cam
     piper # M&K control
 
   # wine and friends

@@ -7,9 +7,8 @@
       device = "nodev";
     };
   };
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-
+  boot.loader.efi.canTouchEfiVariables = true;
+  
 # SSD trim
 	services.fstrim.enable = true;
 
