@@ -1,7 +1,5 @@
 { config, pkgs, ... }:{
 imports =[
-  ./modules/hosts/desktop/hardware-configuration.nix
-  ./modules/hosts/desktop/driver-configuration.nix
   ./modules/system.nix
   ./modules/gnome.nix
   ./modules/pkgs.nix

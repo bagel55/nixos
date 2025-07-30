@@ -22,5 +22,5 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  networking.hostName = "Nixos-bagel-Laptop";
+  networking.hostName = "bagel-laptop-nixos";
 }

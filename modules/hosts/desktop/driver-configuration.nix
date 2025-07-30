@@ -9,5 +9,5 @@
 	};
 	
 	#Hostname
-	networking.hostName = "bagel-nixos-desktop";
+	networking.hostName = "bagel-desktop-nixos";
 }
