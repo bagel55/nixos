@@ -46,21 +46,6 @@
     alsa.support32Bit = true;
     pulse.enable = true; 
     jack.enable = true;
-    extraConfig.pipewire-pulse = {
-      "10-disable-agc-chrome" = {
-        pulse.rules = [ {
-          matches = [
-            { "application.process.binary" = "Vesktop"; }
-            { "application.process.binary" = "Discord"; }
-            { "application.process.binary" = "chromium"; }
-            { "application.process.binary" = "chrome"; }
-          ];
-          actions = {
-            quirks = [ "block-source-volume" ];
-          };
-        }];
-      };
-    };
 	};
 
 # auto login
