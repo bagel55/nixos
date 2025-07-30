@@ -101,6 +101,22 @@
     };
   };
 
+  programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [
+    appindicator
+    blur-my-shell
+    just-perfection
+  ];
+
+  dconf.settings = {
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+        "just-perfection-desktop@just-perfection"
+      ];
+    };
+  };
+
 # direnv
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
