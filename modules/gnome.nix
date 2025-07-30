@@ -29,5 +29,6 @@
     eog # images
     totem # videos
     evince # documents
+    gnome-music
   ];
 }
