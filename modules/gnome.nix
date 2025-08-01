@@ -7,7 +7,7 @@
 
 # exclude garbage
   services.gnome.core-apps.enable = false;
-  environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
+  environment.gnome.excludePackages = with pkgs; [ pkgs.gnome-tour gnome-backgrounds ];
 
 # dconf
   programs.dconf.enable = true;
