@@ -7,6 +7,7 @@
 
 # auto login
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
 
 # exclude garbage
   services.gnome.core-apps.enable = false;
