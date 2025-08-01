@@ -5,16 +5,17 @@
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-# auto login
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.gdm.enableGnomeKeyring = true;
-
 # exclude garbage
   services.gnome.core-apps.enable = false;
   environment.gnome.excludePackages = with pkgs; [pkgs.gnome-tour];
 
 # dconf
   programs.dconf.enable = true;
+
+# fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
 
 # gnome apps
   environment.systemPackages = with pkgs; [
@@ -31,6 +32,5 @@
     totem # videos
     evince # documents
     gnome-music
-    seahorse
   ];
 }
