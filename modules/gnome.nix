@@ -32,5 +32,6 @@
     totem # videos
     evince # documents
     gnome-music
+    seahorse
   ];
 }
