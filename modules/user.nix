@@ -27,6 +27,7 @@
         samrewritten
         r2modman
         fflogs
+        satisfactorymodmanager
 
       # emulators
         rpcs3
