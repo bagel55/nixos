@@ -13,39 +13,36 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/boot" =
+  { device = "/dev/disk/by-uuid/4832-A8A6";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/668a1494-5fbc-4306-96a0-24713900c5da";
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/18b5a25c-0f56-4459-86bf-34a479b660b5";
+    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/5a04b7f4-16e3-4ea2-b35d-2e389e1cae5c";
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
+    };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/18b5a25c-0f56-4459-86bf-34a479b660b5";
+    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CDFD-93BA";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/drives/2TB-M2" =
-    { device = "/dev/disk/by-uuid/93a8adb9-ce25-4968-9ee4-57908e062b3d";
-      fsType = "ext4";
-    };
-
-  fileSystems."/drives/4TB-M2" =
-    { device = "/dev/disk/by-uuid/0cf48a8c-dcde-4281-bdbc-e0369cbe8782";
-      fsType = "ext4";
-    };
-
-  fileSystems."/drives/1TB-HDD" =
-    { device = "/dev/disk/by-uuid/432cd068-d54d-403a-b37c-43f255ff31c2";
-      fsType = "ext4";
+  fileSystems."/.snapshots" =
+    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
+      fsType = "btrfs";
+      options = [ "subvol=@snapshots" ];
     };
 
   swapDevices = [ ];
@@ -55,7 +52,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp9s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
