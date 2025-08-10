@@ -23,6 +23,7 @@
     gnome-tweaks
     gnome-themes-extra
     gnome-disk-utility
+    gnome-logs
     alacarte # gnome menu editor
     baobab # disk analyser
     gnome-calculator
