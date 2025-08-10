@@ -44,14 +44,14 @@
 
       # Studio
         onlyoffice-bin
-        #davinci-resolve
+        davinci-resolve
         gimp
         inkscape-with-extensions
         drawing
         blender
         audacity
         obs-studio
-        #kicad
+        kicad
         obsidian
     ];
   };
