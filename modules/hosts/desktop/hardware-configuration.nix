@@ -50,13 +50,23 @@
       fsType = "ext4";
     };
 
+  fileSystems."/drives/500GB-NVME" =
+    { device = "/dev/disk/by-uuid/71138163-0c53-437c-b910-6a822be6589b";
+      fsType = "ext4";
+    };
+
   fileSystems."/drives/4TB-NVME" =
     { device = "/dev/disk/by-uuid/76896e3a-8c5e-4ed9-8cf7-98d5d7c90e53";
       fsType = "ext4";
     };
 
-  fileSystems."/drives/500GB-NVME" =
-    { device = "/dev/disk/by-uuid/71138163-0c53-437c-b910-6a822be6589b";
+  fileSystems."/drives/windows" =
+    { device = "/dev/disk/by-uuid/126C729E6C727BF3";
+      fsType = "ntfs";
+    };
+
+  fileSystems."/drives/1TB-HDD" =
+    { device = "/dev/disk/by-uuid/46e16e66-f3f1-43f1-9064-a5edc28eee8f";
       fsType = "ext4";
     };
 
