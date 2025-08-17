@@ -24,7 +24,6 @@
 
       # game util
         gamemode
-        samrewritten
         r2modman
         fflogs
         satisfactorymodmanager
