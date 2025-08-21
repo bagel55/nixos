@@ -24,7 +24,7 @@
     gnome-themes-extra
     gnome-disk-utility
     gnome-logs
-    cheese
+    snapshot
     alacarte # gnome menu editor
     baobab # disk analyser
     gnome-calculator
