@@ -44,7 +44,6 @@
         obs-studio
         kicad
         obsidian
-        flowblade
     ];
   };
 }
