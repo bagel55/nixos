@@ -27,13 +27,6 @@
         r2modman
         fflogs
         satisfactorymodmanager
-
-      # emulators
-        rpcs3
-        shadps4
-        xemu
-        ryujinx
-        retroarchFull
         
       # proton
         protontricks
@@ -46,7 +39,6 @@
         davinci-resolve
         gimp
         inkscape-with-extensions
-        drawing
         blender
         audacity
         obs-studio
