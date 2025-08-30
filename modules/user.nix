@@ -14,6 +14,7 @@
         discord
         vesktop
         spotify
+        waydroid
 
       # games
         lutris
