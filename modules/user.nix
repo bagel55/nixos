@@ -17,7 +17,6 @@
 
       # games
         lutris
-        bottles
         heroic-unwrapped
         xivlauncher
         prismlauncher
