@@ -14,7 +14,6 @@
         discord
         vesktop
         spotify
-        waydroid
 
       # games
         lutris
@@ -24,8 +23,6 @@
         prismlauncher
 
       # game util
-        gamemode
-        r2modman
         fflogs
         satisfactorymodmanager
         
@@ -37,14 +34,10 @@
 
       # Studio
         onlyoffice-bin
-        davinci-resolve
         gimp
         inkscape-with-extensions
         blender
-        audacity
         obs-studio
-        kicad
-        obsidian
     ];
   };
 }
