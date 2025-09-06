@@ -15,14 +15,10 @@
         vesktop
         spotify
 
-      # games
-        prismlauncher
-
       # proton
         protontricks
         proton-caller
         protonup
-        protonup-qt
 
       # Studio
         onlyoffice-bin
