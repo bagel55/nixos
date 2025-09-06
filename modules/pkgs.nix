@@ -37,9 +37,6 @@
     winetricks
 
   # base-devel
-    vim
-    neovim
-    lunarvim
     git
     git-lfs
     github-desktop
@@ -50,7 +47,6 @@
     unityhub
 
   # archive and compression
-    unrar
     p7zip
   ];
 
