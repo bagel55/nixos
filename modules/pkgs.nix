@@ -13,9 +13,6 @@
     dedicatedServer.openFirewall = true;
   };
 
-# OpenRGB
-  services.hardware.openrgb.enable = true;
-
 # logi Mouse
   services.ratbagd.enable = true;
 
@@ -25,7 +22,6 @@
     btop # system monitor
     nvtopPackages.full # GPU monitor
     corectrl # GPU configuration
-    openrgb-with-all-plugins
     pavucontrol # audio devices configuration
     helvum # audio porting
     fastfetch # loonix redditing
@@ -38,10 +34,6 @@
 
   # base-devel
     git
-    git-lfs
-    github-desktop
-    distrobox
-    xorg.xhost
     vscode
 
   # archive and compression
