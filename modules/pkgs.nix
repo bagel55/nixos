@@ -43,8 +43,6 @@
     distrobox
     xorg.xhost
     vscode
-    dotnet-sdk
-    unityhub
 
   # archive and compression
     p7zip

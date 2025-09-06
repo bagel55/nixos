@@ -16,9 +16,6 @@
         spotify
 
       # games
-        lutris
-        heroic-unwrapped
-        xivlauncher
         prismlauncher
 
       # proton
@@ -29,9 +26,6 @@
 
       # Studio
         onlyoffice-bin
-        gimp
-        inkscape-with-extensions
-        blender
         obs-studio
     ];
   };
