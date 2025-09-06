@@ -21,10 +21,6 @@
         xivlauncher
         prismlauncher
 
-      # game util
-        fflogs
-        satisfactorymodmanager
-        
       # proton
         protontricks
         proton-caller
