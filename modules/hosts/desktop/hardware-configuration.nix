@@ -14,60 +14,35 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
+    { device = "/dev/disk/by-uuid/6ad6572d-4058-4b37-a0d4-ed21b14dc08d";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/668a1494-5fbc-4306-96a0-24713900c5da";
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/7a620ebc-c3c3-4957-8e10-f3c5847ebb34";
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/6ad6572d-4058-4b37-a0d4-ed21b14dc08d";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
-
-  fileSystems."/.snapshots" =
-    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
-      fsType = "btrfs";
-      options = [ "subvol=@snapshots" ];
+      options = [ "subvol=@" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/d9f90dcb-be9c-4e10-92ba-84c9c5854155";
+    { device = "/dev/disk/by-uuid/6ad6572d-4058-4b37-a0d4-ed21b14dc08d";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/6ad6572d-4058-4b37-a0d4-ed21b14dc08d";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
+    };
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4832-A8A6";
+    { device = "/dev/disk/by-uuid/7A63-558E";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/drives/2TB-NVME" =
-    { device = "/dev/disk/by-uuid/82078409-6dea-498d-8b25-d95568962a5b";
-      fsType = "ext4";
-    };
-
-  fileSystems."/drives/500GB-NVME" =
-    { device = "/dev/disk/by-uuid/71138163-0c53-437c-b910-6a822be6589b";
-      fsType = "ext4";
-    };
-
-  fileSystems."/drives/4TB-NVME" =
-    { device = "/dev/disk/by-uuid/76896e3a-8c5e-4ed9-8cf7-98d5d7c90e53";
-      fsType = "ext4";
-    };
-
-  fileSystems."/drives/windows" =
-    { device = "/dev/disk/by-uuid/126C729E6C727BF3";
-      fsType = "ntfs";
-    };
-
-  fileSystems."/drives/1TB-HDD" =
-    { device = "/dev/disk/by-uuid/46e16e66-f3f1-43f1-9064-a5edc28eee8f";
-      fsType = "ext4";
     };
 
   swapDevices = [ ];
@@ -78,6 +53,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp9s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp14s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
