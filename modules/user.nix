@@ -17,7 +17,6 @@
 
       # proton
         protontricks
-        proton-caller
         protonup
 
       # Studio

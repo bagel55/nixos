@@ -13,12 +13,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6ad6572d-4058-4b37-a0d4-ed21b14dc08d";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
-
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/7a620ebc-c3c3-4957-8e10-f3c5847ebb34";
 
   fileSystems."/" =

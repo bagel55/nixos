@@ -27,11 +27,6 @@
     fastfetch # loonix redditing
     piper # M&K control
 
-  # wine and friends
-    wine64Packages.stagingFull
-    winePackages.stagingFull
-    winetricks
-
   # base-devel
     git
     vscode
