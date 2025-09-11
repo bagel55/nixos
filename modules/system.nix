@@ -14,6 +14,7 @@
 	services.fstrim.enable = true;
 
 # nixos configuration
+  hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -38,9 +39,8 @@
   time.timeZone = "America/Los_Angeles";
 
 # Bluetooth
-  hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
-  
+
 # sound
   services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
