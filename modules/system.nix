@@ -37,9 +37,11 @@
 # time zone
   time.timeZone = "America/Los_Angeles";
 
-# sound
+# Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+# sound
   services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
  	services.pipewire = {
