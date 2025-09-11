@@ -38,11 +38,9 @@
   time.timeZone = "America/Los_Angeles";
 
 # Bluetooth
-hardware.enableAllFirmware = true;
-
+  hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
+  
 # sound
   services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
