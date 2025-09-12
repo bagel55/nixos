@@ -8,6 +8,7 @@
       useOSProber = true;
     };
   };
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
   
 # SSD trim
