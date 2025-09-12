@@ -8,8 +8,8 @@
       useOSProber = true;
     };
   };
-  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_lqx;
   
 # SSD trim
 	services.fstrim.enable = true;
