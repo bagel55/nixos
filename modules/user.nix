@@ -24,6 +24,7 @@
         obs-studio
         dotnet-sdk
         unityhub
+        github-desktop
     ];
   };
 }
