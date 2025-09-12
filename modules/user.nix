@@ -22,6 +22,8 @@
       # Studio
         onlyoffice-bin
         obs-studio
+        dotnet-sdk
+        unityhub
     ];
   };
 }
