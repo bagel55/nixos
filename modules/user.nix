@@ -10,6 +10,7 @@
     packages = with pkgs; [
       # basic applications
         alacritty 
+        brave
         discord
         vesktop
         spotify
