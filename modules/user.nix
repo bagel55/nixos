@@ -13,7 +13,6 @@
         brave
         discord
         vesktop
-        spotify
 
       # proton
         protontricks
