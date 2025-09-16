@@ -9,7 +9,7 @@
     };
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   
 # SSD trim
 	services.fstrim.enable = true;
