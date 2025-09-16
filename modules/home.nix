@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
 # enables home-manager
+  home.enableNixpkgsReleaseCheck = false;
   home.username = "bagel";
   home.homeDirectory = "/home/bagel";
   programs.home-manager.enable = true;
