@@ -9,15 +9,15 @@
     };
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   
 # SSD trim
 	services.fstrim.enable = true;
 
 # nixos configuration
-  hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  hardware.enableAllFirmware = true;
 
 # internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
