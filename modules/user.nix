@@ -16,6 +16,7 @@
 
       # proton
         protontricks
+        proton-caller
         protonup
         protonup-qt
 
