@@ -13,6 +13,7 @@
         brave
         discord
         vesktop
+        prism
 
       # proton
         protontricks
