@@ -19,7 +19,6 @@
         protontricks
         proton-caller
         protonup
-        protonup-qt
 
       # Studio
         onlyoffice-bin
