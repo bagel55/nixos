@@ -26,6 +26,7 @@
         dotnet-sdk
         unityhub
         github-desktop
+        gimp
     ];
   };
 }
