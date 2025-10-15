@@ -1,10 +1,4 @@
 { config, pkgs, ... }:{
-# distro box
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
 # steam
   programs.steam = {
     enable = true;
@@ -15,6 +9,9 @@
 
 # logi Mouse
   services.ratbagd.enable = true;
+
+# Docker
+  virtualisation.docker.enable = true;
 
 # packages
   environment.systemPackages = with pkgs; [
@@ -30,6 +27,7 @@
   # base-devel
     git
     vscode
+    freerdp
 
   # archive and compression
     p7zip
