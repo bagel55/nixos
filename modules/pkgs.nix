@@ -27,7 +27,6 @@
   # base-devel
     git
     vscode
-    freerdp
 
   # archive and compression
     p7zip
