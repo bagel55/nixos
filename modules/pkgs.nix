@@ -30,6 +30,8 @@
   # base-devel
     git
     vscode
+    freerdp
+    docker-compose
 
   # archive and compression
     p7zip
