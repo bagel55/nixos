@@ -19,6 +19,7 @@
         protontricks
         proton-caller
         protonup
+        wineWowPackages.stagingFull
 
       # Studio
         onlyoffice-bin
@@ -31,6 +32,7 @@
       # Devel
         vscode
         vinegar
+        
     ];
   };
 }
