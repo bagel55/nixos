@@ -27,6 +27,10 @@
         unityhub
         github-desktop
         gimp
+
+      # Devel
+        vscode
+        vinegar
     ];
   };
 }

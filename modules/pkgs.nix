@@ -23,10 +23,7 @@
     helvum # audio porting
     fastfetch # loonix redditing
     piper # M&K control
-
-  # base-devel
     git
-    vscode
 
   # archive and compression
     p7zip
