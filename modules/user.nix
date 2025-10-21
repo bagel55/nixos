@@ -19,7 +19,6 @@
         protontricks
         proton-caller
         protonup
-        wineWowPackages.stagingFull
 
       # Studio
         onlyoffice-bin
@@ -28,11 +27,7 @@
         unityhub
         github-desktop
         gimp
-
-      # Devel
         vscode
-        vinegar
-        
     ];
   };
 }
