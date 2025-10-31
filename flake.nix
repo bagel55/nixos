@@ -5,10 +5,9 @@ inputs = {
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
   home-manager.url = "github:nix-community/home-manager";
   home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  winboat.url = "github:TibixDev/winboat";
 };
 
-outputs = { self, nixpkgs, home-manager, winboat, ... }: {
+outputs = { self, nixpkgs, home-manager, ... }: {
   nixosConfigurations = {
 
     bagel-desktop = nixpkgs.lib.nixosSystem {
@@ -18,13 +17,6 @@ outputs = { self, nixpkgs, home-manager, winboat, ... }: {
         ./configuration.nix
         ./modules/hosts/desktop/hardware-configuration.nix
         ./modules/hosts/desktop/driver-configuration.nix
-
-        ({ pkgs, ... }: {
-          environment.systemPackages = [
-            pkgs.freerdp
-            winboat.packages.x86_64-linux.winboat
-          ];
-        })
 
         home-manager.nixosModules.home-manager
         {
