@@ -14,6 +14,7 @@
         discord
         vesktop
         prismlauncher
+        xivlauncher
 
       # proton
         protontricks
