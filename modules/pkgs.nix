@@ -25,6 +25,22 @@
     piper # M&K control
     git
 
+    # Gnome apps
+    gnome-shell-extensions
+    gnome-tweaks
+    gnome-themes-extra
+    gnome-disk-utility
+    gnome-logs
+    snapshot
+    alacarte # gnome menu editor
+    baobab # disk analyser
+    gnome-calculator
+    nautilus # file explorer
+    gnome-text-editor
+    eog # images
+    totem # videos
+    evince # documents
+
   # archive and compression
     p7zip
   ];
