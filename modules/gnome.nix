@@ -8,30 +8,4 @@
 # exclude garbage
   services.gnome.core-apps.enable = false;
   environment.gnome.excludePackages = with pkgs; [ pkgs.gnome-tour gnome-backgrounds ];
-
-# dconf
-  programs.dconf.enable = true;
-
-# fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
-# gnome apps
-  environment.systemPackages = with pkgs; [
-    gnome-shell-extensions
-    gnome-tweaks
-    gnome-themes-extra
-    gnome-disk-utility
-    gnome-logs
-    snapshot
-    alacarte # gnome menu editor
-    baobab # disk analyser
-    gnome-calculator
-    nautilus # file explorer
-    gnome-text-editor
-    eog # images
-    totem # videos
-    evince # documents
-  ];
 }

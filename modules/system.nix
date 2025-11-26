@@ -19,6 +19,14 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   hardware.enableAllFirmware = true;
 
+# dconf
+  programs.dconf.enable = true;
+
+# fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
 # Flatpak
   services.flatpak.enable = true;
 

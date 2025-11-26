@@ -8,6 +8,22 @@
     useDefaultShell = true;
     shell = pkgs.zsh;
     packages = with pkgs; [
+      # Gnome apps
+        gnome-shell-extensions
+        gnome-tweaks
+        gnome-themes-extra
+        gnome-disk-utility
+        gnome-logs
+        snapshot
+        alacarte # gnome menu editor
+        baobab # disk analyser
+        gnome-calculator
+        nautilus # file explorer
+        gnome-text-editor
+        eog # images
+        totem # videos
+        evince # documents
+
       # basic applications
         alacritty 
         brave
