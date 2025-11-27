@@ -26,15 +26,17 @@
     git
 
     # Gnome apps
-    #gnome-shell-extensions
-    #gnome-tweaks
-    #gnome-themes-extra
-    #gnome-disk-utility
-    #gnome-logs
-    #snapshot
-    #alacarte # gnome menu editor
+    gnome-shell-extensions
+    gnome-tweaks
+    gnome-themes-extra
+    gnome-disk-utility
+    gnome-logs
+    snapshot
+    alacarte # gnome menu editor
 
-    cosmic-ext-tweaks
+    # Cosmic Apps
+    #cosmic-ext-tweaks
+
     baobab # disk analyser
     gnome-calculator
     nautilus # file explorer
