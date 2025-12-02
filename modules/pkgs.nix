@@ -16,7 +16,6 @@
     pavucontrol # audio devices configuration
     helvum # audio porting
     fastfetch # loonix redditing
-    piper # M&K control
     git
     p7zip
 
