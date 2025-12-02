@@ -24,8 +24,6 @@
       # Studio
         onlyoffice-bin
         obs-studio
-        dotnet-sdk
-        unityhub
         github-desktop
         gimp
         vscode
