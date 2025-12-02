@@ -8,4 +8,16 @@
 # exclude garbage
   services.gnome.core-apps.enable = false;
   environment.gnome.excludePackages = with pkgs; [ pkgs.gnome-tour gnome-backgrounds ];
+
+# packages
+  environment.systemPackages = with pkgs; [
+  # Gnome apps
+    gnome-shell-extensions
+    gnome-tweaks
+    gnome-themes-extra
+    gnome-disk-utility
+    gnome-logs
+    snapshot
+    alacarte # gnome menu editor
+  ];
 }
