@@ -7,12 +7,6 @@
     dedicatedServer.openFirewall = true;
   };
 
-# logi Mouse
-  services.ratbagd.enable = true;
-
-# Docker
-  virtualisation.docker.enable = true;
-
 # packages
   environment.systemPackages = with pkgs; [
   # util
@@ -24,6 +18,7 @@
     fastfetch # loonix redditing
     piper # M&K control
     git
+    p7zip
 
   # Gnome Suite
     baobab # disk analyser
@@ -33,11 +28,5 @@
     eog # images
     totem # videos
     evince # documents
-
-  # archive and compression
-    p7zip
   ];
-
-# exclude garbage
-  services.xserver.excludePackages = [ pkgs.xterm ];
 }

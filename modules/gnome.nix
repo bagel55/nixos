@@ -8,6 +8,7 @@
 # exclude garbage
   services.gnome.core-apps.enable = false;
   environment.gnome.excludePackages = with pkgs; [ pkgs.gnome-tour gnome-backgrounds ];
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
 # packages
   environment.systemPackages = with pkgs; [
