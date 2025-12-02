@@ -17,7 +17,6 @@
     gnome-tweaks
     gnome-themes-extra
     gnome-disk-utility
-    gnome-logs
     snapshot
     alacarte # gnome menu editor
   ];

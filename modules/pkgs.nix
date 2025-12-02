@@ -27,6 +27,5 @@
     gnome-text-editor
     eog # images
     totem # videos
-    evince # documents
   ];
 }
