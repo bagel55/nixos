@@ -18,6 +18,6 @@
     gnome-themes-extra
     gnome-disk-utility
     snapshot
-    alacarte # gnome menu editor
+    alacarte
   ];
 }

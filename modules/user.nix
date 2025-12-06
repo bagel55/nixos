@@ -15,6 +15,7 @@
         vesktop
         prismlauncher
         xivlauncher
+        spotify
 
       # proton
         protontricks
