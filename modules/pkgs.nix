@@ -18,13 +18,5 @@
     fastfetch # loonix redditing
     git
     p7zip
-
-  # Gnome Suite
-    baobab # disk analyser
-    gnome-calculator
-    nautilus # file explorer
-    gnome-text-editor
-    eog # images
-    totem # videos
   ];
 }

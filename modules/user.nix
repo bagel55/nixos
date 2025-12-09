@@ -19,11 +19,10 @@
 
       # proton
         protontricks
-        proton-caller
-        protonup
+        protonup-ng
 
       # Studio
-        onlyoffice-bin
+        onlyoffice-desktopeditors
         obs-studio
         github-desktop
         gimp
