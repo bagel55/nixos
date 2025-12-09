@@ -18,8 +18,6 @@
     };
   };
 
-  programs.gamescope.enable = true;
-
 # packages
   environment.systemPackages = with pkgs; [
   # util
