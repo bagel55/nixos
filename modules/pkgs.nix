@@ -19,11 +19,6 @@
     };
   };
 
-  programs.gamescope = {
-    enable = true;
-    #capSysNice = true;
-  };
-
 # packages
   environment.systemPackages = with pkgs; [
   # util
