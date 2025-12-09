@@ -7,6 +7,17 @@
     dedicatedServer.openFirewall = true;
   };
 
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        desiredgov = "performance";
+        inhibit_screensaver = 1;
+        disable_splitlock = 1;
+      };
+    };
+  };
+
 # packages
   environment.systemPackages = with pkgs; [
   # util
