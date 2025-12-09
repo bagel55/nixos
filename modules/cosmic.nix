@@ -4,6 +4,8 @@
 
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-store
+    cosmic-term
+    networkmanagerapplet
   ];
 
   environment.systemPackages = with pkgs; [
