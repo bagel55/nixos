@@ -5,7 +5,6 @@
 	  remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
   };
 
   programs.gamemode = {
@@ -18,6 +17,8 @@
       };
     };
   };
+
+  programs.gamescope.enable = true;
 
 # packages
   environment.systemPackages = with pkgs; [
