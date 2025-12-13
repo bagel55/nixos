@@ -16,6 +16,7 @@
         prismlauncher
         xivlauncher
         spotify
+        scanmem
 
       # proton
         protontricks
