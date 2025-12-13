@@ -17,6 +17,7 @@
         xivlauncher
         spotify
         scanmem
+        xclicker
 
       # proton
         protontricks
