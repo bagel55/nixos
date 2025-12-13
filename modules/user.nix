@@ -29,6 +29,8 @@
         github-desktop
         gimp
         vscode
+        unityhub
+        blender
     ];
   };
 }
