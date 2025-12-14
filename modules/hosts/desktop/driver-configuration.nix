@@ -11,6 +11,25 @@
 
 	hardware.amdgpu.opencl.enable = true;
 
+  hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.rocm-runtime
+    rocmPackages.rocm-device-libs
+    rocmPackages.rocm-smi
+  ];
+
+  environment.systemPackages = with pkgs; [
+    rocmPackages.rocminfo
+    rocmPackages.rocm-smi
+    pciutils
+  ];
+
+  # Required for RDNA3
+  environment.variables = {
+    ROC_ENABLE_PRE_VEGA = "1";
+    HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+  };
+
+	#stuff for ROCm for stable diff
 	systemd.tmpfiles.rules =
     let
       rocmEnv = pkgs.symlinkJoin {
