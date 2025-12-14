@@ -11,6 +11,9 @@
 
 	hardware.amdgpu.opencl.enable = true;
 
+  ################################################
+  #########AHHHHHHHHHHHHHHHHHHHHHHHHHHH###########
+  ################################################
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.rocm-runtime
     rocmPackages.rocm-device-libs
@@ -43,7 +46,10 @@
     in [
       "L+ /opt/rocm - - - - ${rocmEnv}"
     ];
-	
+	################################################
+  #########AHHHHHHHHHHHHHHHHHHHHHHHHHHH###########
+  ################################################
+
 	#Hostname
 	networking.hostName = "bagel-desktop-nixos";
 }

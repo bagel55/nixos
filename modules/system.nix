@@ -27,9 +27,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-# Flatpak
-  services.flatpak.enable = true;
-
 # internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -63,6 +60,9 @@
     pulse.enable = true; 
     jack.enable = true;
 	};
+
+# Docker
+  virtualisation.docker.enable = true;
 
 # auto login
   services.displayManager.autoLogin = {
