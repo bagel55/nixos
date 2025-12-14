@@ -5,7 +5,7 @@
 	boot.kernelModules = [ "kvm-amd" ];
 	
 	hardware.graphics = {
-  	  enable = true;
+  	enable = true;
 	  enable32Bit = true;
 	};
 

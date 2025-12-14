@@ -61,8 +61,8 @@
     jack.enable = true;
 	};
 
-# Docker
-  virtualisation.docker.enable = true;
+# Podman
+  virtualisation.podman.enable = true;
 
 # auto login
   services.displayManager.autoLogin = {
