@@ -9,8 +9,13 @@
     };
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+# Custom lqx kernel
   boot.kernelPackages = pkgs.linuxPackages_lqx;
-  
+
+# Universal driver fix
+  hardware.enableRedistributableFirmware = true;
+
 # SSD trim
 	services.fstrim.enable = true;
 
