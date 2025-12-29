@@ -5,6 +5,12 @@
 	  remotePlay.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    gamescopeSession.enable = true;
+  };
+
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true; # Allows Gamescope to use real-time scheduling for better performance
   };
 
   programs.gamemode = {
