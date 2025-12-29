@@ -4,7 +4,7 @@
   users.users.bagel = {
     isNormalUser = true;
     description = "bagel";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "input" "kvm" "docker" "video" "render" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "input" "kvm" "docker" "video" "render" "seat" ];
     useDefaultShell = true;
     shell = pkgs.zsh;
     packages = with pkgs; [
