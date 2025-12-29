@@ -1,7 +1,7 @@
 { config, pkgs, ... }:{
 imports =[
   ./modules/system.nix
-  ./modules/gnome.nix
+  ./modules/cosmic.nix
   ./modules/pkgs.nix
   ./modules/user.nix
   ./modules/automation/git-ops.nix
