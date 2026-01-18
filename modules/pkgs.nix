@@ -7,6 +7,11 @@
     dedicatedServer.openFirewall = true;
   };
 
+  programs.gamescope = {
+  enable = true;
+  capSysNice = true; # Required for real-time scheduling
+  };
+
   programs.gamemode = {
     enable = true;
     settings = {
