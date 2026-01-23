@@ -9,7 +9,7 @@
 
   programs.gamescope = {
   enable = true;
-  capSysNice = true; # Required for real-time scheduling
+  capSysNice = true;
   };
 
   programs.gamemode = {

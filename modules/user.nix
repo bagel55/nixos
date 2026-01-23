@@ -18,6 +18,7 @@
         spotify
         scanmem
         xclicker
+        heroic
 
       # proton
         protontricks
