@@ -19,6 +19,7 @@
         scanmem
         xclicker
         heroic
+        lutris
 
       # proton
         protontricks
