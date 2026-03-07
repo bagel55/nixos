@@ -20,6 +20,7 @@
         heroic
         lutris
 
+        instawow
         xclicker
         scanmem
 
