@@ -13,13 +13,16 @@
         brave
         discord
         vesktop
+        spotify
+        
         prismlauncher
         xivlauncher
-        spotify
-        scanmem
-        xclicker
         heroic
         lutris
+
+        instawow
+        xclicker
+        scanmem
 
       # proton
         protontricks
