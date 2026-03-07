@@ -26,6 +26,7 @@
       # proton
         protontricks
         protonup-ng
+        wine
 
       # Studio
         onlyoffice-desktopeditors
