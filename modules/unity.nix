@@ -7,14 +7,17 @@ let
       alsa-lib
       atk
       cairo
+      curl
       dbus
       expat
       fontconfig
       freetype
       gdk-pixbuf
+      git
       glib
       gtk3
       harfbuzz
+      icu
       libdrm
       libglvnd
       libpulseaudio
@@ -24,6 +27,7 @@ let
       nss
       pango
       stdenv.cc.cc.lib
+      systemd
       vulkan-loader
       xorg.libICE
       xorg.libSM
@@ -41,9 +45,6 @@ let
       xorg.libxcb
       xorg.libxshmfence
       zlib
-      git
-      curl
-      icu
     ];
     runScript = "${pkgs.bash}/bin/bash";
   };
@@ -62,11 +63,6 @@ in
         set -euo pipefail
 
         base="$HOME/Unity/Hub/Editor"
-
-        if [ ! -d "$base" ]; then
-          echo "Unity editor directory not found: $base" >&2
-          exit 1
-        fi
 
         editor="$(
           find "$base" -type f -path "$base/*/Editor/Unity" \
