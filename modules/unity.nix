@@ -18,6 +18,7 @@ let
       gtk3
       harfbuzz
       icu
+      openssl
       libdrm
       libglvnd
       libpulseaudio
