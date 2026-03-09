@@ -80,7 +80,7 @@ in
         cmd='exec "$@"'
         exec unity-editor-fhs -c "$cmd" _ \
           "$editor" \
-          -force-vulkan \
+          -force-glcore \
           "$@"
       '';
     })
