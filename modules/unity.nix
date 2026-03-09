@@ -69,7 +69,7 @@ in
         fi
 
         editor="$(
-          find "$base" -mindepth 2 -maxdepth 2 -path '*/Editor/Unity' -type f \
+          find "$base" -type f -path "$base/*/Editor/Unity" \
             | sort -V \
             | tail -n1
         )"
