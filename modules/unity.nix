@@ -77,7 +77,15 @@ in
           exit 1
         fi
 
-        cmd='exec "$@"'
+        cmd='
+          export SDL_VIDEODRIVER=x11
+          export GDK_BACKEND=x11
+          export QT_QPA_PLATFORM=xcb
+          unset WAYLAND_DISPLAY
+          ulimit -n 4096 || true
+          exec "$@"
+        '
+
         exec unity-editor-fhs -c "$cmd" _ \
           "$editor" \
           -force-vulkan \
