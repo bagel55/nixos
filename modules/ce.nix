@@ -13,6 +13,7 @@ let
       util-linux
 
       glib
+      gtk2
       gtk3
       zenity
 
