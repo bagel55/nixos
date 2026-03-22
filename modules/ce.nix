@@ -10,6 +10,7 @@ let
       gnugrep
       gawk
       gnused
+      pango
       util-linux
 
       glib
