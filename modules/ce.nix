@@ -9,7 +9,7 @@ let
       findutils
       gnugrep
       gawk
-      sed
+      gnused
       util-linux
 
       glib
