@@ -5,6 +5,7 @@ imports =[
   ./modules/pkgs.nix
   ./modules/user.nix
   ./modules/unity.nix
+  ./ce.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
 ];
