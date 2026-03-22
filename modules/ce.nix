@@ -12,6 +12,7 @@ let
       gnused
       pango
       cairo
+      atk
       util-linux
 
       glib
