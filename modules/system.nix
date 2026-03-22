@@ -30,6 +30,12 @@
 # fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    dejavu_fonts
+    liberation_ttf
+  ];
+  environment.systemPackages = with pkgs; [
+  fontconfig
+  freetype
   ];
 
 # internationalisation properties
