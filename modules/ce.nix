@@ -11,6 +11,7 @@ let
       gawk
       gnused
       pango
+      cairo
       util-linux
 
       glib
