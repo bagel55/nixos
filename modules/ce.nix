@@ -15,6 +15,7 @@ let
       glib
       gtk2
       gtk3
+      gdk-pixbuf
       zenity
 
       fontconfig
