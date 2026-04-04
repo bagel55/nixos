@@ -14,12 +14,14 @@
         discord
         vesktop
         spotify
-        
+      
+      # Games
         prismlauncher
         xivlauncher
         heroic
         lutris
 
+      # Cheat/mods?
         xclicker
         scanmem
 
@@ -28,7 +30,6 @@
         protonup-ng
         wineWowPackages.stable
         winetricks
-        
 
       # Studio
         onlyoffice-desktopeditors
@@ -38,7 +39,36 @@
         vscode
         unityhub
         blender
+
+      # util
+        btop # system monitor
+        nvtopPackages.full # GPU monitor
+        corectrl # GPU configuration
+        pavucontrol # audio devices configuration
+        helvum # audio porting
+        fastfetch # loonix redditing
+        git
+        p7zip
     ];
   };
-}
 
+# steam
+  programs.steam = {
+    enable = true;
+	  remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+# Gamemode
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        desiredgov = "performance";
+        inhibit_screensaver = 1;
+        disable_splitlock = 1;
+      };
+    };
+  };
+}

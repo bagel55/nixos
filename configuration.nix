@@ -1,11 +1,10 @@
 { config, pkgs, ... }:{
 imports =[
   ./modules/system.nix
-  ./modules/gnome.nix
-  ./modules/pkgs.nix
-  ./modules/user.nix
-  ./modules/unity.nix
-  ./modules/ce.nix
+  ./modules/env.nix
+  ./modules/desktopEnviorments/gnome.nix
+  #./modules/desktopEnviorments/cosmic.nix
+  ./modules/applications/unity.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
 ];

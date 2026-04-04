@@ -11,7 +11,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
 # Custom lqx kernel
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
 # Universal driver fix
   hardware.enableRedistributableFirmware = true;
