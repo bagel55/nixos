@@ -92,73 +92,54 @@
   };
 
 # Mango Hud
-  programs.mangohud = {
-    enable = true;
-    settings = {
-      no_display = true;
-      
-      ### Core
-      fps = true;
-      frametime = true;
-      frame_timing = true;
+  home.file.".config/MangoHud/MangoHud.conf".text = ''
+    no_display
 
-      ### GPU
-      gpu_stats = true;
-      gpu_temp = true;
-      gpu_core_clock = true;
-      gpu_mem_clock = true;
-      gpu_power = true;
-      gpu_load_change = true;
-      vram = true;
+    fps
+    frametime
+    frame_timing
 
-      ### CPU
-      cpu_stats = true;
-      cpu_temp = true;
-      cpu_power = true;
-      cpu_mhz = true;
+    gpu_stats
+    gpu_temp
+    gpu_core_clock
+    gpu_mem_clock
+    gpu_power
+    vram
 
-      ### Memory
-      ram = true;
-      swap = true;
+    cpu_stats
+    cpu_temp
+    cpu_mhz
 
-      ### System info
-      engine_version = true;
-      vulkan_driver = true;
-      arch = true;
-      wine = true;
+    ram
+    swap
 
-      ### Frame pacing / diagnostics
-      throttling_status = true;
-      device_battery = true;
-      io_read = true;
-      io_write = true;
+    engine_version
+    vulkan_driver
+    arch
+    wine
 
-      ### FPS limits / sync info
-      fps_limit_method = "early";
-      vsync = true;
+    throttling_status
+    io_read
+    io_write
 
-      ### Layout
-      position = "top-left";
-      font_size = 20;
-      background_alpha = 0.4;
-      round_corners = 5;
+    fps_limit_method=early
 
-      ### Graphs
-      cpu_load_change = true;
-      fps_color_change = true;
+    position=top-left
+    font_size=20
+    background_alpha=0.4
+    round_corners=5
 
-      ### Colors (optional but useful)
-      gpu_color = "2E9762";
-      cpu_color = "2E97CB";
-      vram_color = "AD64C1";
-      ram_color = "C26693";
+    fps_color_change
+    cpu_load_change
 
-      ### Other nice extras
-      gamemode = true;
-      resolution = true;
-      fps_only = false;
-    };
-  };
+    gpu_color=2E9762
+    cpu_color=2E97CB
+    vram_color=AD64C1
+    ram_color=C26693
+
+    gamemode
+    resolution
+  '';
 
 # gnome font
   fonts.fontconfig.enable = true;
