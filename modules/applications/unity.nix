@@ -78,14 +78,49 @@ let
 
       base="$HOME/Unity/Hub/Editor"
 
-      editor="$(
-        find "$base" -type f -path "$base/*/Editor/Unity" \
-          | sort -V \
-          | tail -n1
-      )"
+      # Extract -projectPath argument
+      project=""
+      prev=""
 
-      if [ -z "$editor" ]; then
-        echo "No Unity editor found under $base" >&2
+      for arg in "$@"; do
+        if [ "$prev" = "-projectPath" ]; then
+          project="$arg"
+          break
+        fi
+        prev="$arg"
+      done
+
+      # Normalize path (helps with relative paths)
+      if [ -n "$project" ]; then
+        project="$(realpath "$project")"
+      fi
+
+      # Priority:
+      # 1. UNITY_VERSION (manual override)
+      # 2. ProjectVersion.txt (auto-detect)
+      # 3. Latest installed
+
+      version="''${UNITY_VERSION:-}"
+
+      if [ -z "$version" ] && [ -n "$project" ] && [ -f "$project/ProjectSettings/ProjectVersion.txt" ]; then
+        version="$(
+          grep m_EditorVersion "$project/ProjectSettings/ProjectVersion.txt" \
+            | awk '{print $2}'
+        )"
+      fi
+
+      if [ -n "$version" ]; then
+        editor="$base/$version/Editor/Unity"
+      else
+        editor="$(
+          find "$base" -type f -path "$base/*/Editor/Unity" \
+            | sort -V \
+            | tail -n1
+        )"
+      fi
+
+      if [ ! -x "$editor" ]; then
+        echo "Unity editor not found: $editor" >&2
         exit 1
       fi
 
@@ -99,7 +134,7 @@ let
 
       exec unity-editor-fhs -c 'exec "$@"' _ "$editor" "$@"
     '';
-  };
+};
 
 in
 {
