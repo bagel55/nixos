@@ -78,5 +78,5 @@
     MANGOHUD = "1";
     MANGOHUD_DLSYM = "1";
     MANGOHUD_CONFIG = "no_display";
-};
+  };
 }
