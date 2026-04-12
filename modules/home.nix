@@ -93,8 +93,6 @@
 
 # Mango Hud
   programs.mangohud = {
-    enable = true;
-
     settings = {
       ### Core
       fps = true;
