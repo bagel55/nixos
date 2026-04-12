@@ -94,6 +94,8 @@
 # Mango Hud
   programs.mangohud = {
     settings = {
+      no_display = true;
+      
       ### Core
       fps = true;
       frametime = true;
