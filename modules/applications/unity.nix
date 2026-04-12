@@ -104,8 +104,9 @@ let
 
       if [ -z "$version" ] && [ -n "$project" ] && [ -f "$project/ProjectSettings/ProjectVersion.txt" ]; then
         version="$(
-          grep m_EditorVersion "$project/ProjectSettings/ProjectVersion.txt" \
-            | awk '{print $2}'
+          sed -n 's/^m_EditorVersion:[[:space:]]*//p' \
+            "$project/ProjectSettings/ProjectVersion.txt" \
+            | tr -d '\r\n'
         )"
       fi
 
