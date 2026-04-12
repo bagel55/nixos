@@ -92,52 +92,73 @@
   };
 
 # Mango Hud
-  home.file.".config/MangoHud/MangoHud.conf".text = ''
-    fps
-    frametime
-    frame_timing
+  programs.mangohud = {
+    enable = true;
+    settings = {
+      no_display = true;
+      
+      ### Core
+      fps = true;
+      frametime = true;
+      frame_timing = true;
 
-    gpu_stats
-    gpu_temp
-    gpu_core_clock
-    gpu_mem_clock
-    gpu_power
-    vram
+      ### GPU
+      gpu_stats = true;
+      gpu_temp = true;
+      gpu_core_clock = true;
+      gpu_mem_clock = true;
+      gpu_power = true;
+      gpu_load_change = true;
+      vram = true;
 
-    cpu_stats
-    cpu_temp
-    cpu_mhz
+      ### CPU
+      cpu_stats = true;
+      cpu_temp = true;
+      cpu_power = true;
+      cpu_mhz = true;
 
-    ram
-    swap
+      ### Memory
+      ram = true;
+      swap = true;
 
-    engine_version
-    vulkan_driver
-    arch
-    wine
+      ### System info
+      engine_version = true;
+      vulkan_driver = true;
+      arch = true;
+      wine = true;
 
-    throttling_status
-    io_read
-    io_write
+      ### Frame pacing / diagnostics
+      throttling_status = true;
+      device_battery = true;
+      io_read = true;
+      io_write = true;
 
-    fps_limit_method=early
+      ### FPS limits / sync info
+      fps_limit_method = "early";
+      vsync = true;
 
-    position=top-left
-    font_size=20
-    background_alpha=0.4
-    round_corners=5
+      ### Layout
+      position = "top-left";
+      font_size = 20;
+      background_alpha = 0.4;
+      round_corners = 5;
 
-    fps_color_change
-    cpu_load_change
+      ### Graphs
+      cpu_load_change = true;
+      fps_color_change = true;
 
-    gpu_color=2E9762
-    cpu_color=2E97CB
-    vram_color=AD64C1
-    ram_color=C26693
+      ### Colors (optional but useful)
+      gpu_color = "2E9762";
+      cpu_color = "2E97CB";
+      vram_color = "AD64C1";
+      ram_color = "C26693";
 
-    gamemode
-    resolution
-  '';
+      ### Other nice extras
+      gamemode = true;
+      resolution = true;
+      fps_only = false;
+    };
+  };
 
 # gnome font
   fonts.fontconfig.enable = true;
