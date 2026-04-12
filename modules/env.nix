@@ -24,7 +24,6 @@
       # Game Util?
         xclicker
         scanmem
-        mangohud
 
       # proton
         protontricks
@@ -73,10 +72,9 @@
     };
   };
 
-# Mango Hud
-  environment.variables = {
-    MANGOHUD = "1";
-    MANGOHUD_DLSYM = "1";
-    MANGOHUD_CONFIGFILE = "/home/bagel/.config/MangoHud/MangoHud.conf";
-  };
+environment.variables = {
+  MANGOHUD = "1";
+  MANGOHUD_DLSYM = "1";
+  MANGOHUD_CONFIGFILE = "/home/bagel/.config/MangoHud/MangoHud.conf";
+};
 }
