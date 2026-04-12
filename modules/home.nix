@@ -91,23 +91,16 @@
     '';
   };
 
-home.file.".config/MangoHud/MangoHud.conf".text = ''
-no_display
-
-fps
-frametime
-
-gpu_stats
-gpu_temp
-
-cpu_stats
-
-ram
-vram
-
-position=top-left
-font_size=20
-'';
+programs.mangohud = {
+  enable = true;
+  settings = {
+    no_display = true;
+    fps = true;
+    frametime = true;
+    gpu_stats = true;
+    cpu_stats = true;
+  };
+};
 
 # gnome font
   fonts.fontconfig.enable = true;
