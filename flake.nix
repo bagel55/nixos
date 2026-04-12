@@ -35,14 +35,6 @@ outputs = { self, nixpkgs, home-manager, ... }: {
         ./configuration.nix
         ./modules/hosts/laptop/hardware-configuration.nix
         ./modules/hosts/laptop/driver-configuration.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          
-          home-manager.users.bagel = import ./modules/home.nix;
-        }
       ];
     };
   };
