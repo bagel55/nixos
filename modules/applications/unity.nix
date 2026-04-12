@@ -111,7 +111,7 @@ in
       name = "unity-vulkan";
       runtimeInputs = [ unityLauncher ];
       text = ''
-        exec unity-base -force-vulkan "$@"
+        exec unity-base -force-vulkan -force-gfx-st "$@"
       '';
     })
 
