@@ -95,6 +95,8 @@ programs.tmux = {
 programs.mangohud = {
   enable = true;
   settings = {
+    no_display = true;
+    
     ### Core
     fps = true;
     frametime = true;
@@ -155,8 +157,6 @@ programs.mangohud = {
     gamemode = true;
     resolution = true;
     fps_only = false;
-
-    no_display = true;
   };
 };
 
