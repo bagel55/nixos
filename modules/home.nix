@@ -91,6 +91,10 @@
     '';
   };
 
+home.sessionVariables = {
+  MANGOHUD = "1";
+  MANGOHUD_DLSYM = "1";
+};
 programs.mangohud = {
   enable = true;
 
