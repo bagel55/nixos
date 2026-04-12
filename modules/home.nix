@@ -93,8 +93,6 @@
 
 # Mango Hud
   home.file.".config/MangoHud/MangoHud.conf".text = ''
-    no_display
-
     fps
     frametime
     frame_timing
