@@ -119,6 +119,8 @@ in
       export __GL_SYNC_TO_VBLANK=0
       export __GL_MaxFramesAllowed=1
 
+      export MESA_VK_WSI_PRESENT_MODE=immediate
+
       exec unity-base -force-vulkan "$@"
     '';
   })
