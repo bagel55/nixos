@@ -26,7 +26,7 @@ let
       libpulseaudio
       libuuid
       libxkbcommon
-      libxml2
+      libxml2_13
       nspr
       nss
       pango
