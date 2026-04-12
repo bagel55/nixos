@@ -93,6 +93,7 @@
 
 # Mango Hud
   programs.mangohud = {
+    enable = true;
     settings = {
       no_display = true;
       
