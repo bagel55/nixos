@@ -155,6 +155,8 @@ programs.mangohud = {
     gamemode = true;
     resolution = true;
     fps_only = false;
+
+    no_display = true;
   };
 };
 
