@@ -65,10 +65,10 @@ programs.gamemode = {
 };
 
 # Mango Hud
-#environment.variables = {
-#  MANGOHUD = "1";
-#  MANGOHUD_DLSYM = "1";
-#};
+environment.sessionVariables = {
+  MANGOHUD = "1";
+  MANGOHUD_DLSYM = "1";
+};
 
 # steam
 programs.steam = {
