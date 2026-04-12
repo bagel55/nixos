@@ -108,12 +108,20 @@ in
     unityLauncher
 
     (pkgs.writeShellApplication {
-      name = "unity-vulkan";
-      runtimeInputs = [ unityLauncher ];
-      text = ''
-        exec unity-base -force-vulkan -force-gfx-st "$@"
-      '';
-    })
+    name = "unity-vulkan";
+    runtimeInputs = [ unityLauncher ];
+    text = ''
+      # Vulkan / sync related fixes
+      export MESA_VK_WSI_PRESENT_MODE=mailbox
+      export vblank_mode=0
+
+      # NVIDIA only (safe to leave, ignored on AMD/Intel)
+      export __GL_SYNC_TO_VBLANK=0
+      export __GL_MaxFramesAllowed=1
+
+      exec unity-base -force-vulkan "$@"
+    '';
+  })
 
     (pkgs.writeShellApplication {
       name = "unity-gl";
