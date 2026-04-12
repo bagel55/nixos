@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, unstable, modulesPath, ... }:
 {
 	#GPU
 	boot.initrd.kernelModules = [ "amdgpu" ];
@@ -7,6 +7,8 @@
 	hardware.graphics = {
   	enable = true;
 	  enable32Bit = true;
+    package = unstable.mesa;
+    package32 = unstable.pkgsi686Linux.mesa;
 	};
 
 	hardware.amdgpu.opencl.enable = true;
@@ -28,7 +30,6 @@
 
   # Required for RDNA3
   environment.variables = {
-    ROC_ENABLE_PRE_VEGA = "1";
     HSA_OVERRIDE_GFX_VERSION = "11.0.0";
   };
 
