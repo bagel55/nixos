@@ -21,9 +21,10 @@
         heroic
         lutris
 
-      # Cheat/mods?
+      # Game Util?
         xclicker
         scanmem
+        mangohud
 
       # proton
         protontricks

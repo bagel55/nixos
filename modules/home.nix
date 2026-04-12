@@ -91,6 +91,33 @@
     '';
   };
 
+# Mango Hud
+  programs.mangohud = {
+    enable = true;
+
+    settings = {
+      fps = true;
+      frametime = true;
+
+      cpu_stats = true;
+      gpu_stats = true;
+
+      ram = true;
+      vram = true;
+
+      # nice extras
+      engine_version = true;
+      vulkan_driver = true;
+
+      # layout
+      position = "top-left";
+      font_size = 20;
+
+      # frame pacing
+      frame_timing = true;
+    };
+  };
+
 # gnome font
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
