@@ -96,27 +96,17 @@ no_display
 
 fps
 frametime
-frame_timing
 
 gpu_stats
 gpu_temp
-gpu_core_clock
-gpu_mem_clock
-gpu_power
-vram
 
 cpu_stats
-cpu_temp
-cpu_mhz
 
 ram
-
-engine_version
-vulkan_driver
+vram
 
 position=top-left
 font_size=20
-background_alpha=0.4
 '';
 
 # gnome font
