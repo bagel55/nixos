@@ -35,9 +35,12 @@ let
       vulkan-loader
       zlib
 
-      # Minimal X11 (still needed via XWayland)
+      # Minimal X11 (required even on Wayland/XWayland)
       xorg.libX11
       xorg.libxcb
+      xorg.libXcursor
+      xorg.libXi
+      xorg.libXrandr
 
       # Wayland + GPU stack (important)
       wayland
