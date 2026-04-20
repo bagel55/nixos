@@ -168,6 +168,20 @@ let
       export LD_LIBRARY_PATH=/run/opengl-driver/lib:$LD_LIBRARY_PATH
       export VK_ICD_FILENAMES="/run/opengl-driver/etc/vulkan/icd.d/radeon_icd.x86_64.json"
 
+      # --- Vulkan / AMD fixes ---
+
+      # Disable overlays that break Unity Vulkan
+      unset MANGOHUD
+      unset VK_INSTANCE_LAYERS
+      unset VK_LAYER_PATH
+
+      # Force correct AMD Vulkan driver
+      export VK_ICD_FILENAMES=/run/opengl-driver/etc/vulkan/icd.d/radeon_icd.x86_64.json
+      export VK_DRIVER_FILES=/run/opengl-driver/etc/vulkan/icd.d/radeon_icd.x86_64.json
+
+      # Ensure Mesa drivers are visible inside FHS
+      export LIBGL_DRIVERS_PATH=/run/opengl-driver/lib/dri
+
       exec unity-editor-fhs -c 'exec "$@"' _ "$editor" "$@"
     '';
 };
