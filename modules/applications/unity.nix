@@ -59,6 +59,26 @@ let
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
+
+      # X11 extras (Unity silently depends on these)
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXdamage
+      xorg.libXxf86vm
+      xorg.libxshmfence
+
+      # GPU / rendering completeness
+      mesa
+
+      # Video / misc runtime
+      libva
+      libva-utils
+      vulkan-validation-layers
+      xdg-utils
+
+      # Font fallback (prevents UI crashes)
+      dejavu_fonts
+      liberation_ttf
     ];
 
     runScript = "${pkgs.bash}/bin/bash";
@@ -132,6 +152,21 @@ let
       # NVIDIA mitigation (safe to keep)
       export __GL_THREADED_OPTIMIZATIONS=0
       export __GL_SYNC_TO_VBLANK=1
+
+      # Force stable backend (critical)
+      export SDL_VIDEODRIVER=x11
+      export GDK_BACKEND=x11
+      export QT_QPA_PLATFORM=xcb
+
+      # DBus fix
+      # DBus fix (Nix-safe)
+      if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+        export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
+      fi
+
+      # GL/Vulkan loader path
+      export LD_LIBRARY_PATH=/run/opengl-driver/lib:$LD_LIBRARY_PATH
+      export VK_ICD_FILENAMES="/run/opengl-driver/etc/vulkan/icd.d/radeon_icd.x86_64.json"
 
       exec unity-editor-fhs -c 'exec "$@"' _ "$editor" "$@"
     '';
