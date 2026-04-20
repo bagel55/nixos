@@ -49,6 +49,7 @@ users.users.bagel = {
     fastfetch # loonix redditing
     git
     p7zip
+    vulkan-tools
   ];
 };
 
