@@ -14,6 +14,7 @@ users.users.bagel = {
     discord
     vesktop
     spotify
+    firefox
     
     # Games
     prismlauncher

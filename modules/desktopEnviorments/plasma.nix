@@ -1,8 +1,8 @@
 { config, pkgs, ... }:{
-    ervices.xserver.enable = true;
+    services.xserver.enable = true;
 
     services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.wayland = false;
+    services.displayManager.sddm.wayland.enable = false;
 
     services.desktopManager.plasma6.enable = true;
 }
