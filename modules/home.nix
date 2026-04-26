@@ -99,6 +99,9 @@ programs.mangohud = {
     
     ### Core
     fps = true;
+    fps_avg = true;
+    "fps_1%" = true;
+    "fps_0.1%" = true;
     frametime = true;
     frame_timing = true;
 
