@@ -25,6 +25,7 @@ users.users.bagel = {
     # Game Util?
     xclicker
     scanmem
+    satisfactorymodmanager
 
     # proton
     protontricks
