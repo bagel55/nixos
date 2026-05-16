@@ -12,9 +12,7 @@ users.users.bagel = {
     alacritty 
     brave
     discord
-    vesktop
     spotify
-    firefox
     
     # Games
     prismlauncher
@@ -22,15 +20,11 @@ users.users.bagel = {
     heroic
     lutris
 
-      # Cheat/mods?
-        xclicker
-        scanmem
-
-      # proton
-        protontricks
-        protonup-ng
-        wineWowPackages.stable
-        winetricks
+    # proton
+    protontricks
+    protonup-ng
+    wineWowPackages.stable
+    winetricks
 
     # Studio
     onlyoffice-desktopeditors
