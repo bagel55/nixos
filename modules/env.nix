@@ -22,16 +22,15 @@ users.users.bagel = {
     heroic
     lutris
 
-    # Game Util?
-    xclicker
-    scanmem
-    satisfactorymodmanager
+      # Cheat/mods?
+        xclicker
+        scanmem
 
-    # proton
-    protontricks
-    protonup-ng
-    wineWowPackages.stable
-    winetricks
+      # proton
+        protontricks
+        protonup-ng
+        wineWowPackages.stable
+        winetricks
 
     # Studio
     onlyoffice-desktopeditors
