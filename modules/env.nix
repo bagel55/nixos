@@ -23,8 +23,6 @@ users.users.bagel = {
     # proton
     protontricks
     protonup-ng
-    wineWowPackages.stable
-    winetricks
 
     # Studio
     onlyoffice-desktopeditors
@@ -40,7 +38,6 @@ users.users.bagel = {
     nvtopPackages.full # GPU monitor
     corectrl # GPU configuration
     pavucontrol # audio devices configuration
-    helvum # audio porting
     fastfetch # loonix redditing
     git
     p7zip
