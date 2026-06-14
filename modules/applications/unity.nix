@@ -36,11 +36,11 @@ let
       zlib
 
       # Minimal X11 (required even on Wayland/XWayland)
-      xorg.libX11
-      xorg.libxcb
-      xorg.libXcursor
-      xorg.libXi
-      xorg.libXrandr
+      libX11
+      libxcb
+      libXcursor
+      libXi
+      libXrandr
 
       # Wayland + GPU stack (important)
       wayland
@@ -61,11 +61,11 @@ let
       noto-fonts-color-emoji
 
       # X11 extras (Unity silently depends on these)
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXdamage
-      xorg.libXxf86vm
-      xorg.libxshmfence
+      libXext
+      libXfixes
+      libXdamage
+      libXxf86vm
+      libxshmfence
 
       # GPU / rendering completeness
       mesa
