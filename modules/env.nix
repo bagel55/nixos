@@ -31,7 +31,7 @@ users.users.bagel = {
     gimp
     vscode
     unityhub
-    dotnet-sdk_8
+    dotnetCorePackages.sdk_10_0
     blender
 
     # util
