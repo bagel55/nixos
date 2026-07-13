@@ -12,6 +12,7 @@ users.users.bagel = {
     alacritty 
     brave
     discord
+    vesktop
     spotify
     
     # Games
