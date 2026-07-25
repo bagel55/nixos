@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nixos-cosmic, home-manager, ... }: {
     nixosConfigurations = {
 
-      bagel-desktop = nixpkgs.lib.nixosSystem {
+      bagel-desktop-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         specialArgs = {
@@ -45,7 +45,7 @@
         ];
       };
 
-      bagel-laptop = nixpkgs.lib.nixosSystem {
+      bagel-laptop-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         specialArgs = {
