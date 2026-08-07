@@ -8,4 +8,4 @@ imports =[
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
 ];
-system.stateVersion = "25.11";}
+system.stateVersion = "26.05";}
