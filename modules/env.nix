@@ -44,6 +44,7 @@ users.users.bagel = {
     git
     p7zip
     vulkan-tools
+    piper
   ];
 };
 

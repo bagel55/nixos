@@ -62,6 +62,9 @@
 # Bluetooth
   hardware.bluetooth.enable = true;
 
+# Logiperifs
+  services.ratbagd.enable = true;
+
 # sound
   services.pulseaudio.enable = false;
  	security.rtkit.enable = true;
