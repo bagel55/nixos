@@ -23,7 +23,6 @@ users.users.bagel = {
 
     # proton
     protontricks
-    protonup-ng
 
     # Studio
     onlyoffice-desktopeditors
@@ -72,5 +71,9 @@ programs.steam = {
   remotePlay.openFirewall = true;
   localNetworkGameTransfers.openFirewall = true;
   dedicatedServer.openFirewall = true;
+
+  extraCompatPackages = with pkgs; [
+    proton-ge-bin
+  ];
 };
 }
