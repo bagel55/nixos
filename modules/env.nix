@@ -33,8 +33,10 @@ users.users.bagel = {
     unityhub
     dotnetCorePackages.sdk_10_0
     blender
+
+    # Printing
     freecad
-    orca-slicer
+    qidi-studio
 
     # util
     btop # system monitor
