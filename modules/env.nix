@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{ config, pkgs, unstable, ... }:{
 # user config
 programs.zsh.enable = true;
 users.users.bagel = {
@@ -36,7 +36,7 @@ users.users.bagel = {
 
     # Printing
     freecad
-    qidi-studio
+    unstable.qidi-studio
 
     # util
     btop # system monitor
