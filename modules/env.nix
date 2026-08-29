@@ -1,5 +1,22 @@
-{ config, pkgs, unstable, ... }:{
-# user config
+{ config, pkgs, unstable, ... }:
+
+let
+  qidiStudioFixed = unstable.appimageTools.wrapType2 {
+    pname = "qidi-studio";
+    version = "2.07.02.60";
+
+    src = unstable.fetchurl {
+      url = "https://github.com/QIDITECH/QIDIStudio/releases/download/v2.07.02.60/QIDIStudio_v02.07.02.60_Ubuntu24.AppImage";
+      hash = "sha256-1H0rLI3V8W1I+KIbolQg/Wat9WsACMy1RIdyU0s8seg=";
+    };
+
+    extraPkgs = p: [
+      p.webkitgtk_4_1
+      p.libsoup_3
+    ];
+  };
+in
+{
 programs.zsh.enable = true;
 users.users.bagel = {
   isNormalUser = true;
