@@ -13,4 +13,8 @@
 
 	#Hostname
 	networking.hostName = "bagel-desktop-nixos";
+
+	users.users.bagel.packages = with pkgs; [
+	  nvtopPackages.amd
+	];
 }

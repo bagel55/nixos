@@ -20,6 +20,10 @@
     enable32Bit = true;
   };
 
+  users.users.bagel.packages = with pkgs; [
+    nvtopPackages.nvidia
+  ];
+
   services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.hostName = "bagel-laptop-nixos";

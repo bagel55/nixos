@@ -179,6 +179,7 @@ programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [
   appindicator
   blur-my-shell
   just-perfection
+  tiling-shell
 ];
 
 dconf.settings = {

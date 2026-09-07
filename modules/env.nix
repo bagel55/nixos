@@ -89,7 +89,6 @@ users.users.bagel = {
 
     # util
     btop # system monitor
-    nvtopPackages.full # GPU monitor
     corectrl # GPU configuration
     pavucontrol # audio devices configuration
     fastfetch # loonix redditing
