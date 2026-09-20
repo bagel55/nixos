@@ -188,7 +188,7 @@ dconf.settings = {
       "appindicatorsupport@rgcjonas.gmail.com"
       "blur-my-shell@aunetx"
       "just-perfection-desktop@just-perfection"
-      "tilingshell@ferrarodomenico.com"
+      #"tilingshell@ferrarodomenico.com"
     ];
   };
 };
