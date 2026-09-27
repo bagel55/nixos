@@ -95,49 +95,58 @@ programs.tmux = {
 # Mango Hud
 programs.mangohud = {
   enable = true;
+
   settings = {
     no_display = true;
-    
-    ### Core
+
+    ### FPS / frame pacing
     fps = true;
-    fps_avg = true;
-    "fps_1%" = true;
-    "fps_0.1%" = true;
+    fps_metrics = "avg,0.01,0.001";
     frametime = true;
     frame_timing = true;
+    fps_color_change = true;
 
     ### GPU
     gpu_stats = true;
     gpu_temp = true;
+    gpu_junction_temp = true;
     gpu_core_clock = true;
     gpu_mem_clock = true;
     gpu_power = true;
+    gpu_power_limit = true;
+    gpu_fan = true;
+    gpu_voltage = true;
     gpu_load_change = true;
     vram = true;
+    proc_vram = true;
 
     ### CPU
     cpu_stats = true;
     cpu_temp = true;
     cpu_power = true;
     cpu_mhz = true;
+    cpu_load_change = true;
 
     ### Memory
     ram = true;
+    procmem = true;
     swap = true;
 
-    ### System info
+    ### System / rendering info
     engine_version = true;
     vulkan_driver = true;
     arch = true;
     wine = true;
+    winesync = true;
+    present_mode = true;
 
-    ### Frame pacing / diagnostics
+    ### Diagnostics
     throttling_status = true;
     device_battery = true;
     io_read = true;
     io_write = true;
 
-    ### FPS limits / sync info
+    ### FPS limits / sync
     fps_limit_method = "early";
     vsync = true;
 
@@ -147,17 +156,13 @@ programs.mangohud = {
     background_alpha = 0.4;
     round_corners = 5;
 
-    ### Graphs
-    cpu_load_change = true;
-    fps_color_change = true;
-
-    ### Colors (optional but useful)
+    ### Colors
     gpu_color = "2E9762";
     cpu_color = "2E97CB";
     vram_color = "AD64C1";
     ram_color = "C26693";
 
-    ### Other nice extras
+    ### Other
     gamemode = true;
     resolution = true;
     fps_only = false;
