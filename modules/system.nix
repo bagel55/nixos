@@ -12,6 +12,9 @@
 
 # Kernel
   boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelParams = [
+  "cgroup_disable=memory"
+  ];
 
 # Universal driver fix
   hardware.enableRedistributableFirmware = true;
