@@ -7,6 +7,9 @@
 	hardware.graphics = {
   	  enable = true;
 	  enable32Bit = true;
+
+	  package = unstable.mesa;
+  	  package32 = unstable.pkgsi686Linux.mesa;
 	};
 
 	#Hostname
