@@ -24,6 +24,12 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   hardware.enableAllFirmware = true;
 
+# Appimages
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
 # dconf
   programs.dconf.enable = true;
 
