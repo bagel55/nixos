@@ -10,11 +10,12 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
+# Garbage
+  nix.gc = { automatic = true; dates = "weekly"; options = "--delete-older-than 14d"; };
+  boot.loader.grub.configurationLimit = 10;
+
 # Kernel
   boot.kernelPackages = pkgs.linuxPackages;
-
-# Universal driver fix
-  hardware.enableRedistributableFirmware = true;
 
 # SSD trim
 	services.fstrim.enable = true;

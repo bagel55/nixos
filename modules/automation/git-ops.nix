@@ -47,12 +47,4 @@ system.activationScripts.gitPushOnRebuild = {
     /run/current-system/systemd/bin/systemctl start git-push-on-rebuild.service
   '';
 };
-
-
-system.activationScripts.gc-keep-last-5 = {
-  text = ''
-    echo "[GC] Deleting all but the last 5 generations..."
-    ${nixEnv} --delete-generations +5 --profile /nix/var/nix/profiles/system
-  '';
-};
 }
