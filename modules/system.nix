@@ -5,7 +5,6 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-      useOSProber = true;
     };
   };
   boot.loader.efi.canTouchEfiVariables = true;
@@ -16,6 +15,13 @@
 
 # Kernel
   boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelModules = [ "ntsync" ]; # NT sync for Proton/Wine (MangoHud WSYNC shows NTsync)
+
+# Compressed swap in RAM: under memory pressure, compress instead of freezing/killing apps
+  zramSwap.enable = true;
+
+# Run prebuilt Linux binaries (VS Code extensions, Unity/.NET tooling, downloads)
+  programs.nix-ld.enable = true;
 
 # SSD trim
 	services.fstrim.enable = true;
@@ -23,6 +29,7 @@
 # nixos configuration
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.auto-optimise-store = true; # hard-link identical files in /nix/store
   hardware.enableAllFirmware = true;
 
 # Appimages
