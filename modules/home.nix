@@ -171,15 +171,7 @@ programs.mangohud = {
 
 # gnome
 fonts.fontconfig.enable = true;
-home.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-dconf.settings = {
-  "org/gnome/desktop/interface" = {
-    font-name = "JetBrainsMono Nerd Font 11";
-    document-font-name = "JetBrainsMono Nerd Font 11";
-    monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
-  };
-};
-
+# JetBrains Mono Nerd Font is installed system-wide in system.nix
 programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [
   appindicator
   blur-my-shell
@@ -188,6 +180,12 @@ programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [
 ];
 
 dconf.settings = {
+  "org/gnome/desktop/interface" = {
+    font-name = "JetBrainsMono Nerd Font 11";
+    document-font-name = "JetBrainsMono Nerd Font 11";
+    monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
+  };
+
   "org/gnome/shell" = {
     enabled-extensions = [
       "appindicatorsupport@rgcjonas.gmail.com"

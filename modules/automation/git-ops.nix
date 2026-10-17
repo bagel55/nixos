@@ -2,7 +2,6 @@
 let
   sshPath = "${pkgs.openssh}/bin/ssh";
   gitPath = "${pkgs.git}/bin/git";
-  nixEnv = "${pkgs.nix}/bin/nix-env";
   alacarteDir = "/etc/nixos/alacarte";
   userName = "bagel";
   userHome = "/home/${userName}";

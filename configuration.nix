@@ -2,9 +2,9 @@
 imports =[
   ./modules/system.nix
   ./modules/env.nix
-  ./modules/desktopEnviorments/gnome.nix
-  #./modules/desktopEnviorments/cosmic.nix
-  #./modules/desktopEnviorments/plasma.nix
+  ./modules/desktopEnvironments/gnome.nix
+  #./modules/desktopEnvironments/cosmic.nix
+  #./modules/desktopEnvironments/plasma.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
 ];

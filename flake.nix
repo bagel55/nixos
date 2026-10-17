@@ -7,56 +7,33 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
-    nixosConfigurations = {
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+      unstable = import nixpkgs-unstable { inherit system; };
 
-      bagel-desktop-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        specialArgs = {
-          unstable = import nixpkgs-unstable {
-            system = "x86_64-linux";
-          };
-        };
+      # One machine = one folder under ./modules/hosts/<name>
+      mkHost = host: nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit unstable; };
 
         modules = [
           ./configuration.nix
-          ./modules/hosts/desktop/hardware-configuration.nix
-          ./modules/hosts/desktop/driver-configuration.nix
+          ./modules/hosts/${host}/hardware-configuration.nix
+          ./modules/hosts/${host}/driver-configuration.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
             home-manager.users.bagel = import ./modules/home.nix;
           }
         ];
       };
-
-      bagel-laptop-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        specialArgs = {
-          unstable = import nixpkgs-unstable {
-            system = "x86_64-linux";
-          };
-        };
-
-        modules = [
-          ./configuration.nix
-          ./modules/hosts/laptop/hardware-configuration.nix
-          ./modules/hosts/laptop/driver-configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.bagel = import ./modules/home.nix;
-          }
-        ];
+    in {
+      nixosConfigurations = {
+        bagel-desktop-nixos = mkHost "desktop";
+        bagel-laptop-nixos = mkHost "laptop";
       };
     };
-  };
 }
