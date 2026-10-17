@@ -1,7 +1,9 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, unstable, modulesPath, ... }:
 {
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.new_feature;
+    package =
+      (unstable.linuxPackagesFor config.boot.kernelPackages.kernel)
+        .nvidiaPackages.new_feature;
 
     modesetting.enable = true;
 
