@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./home/terminal.nix # Alacritty
@@ -12,6 +12,10 @@
   home.username = "bagel";
   home.homeDirectory = "/home/bagel";
   programs.home-manager.enable = true;
+
+  # Standard XDG dirs/env vars; run `xdg-ninja` to audit dotfile clutter in ~
+  xdg.enable = true;
+  home.packages = [ pkgs.xdg-ninja ];
 
   home.stateVersion = "25.11";
 }
