@@ -11,7 +11,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
 # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
 # Universal driver fix
   hardware.enableRedistributableFirmware = true;
