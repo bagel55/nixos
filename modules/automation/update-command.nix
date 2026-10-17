@@ -8,7 +8,7 @@ let
     old=$(readlink -f /run/current-system)
 
     # Lines that show up on every rebuild and say nothing useful.
-    noise='^lsblk: /dev/mapper/|os-prober will be executed|Its output will be used to detect bootable|^Checking switch inhibitors|^setting up /etc|^reloading user units|^restarting the following user units|^restarting sysinit-reactivation|^\[Permissions\]|^\[INFO\] Triggering git-push|^Done\. The new configuration is'
+    noise='^lsblk: /dev/mapper/|os-prober will be executed|Its output will be used to detect bootable|^Checking switch inhibitors|^setting up /etc|^reloading user units|^restarting the following user units|^restarting sysinit-reactivation|^the following new units were started|^\[Permissions\]|^\[INFO\] Triggering git-push|^Done\. The new configuration is'
 
     echo ":: Rebuilding $host"
     set +o errexit

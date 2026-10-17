@@ -11,7 +11,10 @@ programs.home-manager.enable = true;
 programs.alacritty = {
   enable = true;
   settings = {
-    font.normal.family = "OpenDyslexicM Nerd Font Mono";
+    font = {
+      normal.family = "OpenDyslexicM Nerd Font Mono";
+      size = 13;
+    };
     window = {
       opacity = 0.90;
       dimensions = { columns = 120; lines = 40; };
@@ -113,13 +116,13 @@ programs.gnome-shell = {
 
 dconf.settings = {
   "org/gnome/desktop/interface" = {
-    font-name = "OpenDyslexic 11";
-    document-font-name = "OpenDyslexic 11";
-    monospace-font-name = "OpenDyslexicM Nerd Font Mono 11";
+    font-name = "OpenDyslexic 12";
+    document-font-name = "OpenDyslexic 12";
+    monospace-font-name = "OpenDyslexicM Nerd Font Mono 12";
   };
 
   "org/gnome/desktop/wm/preferences" = {
-    titlebar-font = "OpenDyslexic Bold 11";
+    titlebar-font = "OpenDyslexic Bold 12";
   };
 };
 
