@@ -98,7 +98,7 @@ in
       ### Presets / keys
       preset = "0,1,2,3"; # 0 = hidden (starts hidden)
       toggle_preset = "Shift_R+F12";
-      toggle_hud = "Shift_R+F9"; # moved off F12 so it doesn't fight the preset key
+      toggle_hud = "VoidSymbol"; # unbound: F12 above is the only on/off key
 
       ### Behaviour
       fps_limit_method = "early";
