@@ -7,5 +7,6 @@ imports =[
   #./modules/desktopEnvironments/plasma.nix
   ./modules/automation/git-ops.nix
   ./modules/automation/activation-scripts.nix
+  ./modules/automation/update-command.nix
 ];
 system.stateVersion = "26.05";}
