@@ -1,4 +1,4 @@
-{ config, lib, pkgs, unstable, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 {
 	#GPU
 	boot.initrd.kernelModules = [ "amdgpu" ];

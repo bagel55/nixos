@@ -1,7 +1,7 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 
 let
-  qidiStudio = import ./packages/qidi-studio.nix { inherit unstable; };
+  qidiStudio = import ./packages/qidi-studio.nix { inherit pkgs; };
 in
 {
 programs.zsh.enable = true;
@@ -80,7 +80,7 @@ programs.steam = {
   dedicatedServer.openFirewall = true;
 
   extraCompatPackages = with pkgs; [
-    unstable.proton-ge-bin
+    proton-ge-bin
   ];
 };
 }
