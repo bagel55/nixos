@@ -1,134 +1,17 @@
-{ config, pkgs, lib, ... }: {
-imports = [ ./home/mangohud.nix ];
-
-# enables home-manager
-home.enableNixpkgsReleaseCheck = false;
-home.username = "bagel";
-home.homeDirectory = "/home/bagel";
-programs.home-manager.enable = true;
-
-# alacritty
-programs.alacritty = {
-  enable = true;
-  settings = {
-    font = {
-      normal.family = "OpenDyslexicM Nerd Font Mono";
-      size = 13;
-    };
-    window = {
-      opacity = 0.90;
-      dimensions = { columns = 120; lines = 40; };
-    };
-    colors = {
-      primary = {
-        background = "#1a1b26";
-        foreground = "#c0caf5";
-      };
-      normal = {
-        black = "#15161E";
-        red = "#f7768e";
-        green = "#9ece6a";
-        yellow = "#e0af68";
-        blue = "#7aa2f7";
-        magenta = "#bb9af7";
-        cyan = "#7dcfff";
-        white = "#a9b1d6";
-      };
-      bright = {
-        black = "#414868";
-        red = "#f7768e";
-        green = "#9ece6a";
-        yellow = "#e0af68";
-        blue = "#7aa2f7";
-        magenta = "#bb9af7";
-        cyan = "#7dcfff";
-        white = "#c0caf5";
-      };
-    };
-  };
-};
-
-# zsh and oh-my-zsh
-programs.zsh = {
-  enable = true;
-  oh-my-zsh = {
-    enable = true;
-    plugins = [ "git" "z" "tmux" "direnv" ];
-  };
-  initContent = ''
-    # use 'p10k configure'
-    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-    if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
-      exec tmux new-session -A -s main
-    fi
-  '';
-};
-
-# tmux
-programs.tmux = {
-  enable = true;
-  newSession = true;
-  escapeTime = 0;
-  secureSocket = false;
-
-  plugins = with pkgs.tmuxPlugins; [
-    tokyo-night-tmux
-    continuum
-    resurrect
+{ ... }:
+{
+  imports = [
+    ./home/terminal.nix # Alacritty
+    ./home/shell.nix    # zsh, Powerlevel10k, tmux, direnv
+    ./home/gnome.nix    # extensions, fonts
+    ./home/mangohud.nix # Right Shift + F12 cycles presets
   ];
 
-  extraConfig = ''
-    set -g prefix C-s
-    set -g mouse on
+  # home-manager itself
+  home.enableNixpkgsReleaseCheck = false;
+  home.username = "bagel";
+  home.homeDirectory = "/home/bagel";
+  programs.home-manager.enable = true;
 
-    set-environment -gu "SSH_ASKPASS"
-
-    unbind h
-    bind h split-window -h -c "#{pane_current_path}"
-
-    unbind v
-    bind v split-window -v -c "#{pane_current_path}"
-
-    set -g @tokyo-night-tmux_show_netspeed 1
-
-    set -g @continuum-restore 'on'
-    set -g @resurrect-capture-pane-contents 'on'
-  '';
-};
-
-# Mango Hud: see ./home/mangohud.nix (Right Shift + F12 cycles presets)
-
-# gnome
-fonts.fontconfig.enable = true;
-# Fonts (OpenDyslexic) are installed system-wide in system.nix
-# installs the extensions and enables them (also writes enabled-extensions)
-programs.gnome-shell = {
-  enable = true;
-  extensions = with pkgs.gnomeExtensions; [
-    { package = appindicator; }
-    { package = blur-my-shell; }
-    { package = just-perfection; }
-    { package = tiling-shell; }
-  ];
-};
-
-dconf.settings = {
-  "org/gnome/desktop/interface" = {
-    font-name = "OpenDyslexic 12";
-    document-font-name = "OpenDyslexic 12";
-    monospace-font-name = "OpenDyslexicM Nerd Font Mono 12";
-  };
-
-  "org/gnome/desktop/wm/preferences" = {
-    titlebar-font = "OpenDyslexic Bold 12";
-  };
-};
-
-# direnv
-programs.direnv.enable = true;
-programs.direnv.nix-direnv.enable = true;
-
-home.stateVersion = "25.11";
+  home.stateVersion = "25.11";
 }
