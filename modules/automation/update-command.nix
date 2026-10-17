@@ -26,7 +26,25 @@ let
       nvd diff "$old" /run/current-system
     '';
   };
+
+  # `upgrade` from any directory: rebuild this machine from /etc/nixos as-is.
+  # No pull, no flake update: local edits are kept, versions stay pinned.
+  upgrade = pkgs.writeShellApplication {
+    name = "upgrade";
+    runtimeInputs = with pkgs; [ nixos-rebuild nvd ];
+    text = ''
+      repo=/etc/nixos
+      host=$(cat /proc/sys/kernel/hostname)
+      old=$(readlink -f /run/current-system)
+
+      echo ":: Rebuilding $host"
+      sudo nixos-rebuild switch --flake "$repo#$host"
+
+      echo ":: What changed"
+      nvd diff "$old" /run/current-system
+    '';
+  };
 in
 {
-  environment.systemPackages = [ update ];
+  environment.systemPackages = [ update upgrade ];
 }
