@@ -16,13 +16,13 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      font-name = "OpenDyslexic 12";
-      document-font-name = "OpenDyslexic 12";
+      font-name = "TeX Gyre Heros 12";
+      document-font-name = "TeX Gyre Heros 12";
       monospace-font-name = "OpenDyslexicM Nerd Font Mono 12";
     };
 
     "org/gnome/desktop/wm/preferences" = {
-      titlebar-font = "OpenDyslexic Bold 12";
+      titlebar-font = "TeX Gyre Heros Bold 12";
     };
   };
 }
