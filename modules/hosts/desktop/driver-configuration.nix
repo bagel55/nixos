@@ -9,6 +9,9 @@
 	  enable32Bit = true;
 	};
 
+	hardware.amdgpu.overdrive.enable = true;
+	services.lact.enable = true;
+
 	#Hostname
 	networking.hostName = "bagel-desktop-nixos";
 
