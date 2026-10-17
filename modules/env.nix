@@ -21,7 +21,6 @@ users.users.bagel = {
     
     # Games
     prismlauncher
-    xivlauncher
     heroic
     lutris
 
