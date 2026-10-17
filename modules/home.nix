@@ -11,6 +11,7 @@ programs.home-manager.enable = true;
 programs.alacritty = {
   enable = true;
   settings = {
+    font.normal.family = "OpenDyslexicM Nerd Font Mono";
     window = {
       opacity = 0.90;
       dimensions = { columns = 120; lines = 40; };
@@ -98,7 +99,7 @@ programs.tmux = {
 
 # gnome
 fonts.fontconfig.enable = true;
-# JetBrains Mono Nerd Font is installed system-wide in system.nix
+# Fonts (OpenDyslexic) are installed system-wide in system.nix
 # installs the extensions and enables them (also writes enabled-extensions)
 programs.gnome-shell = {
   enable = true;
@@ -112,9 +113,13 @@ programs.gnome-shell = {
 
 dconf.settings = {
   "org/gnome/desktop/interface" = {
-    font-name = "JetBrainsMono Nerd Font 11";
-    document-font-name = "JetBrainsMono Nerd Font 11";
-    monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
+    font-name = "OpenDyslexic 11";
+    document-font-name = "OpenDyslexic 11";
+    monospace-font-name = "OpenDyslexicM Nerd Font Mono 11";
+  };
+
+  "org/gnome/desktop/wm/preferences" = {
+    titlebar-font = "OpenDyslexic Bold 11";
   };
 };
 

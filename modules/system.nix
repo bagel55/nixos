@@ -43,8 +43,17 @@
 
 # fonts
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+    open-dyslexic             # "OpenDyslexic" (UI / documents)
+    nerd-fonts.open-dyslexic  # "OpenDyslexicM Nerd Font Mono" (terminal / code, with prompt icons)
+    nerd-fonts.jetbrains-mono # kept as a fallback
   ];
+
+  # Default fonts for every app that asks fontconfig (browsers, Electron apps, ...)
+  fonts.fontconfig.defaultFonts = {
+    sansSerif = [ "OpenDyslexic" ];
+    serif = [ "OpenDyslexic" ];
+    monospace = [ "OpenDyslexicM Nerd Font Mono" ];
+  };
 
 # internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
