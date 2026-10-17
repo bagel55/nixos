@@ -1,23 +1,31 @@
 # Shell: zsh + oh-my-zsh + Powerlevel10k, tmux, direnv
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   programs.zsh = {
     enable = true;
+    # keep zsh files out of ~ (only ~/.zshenv stays, it points here)
+    dotDir = "${config.xdg.configHome}/zsh";
+    history.path = "${config.xdg.stateHome}/zsh/history";
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "z" "tmux" "direnv" ];
+      extraConfig = ''
+        ZSH_COMPDUMP="${config.xdg.cacheHome}/zsh/zcompdump-$ZSH_VERSION"
+      '';
     };
     # mkAfter: keep this block last in .zshrc (after the direnv hook)
     initContent = lib.mkAfter ''
       # use 'p10k configure'
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+      [[ -f ${config.programs.zsh.dotDir}/.p10k.zsh ]] && source ${config.programs.zsh.dotDir}/.p10k.zsh
 
       if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
         exec tmux new-session -A -s main
       fi
     '';
   };
+
+  xdg.cacheFile."zsh/.keep".text = ""; # dir for ZSH_COMPDUMP
 
   programs.tmux = {
     enable = true;

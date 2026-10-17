@@ -5,6 +5,7 @@
     ./home/shell.nix    # zsh, Powerlevel10k, tmux, direnv
     ./home/gnome.nix    # extensions, fonts
     ./home/mangohud.nix # Right Shift + F12 cycles presets
+    ./home/cleanup.nix  # XDG dotfile moves + inactive desktop leftovers
   ];
 
   # home-manager itself
