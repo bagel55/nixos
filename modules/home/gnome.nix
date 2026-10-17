@@ -18,7 +18,7 @@
     "org/gnome/desktop/interface" = {
       font-name = "TeX Gyre Heros 12";
       document-font-name = "TeX Gyre Heros 12";
-      monospace-font-name = "OpenDyslexicM Nerd Font Mono 12";
+      monospace-font-name = "RobotoMono Nerd Font Mono 12";
     };
 
     "org/gnome/desktop/wm/preferences" = {

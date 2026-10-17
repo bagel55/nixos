@@ -44,16 +44,14 @@
 # fonts
   fonts.packages = with pkgs; [
     gyre-fonts                # "TeX Gyre Heros" = free Helvetica clone (UI / documents)
-    open-dyslexic             # "OpenDyslexic"
-    nerd-fonts.open-dyslexic  # "OpenDyslexicM Nerd Font Mono" (terminal / code, with prompt icons)
-    nerd-fonts.jetbrains-mono # kept as a fallback
+    nerd-fonts.roboto-mono    # "RobotoMono Nerd Font Mono" = Helvetica-style mono (terminal / code, prompt icons)
   ];
 
   # Default fonts for every app that asks fontconfig (browsers, Electron apps, ...)
   fonts.fontconfig.defaultFonts = {
     sansSerif = [ "TeX Gyre Heros" ];
     serif = [ "TeX Gyre Heros" ];
-    monospace = [ "OpenDyslexicM Nerd Font Mono" ];
+    monospace = [ "RobotoMono Nerd Font Mono" ];
   };
 
 # internationalisation properties

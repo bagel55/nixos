@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       font = {
-        normal.family = "OpenDyslexicM Nerd Font Mono";
+        normal.family = "RobotoMono Nerd Font Mono";
         size = 13;
       };
       window = {
