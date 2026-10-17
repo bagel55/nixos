@@ -85,7 +85,7 @@ users.users.bagel = {
 
     # Printing
     freecad
-    unstable.qidi-studio
+    qidiStudioFixed
 
     # util
     btop # system monitor
