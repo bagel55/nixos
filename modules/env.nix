@@ -64,8 +64,13 @@ programs.gamemode = {
   };
 };
 
-# MangoHud is configured in home.nix; enable it per game with the
-# Steam launch option: mangohud gamemoderun %command%
+# MangoHud in every Vulkan/OpenGL app (Steam, non-Steam games, Unity, ...).
+# Config lives in home.nix; no_display = true keeps it hidden until
+# toggled (Right Shift + F12).
+environment.sessionVariables = {
+  MANGOHUD = "1";
+  MANGOHUD_DLSYM = "1";
+};
 
 # steam
 programs.steam = {
