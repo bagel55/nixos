@@ -2,7 +2,10 @@
 {
 	#GPU
 	boot.initrd.kernelModules = [ "amdgpu" ];
-	boot.kernelModules = [ "kvm-amd" ];
+	boot.kernelModules = [ "kvm-amd" "zenergy" ];
+
+	# CPU power sensor readable without root (MangoHud CPU watts)
+	boot.extraModulePackages = [ config.boot.kernelPackages.zenergy ];
 	
 	hardware.graphics = {
   	  enable = true;
