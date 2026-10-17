@@ -85,16 +85,14 @@ users.users.bagel = {
 
     # Printing
     freecad
-    qidiStudioFixed
+    unstable.qidi-studio
 
     # util
     btop # system monitor
-    corectrl # GPU configuration
     pavucontrol # audio devices configuration
     fastfetch # loonix redditing
     git
     p7zip
-    vulkan-tools
     piper
   ];
 };
@@ -125,7 +123,7 @@ programs.steam = {
   dedicatedServer.openFirewall = true;
 
   extraCompatPackages = with pkgs; [
-    proton-ge-bin
+    unstable.proton-ge-bin
   ];
 };
 }
