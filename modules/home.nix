@@ -172,27 +172,22 @@ programs.mangohud = {
 # gnome
 fonts.fontconfig.enable = true;
 # JetBrains Mono Nerd Font is installed system-wide in system.nix
-programs.gnome-shell.extensions = with pkgs.gnomeExtensions; [
-  appindicator
-  blur-my-shell
-  just-perfection
-  tiling-shell
-];
+# installs the extensions and enables them (also writes enabled-extensions)
+programs.gnome-shell = {
+  enable = true;
+  extensions = with pkgs.gnomeExtensions; [
+    { package = appindicator; }
+    { package = blur-my-shell; }
+    { package = just-perfection; }
+    { package = tiling-shell; }
+  ];
+};
 
 dconf.settings = {
   "org/gnome/desktop/interface" = {
     font-name = "JetBrainsMono Nerd Font 11";
     document-font-name = "JetBrainsMono Nerd Font 11";
     monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
-  };
-
-  "org/gnome/shell" = {
-    enabled-extensions = [
-      "appindicatorsupport@rgcjonas.gmail.com"
-      "blur-my-shell@aunetx"
-      "just-perfection-desktop@just-perfection"
-      "tilingshell@ferrarodomenico.com"
-    ];
   };
 };
 
