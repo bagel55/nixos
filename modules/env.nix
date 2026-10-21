@@ -23,6 +23,7 @@ users.users.bagel = {
     prismlauncher
     heroic
     lutris
+    moonlight-qt
 
     # proton
     protontricks
