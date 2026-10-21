@@ -3,6 +3,7 @@ imports =[
   ./modules/system.nix
   ./modules/env.nix
   ./modules/desktopEnvironments/gnome.nix
+  ./modules/flatpak.nix
   #./modules/desktopEnvironments/cosmic.nix
   #./modules/desktopEnvironments/plasma.nix
   ./modules/automation/git-ops.nix
