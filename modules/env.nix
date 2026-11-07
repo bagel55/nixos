@@ -13,7 +13,7 @@ users.users.bagel = {
   shell = pkgs.zsh;
   packages = with pkgs; [
     # basic applications
-    alacritty 
+    alacritty
     brave
     discord
     vesktop
