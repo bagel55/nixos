@@ -10,7 +10,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
       system = "x86_64-linux";
-      unstable = import nixpkgs-unstable { inherit system; };
+      unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
 
       # One machine = one folder under ./modules/hosts/<name>
       mkHost = host: nixpkgs.lib.nixosSystem {

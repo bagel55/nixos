@@ -32,7 +32,7 @@ users.users.bagel = {
     obs-studio
     github-desktop
     gimp
-    vscode
+    unstable.vscode # 26.05's 1.144 build is broken (ripgrep path)
     unityhub
     dotnetCorePackages.sdk_10_0
     blender
