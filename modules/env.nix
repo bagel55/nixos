@@ -33,7 +33,7 @@ users.users.bagel = {
     github-desktop
     gimp
     unstable.vscode # 26.05's 1.144 build is broken (ripgrep path)
-    unityhub
+    (unityhub.override { extraLibs = pkgs: [ pkgs.ncurses ]; }) # IL2CPP's clang++ needs libncurses.so.6
     dotnetCorePackages.sdk_10_0
     blender
 
