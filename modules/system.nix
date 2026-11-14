@@ -22,6 +22,16 @@
 
 # Run prebuilt Linux binaries (VS Code extensions, Unity/.NET tooling, downloads)
   programs.nix-ld.enable = true;
+  # Added to nix-ld's base set: what native games (Unity player builds) load by name at startup.
+  # libGL and vulkan-loader find the GPU drivers in /run/opengl-driver themselves.
+  programs.nix-ld.libraries = with pkgs; [
+    libGL vulkan-loader                               # OpenGL, Vulkan
+    libx11 libxext libxcursor libxi libxinerama       # X11 window, cursor, input
+    libxrandr libxscrnsaver libxxf86vm libxrender libxfixes
+    libxkbcommon wayland libdecor                     # Wayland window, keyboard
+    alsa-lib libpulseaudio                            # audio
+    dbus fontconfig freetype harfbuzz icu libxcb
+  ];
 
 # SSD trim
 	services.fstrim.enable = true;
