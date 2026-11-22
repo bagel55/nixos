@@ -51,6 +51,7 @@ users.users.bagel = {
     git
     p7zip
     piper
+    xclicker # autoclicker (X11/XWayland windows only)
   ];
 };
 
