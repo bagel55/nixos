@@ -14,7 +14,22 @@
         secret_key = "$SEARX_SECRET_KEY";
         limiter = false;
       };
-      search.formats = [ "html" "json" ]; # json is needed by Open WebUI
+      search = {
+        formats = [ "html" "json" ]; # json is needed by Open WebUI
+        # Defaults bench a blocked engine for 1-24h; retry much sooner on a home IP.
+        suspended_times = {
+          SearxEngineAccessDenied = 600;
+          SearxEngineCaptcha = 600;
+          SearxEngineTooManyRequests = 300;
+        };
+      };
+      # Spread queries over more engines so one CAPTCHA doesn't empty the results.
+      engines = [
+        { name = "bing"; disabled = false; }
+        { name = "mojeek"; disabled = false; }
+        { name = "qwant"; disabled = false; }
+        { name = "google"; disabled = false; }
+      ];
     };
   };
 
