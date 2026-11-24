@@ -1,0 +1,29 @@
+{ config, pkgs, ... }:
+{
+  # Local LLM: llama.cpp server (Vulkan on the 7900 XT) + Open WebUI front end.
+  # Drop .gguf files into /var/lib/llm-models (sudo); every model there shows up in Open WebUI.
+  services.llama-cpp = {
+    enable = true;
+    package = pkgs.llama-cpp-vulkan; # swap to pkgs.llama-cpp-rocm to compare
+    modelsDir = "/var/lib/llm-models";
+    port = 8080;
+    extraFlags = [ "-ngl" "99" "-c" "16384" ];
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/llm-models 0755 root root -"
+  ];
+
+  services.open-webui = {
+    enable = true;
+    port = 3000; # default 8080 clashes with llama-cpp
+    environment = {
+      SCARF_NO_ANALYTICS = "True";
+      DO_NOT_TRACK = "True";
+      ANONYMIZED_TELEMETRY = "False";
+      OPENAI_API_BASE_URL = "http://127.0.0.1:8080/v1";
+      OPENAI_API_KEY = "none";
+      ENABLE_OLLAMA_API = "False";
+    };
+  };
+}

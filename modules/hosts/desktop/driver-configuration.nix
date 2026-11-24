@@ -1,5 +1,7 @@
 { config, lib, pkgs, unstable, modulesPath, ... }:
 {
+	imports = [ ../../local-llm.nix ];
+
 	#GPU
 	boot.initrd.kernelModules = [ "amdgpu" ];
 	boot.kernelModules = [ "kvm-amd" "zenergy" ];
