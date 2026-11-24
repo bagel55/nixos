@@ -1,6 +1,6 @@
 { config, lib, pkgs, unstable, modulesPath, ... }:
 {
-	imports = [ ../../local-llm.nix ../../searxng.nix ];
+	imports = [ ../../local-llm.nix ../../searxng.nix ../../comfyui.nix ];
 
 	#GPU
 	boot.initrd.kernelModules = [ "amdgpu" ];

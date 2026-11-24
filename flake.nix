@@ -5,9 +5,13 @@
 
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # ComfyUI (image/video gen) as a NixOS service. Keeps its own nixpkgs so the
+    # comfyui.cachix.org binary cache matches.
+    comfyui-nix.url = "git+https://github.com/utensils/comfyui-nix?shallow=1";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, comfyui-nix, ... }:
     let
       system = "x86_64-linux";
       unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
@@ -15,7 +19,7 @@
       # One machine = one folder under ./modules/hosts/<name>
       mkHost = host: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit unstable; };
+        specialArgs = { inherit unstable comfyui-nix; };
 
         modules = [
           ./configuration.nix

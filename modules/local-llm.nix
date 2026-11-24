@@ -31,6 +31,10 @@
       ENABLE_WEB_SEARCH = "True";
       WEB_SEARCH_ENGINE = "searxng";
       SEARXNG_QUERY_URL = "http://127.0.0.1:8888/search?q=<query>";
+      # Image generation via local ComfyUI (modules/comfyui.nix)
+      ENABLE_IMAGE_GENERATION = "True";
+      IMAGE_GENERATION_ENGINE = "comfyui";
+      COMFYUI_BASE_URL = "http://127.0.0.1:8188";
     };
   };
 }
