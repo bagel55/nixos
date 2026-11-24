@@ -24,6 +24,10 @@
       OPENAI_API_BASE_URL = "http://127.0.0.1:8080/v1";
       OPENAI_API_KEY = "none";
       ENABLE_OLLAMA_API = "False";
+      # Web search via local SearXNG (modules/searxng.nix)
+      ENABLE_WEB_SEARCH = "True";
+      WEB_SEARCH_ENGINE = "searxng";
+      SEARXNG_QUERY_URL = "http://127.0.0.1:8888/search?q=<query>";
     };
   };
 }
