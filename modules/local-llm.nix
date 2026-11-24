@@ -24,6 +24,9 @@
       OPENAI_API_BASE_URL = "http://127.0.0.1:8080/v1";
       OPENAI_API_KEY = "none";
       ENABLE_OLLAMA_API = "False";
+      # Summarize older messages before the chat hits llama-cpp's 32k context
+      ENABLE_CONTEXT_COMPACTION = "True";
+      CONTEXT_COMPACTION_TOKEN_THRESHOLD = "24000";
       # Web search via local SearXNG (modules/searxng.nix)
       ENABLE_WEB_SEARCH = "True";
       WEB_SEARCH_ENGINE = "searxng";
