@@ -7,7 +7,7 @@
     package = pkgs.llama-cpp-vulkan; # swap to pkgs.llama-cpp-rocm to compare
     modelsDir = "/var/lib/llm-models";
     port = 8080;
-    extraFlags = [ "-ngl" "99" "-c" "32768" "-ctk" "q8_0" "-ctv" "q8_0" ];
+    extraFlags = [ "-ngl" "99" "-c" "32768" "-ctk" "q8_0" "-ctv" "q8_0" "--sleep-idle-seconds" "300" ]; # unload model from VRAM after 5 min idle
   };
 
   systemd.tmpfiles.rules = [
