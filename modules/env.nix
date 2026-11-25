@@ -52,6 +52,7 @@ users.users.bagel = {
     p7zip
     piper
     xclicker # autoclicker (X11/XWayland windows only)
+    qbittorrent
   ];
 };
 
