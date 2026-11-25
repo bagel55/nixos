@@ -40,6 +40,8 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.auto-optimise-store = true; # hard-link identical files in /nix/store
+  nix.daemonCPUSchedPolicy = "idle"; # builds yield to the desktop, big compiles can't freeze it
+  nix.daemonIOSchedClass = "idle";
   nix.settings.use-xdg-base-directories = true; # no ~/.nix-profile, ~/.nix-defexpr
   programs.bash.interactiveShellInit = ''
     HISTFILE="''${XDG_STATE_HOME:-$HOME/.local/state}/bash/history"
