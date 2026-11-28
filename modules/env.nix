@@ -14,7 +14,7 @@ users.users.bagel = {
     discord
     vesktop
     spotify
-    telegram
+    telegram-desktop
     
     # Games
     prismlauncher
