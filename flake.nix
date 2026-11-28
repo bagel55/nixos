@@ -1,9 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
-    home-manager.url = "github:nix-community/home-manager/release-26.05";
+    # master is 26.11 until home-manager cuts release-26.11; switch to that once it exists
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 

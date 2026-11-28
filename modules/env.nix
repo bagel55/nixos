@@ -1,8 +1,5 @@
 { config, pkgs, unstable, ... }:
 
-let
-  qidiStudio = import ./packages/qidi-studio.nix { inherit unstable; };
-in
 {
 programs.zsh.enable = true;
 users.users.bagel = {
@@ -32,7 +29,7 @@ users.users.bagel = {
     obs-studio
     github-desktop
     gimp
-    unstable.vscode # 26.05's 1.144 build is broken (ripgrep path)
+    vscode
     # IL2CPP's clang++ needs libncurses.so.6 by that name. nixpkgs' ncurses only links that name to libncursesw.so.6,
     # and the FHS env's loader finds libraries by their real name (ld.so.cache), so it takes the non-wide build,
     # whose library is libncurses.so.6.
@@ -42,7 +39,7 @@ users.users.bagel = {
 
     # Printing
     freecad
-    qidiStudio
+    qidi-studio
 
     # util
     btop # system monitor

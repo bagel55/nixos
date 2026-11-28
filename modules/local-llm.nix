@@ -5,9 +5,15 @@
   services.llama-cpp = {
     enable = true;
     package = pkgs.llama-cpp-vulkan; # swap to pkgs.llama-cpp-rocm to compare
-    modelsDir = "/var/lib/llm-models";
-    port = 8080;
-    extraFlags = [ "-ngl" "99" "-c" "32768" "-ctk" "q8_0" "-ctv" "q8_0" "--sleep-idle-seconds" "300" ]; # unload model from VRAM after 5 min idle
+    settings = {
+      models-dir = "/var/lib/llm-models";
+      port = 8080;
+      n-gpu-layers = 99;
+      ctx-size = 32768;
+      cache-type-k = "q8_0";
+      cache-type-v = "q8_0";
+      sleep-idle-seconds = 300; # unload model from VRAM after 5 min idle
+    };
   };
 
   systemd.tmpfiles.rules = [
